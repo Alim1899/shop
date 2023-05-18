@@ -1,5 +1,5 @@
 import React from "react";
-import background from "../assets/hike.jpeg";
+import Background from "./Background";
 import classes from "./Layout.module.css";
 import Popup from "./Popup";
 import Navbar from "./Navbar";
@@ -10,11 +10,14 @@ const Layout = () => {
       <div className={classes.popup}>
         <Popup />
       </div>
-      <Navbar/>
-
-      <div className={classes.background}>
-        <img alt="background" src={background}></img>
+      <div className={classes.navbar}>
+        <Navbar />
       </div>
+      <div className={classes.background}>
+        <Background/>
+      </div>
+
+     
     </div>
   );
 };

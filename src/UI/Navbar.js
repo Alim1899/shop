@@ -16,7 +16,7 @@ const Navbar = () => {
         
       </div>
       
-        <FontAwesomeIcon icon={faUser} />
+        <button><FontAwesomeIcon icon={faUser} /></button>
       </div>
     </div>
   );

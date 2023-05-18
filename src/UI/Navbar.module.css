@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #e0e6b0;
+  background-color: #bdffe9;
 }
 .logo {
   width: 50%;
@@ -20,9 +20,21 @@
 .icons>div>input{
     width: 20vw;
 }
+.icons>div>input:focus{
+    width: 20vw;
+    outline: none;
+}
 .searchbar{
     display: flex;
-
+}
+.searchbar>input{
+    border: none;
+    border-radius: 10px;
+}
+.icons>button{
+    border: none;
+    background: none;
+    font-size: 1.5rem;
 }
 .searchbar>button{
    margin-left: -24px;

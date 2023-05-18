@@ -1,0 +1,9 @@
+.background{
+    overflow-x: hidden;
+}
+.background>img{
+    min-width: 100%;
+    max-width: 200%;
+    height: 100vh;
+    overflow: hidden;
+}
