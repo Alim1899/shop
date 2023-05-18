@@ -1,0 +1,10 @@
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#e0e6b0;
+}
+.logo>img{
+    max-width: 200px;
+    max-height: 180px; 
+}

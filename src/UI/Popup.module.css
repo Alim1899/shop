@@ -1,0 +1,21 @@
+.popup {
+  width: 100%;
+  color: #ff3c3c;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.popup > h6 {
+ margin-top: 0;
+ margin-bottom: 0;
+}
+.popup > button {
+  background-color: white;
+  border: none;
+  height: 5vh;
+  cursor: pointer;
+  
+  width: 55px;
+  text-decoration: underline #545e64;
+}
