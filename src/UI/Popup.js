@@ -12,7 +12,7 @@ import classes from './Popup.module.css'
          {message && (
         <div style={{ visibility: { message } }} className={classes.popup}>
           <h6>
-            This site is for example only. You can't buy or sell anything here
+            This page is for example only. You can't buy or sell anything here
           </h6>
           <button onClick={removeMessage} type="button">
             Got it!
