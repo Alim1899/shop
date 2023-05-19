@@ -13,8 +13,10 @@ import classes from "./Background.module.css";
 const Background = () => {
   return (
     <div className={classes.background}>
-      <img alt="background" src={background}></img>
-      <div className={classes.shop}>
+      <div className={classes.back}>
+        {" "}
+        <img alt="background" src={background}></img>
+        <div className={classes.shop}>
         <button>
           <FontAwesomeIcon icon={faPerson} />
           <span>Man</span>
@@ -32,6 +34,8 @@ const Background = () => {
           <span>Unisex</span>
         </button>
       </div>
+      </div>
+      
       <div className={classes.slider}>
         <ImageSlider />
       </div>

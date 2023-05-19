@@ -8,6 +8,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css"; 
 import "slick-carousel/slick/slick.css";
 import classes from "./Slider.module.css"; 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faGift} from "@fortawesome/free-solid-svg-icons";
 
 
 const ImageSlider = () => {
@@ -21,7 +23,7 @@ const ImageSlider = () => {
   };
   return (
     <div className={classes.slider}>
-    <h3>Highlighted items</h3>
+    <h3><FontAwesomeIcon icon={faGift}/> SUPER VIP:</h3>
     <Slider {...settings}>
       <div>
         <img className={classes.slide} src={slide1} alt='slide1'></img>

@@ -6,7 +6,7 @@ import Navbar from "./Navbar";
 
 const Layout = () => {
   return (
-    <div>
+    <div className={classes.body}>
       <div className={classes.popup}>
         <Popup />
       </div>
