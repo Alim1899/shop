@@ -35,6 +35,8 @@
     border: none;
     background: none;
     font-size: 1.5rem;
+    cursor: pointer;
+  color: #220235;
 }
 .searchbar>button{
    margin-left: -24px;
@@ -43,6 +45,13 @@
    background: none;
 }
 
-.acc{
-  color: #220235;
+.popup{
+  position: absolute;
+ z-index: 1;
+  width: 70vw;
+  max-width: 400px;
+  margin-left: -50vw;
+  height: 60vh;
+  margin-top: 8vh;
+  max-height:350px;
 }

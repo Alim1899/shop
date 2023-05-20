@@ -1,0 +1,27 @@
+.section > div > p {
+  font-size: 1.5rem;
+  color: #220235;
+  font-weight: 500;
+  margin-top: 1vh;
+}
+.section > div > button {
+  background-color: #220235;
+  color: #ece0e8;
+  width: 50%;
+  height: 50px;
+  border: none;
+  text-align: center;
+  font-size: 1.3rem;
+  font-family: monospace;
+  border-radius: 25px;
+}
+.section > div {
+  display: grid;
+  place-items: center;
+  grid-template-rows: 90% 30% 80%;
+}
+.section{
+  height: 100%;
+  background-color:#ece0e8f8;
+  border-radius: 30px;
+}
