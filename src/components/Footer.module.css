@@ -1,0 +1,17 @@
+.footer {
+  color: #ece0e8;
+  display: flex;
+  justify-content: center;
+  height: 10vh;
+  max-height: 45vh;
+  margin-top: -1vh;
+  background-color: #220235;
+ 
+}
+.footer>h4>a{
+    text-decoration: none;
+    border-bottom: 2px solid #ece0e8;
+    border-bottom-right-radius: 10px;
+    color:#ece0e8;
+}
+

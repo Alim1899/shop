@@ -3,6 +3,7 @@ import Background from "./Background";
 import classes from "./Layout.module.css";
 import Popup from "./Popup";
 import Navbar from "./Navbar";
+import Footer from "../components/Footer";
 
 const Layout = () => {
   return (
@@ -15,6 +16,9 @@ const Layout = () => {
       </div>
       <div className={classes.background}>
         <Background/>
+      </div>
+      <div className={classes.footer}>
+        <Footer/>
       </div>
 
      

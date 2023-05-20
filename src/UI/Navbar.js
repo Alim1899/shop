@@ -14,11 +14,11 @@ const Navbar = () => {
       <div className={classes.icons}>
       <div className={classes.searchbar}>
       <input type="text"></input>
-        <button type="submit"><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
+        <button className={classes.acc} type="submit"><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
         
       </div>
       
-        <button><FontAwesomeIcon icon={faUser} /></button>
+        <button className={classes.acc}><FontAwesomeIcon icon={faUser} /></button>
       </div>
     </div>
   );
