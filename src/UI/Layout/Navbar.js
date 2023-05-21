@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "../assets/logo.png";
+import logo from "../../assets/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faMagnifyingGlass,
@@ -7,8 +7,8 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import classes from "./Navbar.module.css";
-import LoginPopup from "../components/LoginComponents/LoginPopup";
-import Cart from "../components/Cart/Cart";
+import LoginPopup from "../../components/LoginComponents/LoginPopup";
+import Cart from "../../components/Cart/Cart";
 const Navbar = () => {
   const [loginPopup, showPopup] = useState(false);
   const [cart, showCart] = useState(false);
@@ -16,11 +16,13 @@ const Navbar = () => {
 
   const showPopupHandler = (e) => {
     e.preventDefault();
+    showCart(false)
     showPopup(!loginPopup);
   };
   const cartPopupHandler = (e)=>{
     e.preventDefault();
     showCart(!cart);
+    showPopup(false)
     //Removal
     setcount(1)
   }

@@ -80,4 +80,6 @@
   margin-left: -50vw;
   max-height: 400px;
   overflow: scroll;
+  border-radius: 20px;
+  min-width: 320px;
 }

@@ -1,4 +1,4 @@
-import Layout from './UI/Layout';
+import Layout from './UI/Layout/Layout';
 import './App.css';
 
 function App() {

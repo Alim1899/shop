@@ -1,5 +1,5 @@
 import React from "react";
-import background from "../assets/hike.jpeg";
+import background from "../../assets/hike.jpeg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPersonHalfDress,
@@ -7,7 +7,7 @@ import {
   faPerson,
   faChildren,
 } from "@fortawesome/free-solid-svg-icons";
-import ImageSlider from "./Slider/Slider";
+import ImageSlider from "../Slider/Slider";
 import classes from "./Background.module.css";
 
 const Background = () => {

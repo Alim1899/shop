@@ -3,8 +3,7 @@ import Background from "./Background";
 import classes from "./Layout.module.css";
 import Popup from "./Popup";
 import Navbar from "./Navbar";
-import Footer from "../components/Footer";
-
+import Footer from "../../components/Footer/Footer";
 const Layout = () => {
   return (
     <div className={classes.body}>
@@ -18,7 +17,7 @@ const Layout = () => {
         <Background/>
       </div>
       <div className={classes.footer}>
-        <Footer/>
+       <Footer/>
       </div>
 
      
