@@ -1,0 +1,52 @@
+
+.main {
+    height: 80%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.img {
+    margin: 5px;
+  width: 25%;
+  margin-right: 0;
+  height: 90px;
+  min-height: 60px;
+  max-height:120px;
+  max-width: 120px;
+}
+
+.main > div > img {
+  width: 100%;
+  height: 100%;
+}
+.specs {
+  width: 75%;
+  height: 80%;
+}
+.specs>h6{
+    margin-left: 10px;
+    margin-top: 5px;
+    font-size: 1rem;
+}
+
+.numb{
+display: flex;
+justify-content: space-evenly;
+width: 60%;
+margin-left: 20%;
+margin-top: -4vh;
+}
+.numb>h6{
+  margin: 0;
+  font-size: 1rem;
+}
+.minus,.plus{
+    background-color: rgb(226, 223, 218);
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    margin: 5px;
+    margin-top: 0;
+    margin-bottom: 0;
+}

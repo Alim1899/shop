@@ -5,9 +5,16 @@ const LoginPopup = () => {
   return (
     <div className={classes.section}>
       <div>
-        <button>Sign Up</button>
+        <button>Sign In</button>
         <p className={classes.quest}>New customer?</p>
-        <a href=" " onClick={(e)=>{e.preventDefault()}}>Login</a>{" "}
+        <a
+          href=" "
+          onClick={(e) => {
+            e.preventDefault();
+          }}
+        >
+          Sign Up
+        </a>{" "}
       </div>
     </div>
   );

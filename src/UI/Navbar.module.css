@@ -17,41 +17,67 @@
   display: flex;
   justify-content: space-evenly;
 }
-.icons>div>input{
-    width: 20vw;
+.icons > div > input {
+  width: 20vw;
 }
-.icons>div>input:focus{
-    width: 20vw;
-    outline: none;
+.icons > div > input:focus {
+  width: 20vw;
+  outline: none;
 }
-.searchbar{
-    display: flex;
+.searchbar {
+  display: flex;
 }
-.searchbar>input{
-    border: none;
-    border-radius: 10px;
+.searchbar > input {
+  border: none;
+  border-radius: 10px;
 }
-.icons>button{
-    border: none;
-    background: none;
-    font-size: 1.5rem;
-    cursor: pointer;
+.icons > button,
+.cartDiv > button {
+  border: none;
+  background: none;
+  font-size: 1.5rem;
+  cursor: pointer;
   color: #220235;
 }
-.searchbar>button{
-   margin-left: -24px;
-   cursor: pointer;
-   border: none;
-   background: none;
+.searchbar > button {
+  margin-left: -24px;
+  cursor: pointer;
+  border: none;
+  background: none;
 }
-
-.popup{
+.popup {
   position: absolute;
- z-index: 1;
+  z-index: 1;
   width: 60vw;
-  min-width:250px;
+  min-width: 250px;
   max-width: 400px;
   margin-left: -50vw;
   height: 30vh;
-  max-height:350px;
+  max-height: 350px;
+}
+/* Styling cart */
+.cartDiv {
+  height: 3rem;
+  flex-direction: grid;
+  display: flex;
+}
+.count {
+  height: 22px;
+  width: 18px;
+  border-radius: 20px;
+  text-align: center;
+  margin-top: 5px;
+  margin-left: -15px;
+  background-color: #f5c4cc;
+  color: #220235;
+}
+.cartItems {
+  position: absolute;
+  z-index: 1;
+  width: 90vw;
+  max-width: 400px;
+  margin-top: 50px;
+  margin-left: -50vw;
+  max-height: 400px;
+  overflow: scroll;
 }
