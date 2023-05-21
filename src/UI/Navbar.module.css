@@ -48,10 +48,10 @@
 .popup{
   position: absolute;
  z-index: 1;
-  width: 70vw;
+  width: 60vw;
+  min-width:250px;
   max-width: 400px;
   margin-left: -50vw;
-  height: 60vh;
-  margin-top: 8vh;
+  height: 30vh;
   max-height:350px;
 }
