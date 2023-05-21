@@ -1,0 +1,72 @@
+* {
+  --dark: #8739f9;
+  --light: #37b9f1;
+  --white: #f2f5f5;
+  --darktext: #565360;
+  --mediumtext: #908e9b;
+  --lightText: #e1dfe9;
+}
+.main {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--white);
+}
+.content {
+  margin: 10px auto;
+  border: 1px solid red;
+  min-width: 320px;
+  max-width: 700px;
+  width: 80vw;
+}
+.form {
+}
+
+.drop {
+  position: relative;
+}
+.menu {
+  position: absolute;
+
+  list-style-type: none;
+  margin: 5px 0;
+  padding: 0;
+  border: 1px solid grey;
+  width: 200px;
+  height: 20px;
+  
+}
+.menu>li{
+    margin: 0;
+   
+  background-color: white;
+
+}
+.menu > li:hover {
+    background-color: lightgray;
+  }
+  
+  .menu > li > button {
+    width: 100%;
+    height: 100%;
+    text-align: left;
+  
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 5px;
+    margin: 0;
+    font: inherit;
+    cursor: pointer;
+    display: flex;
+  }
+  
+  .flag{
+    width: 10%;
+    height: 10%;
+    border: 1px solid red;
+  }
+  .dropBtn{
+    width: 200px;
+    height: 50px;
+    margin-left: 250px;
+  }
