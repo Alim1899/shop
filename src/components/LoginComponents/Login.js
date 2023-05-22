@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState, useCallback } from "react";
 import classes from "./Login.module.css";
-import codes from './CountryCodes.json';
+import codes from "./CountryCodes.json";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 const Login = () => {
@@ -9,22 +9,28 @@ const Login = () => {
   const emailInput = useRef();
   const numberInput = useRef();
   const [dataArrived, setDataArrived] = useState(false);
- 
+  const password = useRef()
+  const [pass, setPass] = useState();
+  // const [confirmPassword, setConfirmPassword] = useState();
+
   const [open, setOpen] = useState(false);
   const [country, setCountry] = useState();
   const [list, showList] = useState(false);
   const [mergedList, setMergedList] = useState([]);
 
-
-
-
-
- 
+  const passwordHandler = (e) => {
+    setPass(password.current.value);
+  };
 
   const selectCountry = (e) => {
     e.preventDefault();
+    setCountry(null);
 
-     if (!country) setCountry(e.currentTarget.childNodes[0].childNodes[0].src);
+    setCountry({
+      src: e.currentTarget.childNodes[0].childNodes[0].src,
+      alt: e.currentTarget.childNodes[0].childNodes[0].alt,
+      code: e.currentTarget.childNodes[2].childNodes[0].data,
+    });
     setOpen(false);
     showList(false);
   };
@@ -40,28 +46,23 @@ const Login = () => {
       .then((response) => response.json())
       .then((data) => {
         const full = [];
-       console.log(mergedList);
+
         codes.forEach((el) => {
-          
-          data.forEach((code)=>{
-            
-            if(el.name===code.name.common){
+          data.forEach((code) => {
+            if (el.name === code.name.common) {
               full.push({
-                name:code.name.common,
-                src:code.flags.svg,
-                alt:code.flags.alt,
-                dial:el.dial_code,
-                code:el.code
-              })
-
+                name: code.name.common,
+                src: code.flags.svg,
+                alt: code.flags.alt,
+                dial: el.dial_code,
+                code: el.code,
+              });
             }
-
-          })
-       });
+          });
+        });
         setMergedList(full);
-        console.log(mergedList);
+
         setDataArrived(true);
-       
       });
   }, []);
 
@@ -74,13 +75,29 @@ const Login = () => {
         <form className={classes.form}>
           <div className={classes.fullname}>
             <label htmlFor="name">Name</label>
-            <input id="name" type="text" ref={nameInput}></input>
+            <input
+              id="name"
+              type="text"
+              placeholder="Steven"
+              ref={nameInput}
+            ></input>
             <label htmlFor="lastname">lastName</label>
-            <input id="lastname" type="text" ref={lastnameInput}></input>
+            <input
+              id="lastname"
+              type="text"
+              placeholder="Mc Gregory"
+              ref={lastnameInput}
+            ></input>
           </div>
           <div className={classes.contact}>
             <label htmlFor="email">Email</label>
-            <input id="email" type="email" ref={emailInput}></input>
+            <input
+              id="email"
+              className={classes.email}
+              placeholder="example@example.com"
+              type="email"
+              ref={emailInput}
+            ></input>
 
             <div className={classes.drop}>
               <button className={classes.dropBtn} onClick={handleMenu}>
@@ -113,12 +130,41 @@ const Login = () => {
             </div>
             {country && (
               <div className={classes.number}>
-                
-                <label htmlFor="number">Mobile Number:</label>
-                <img src={country.src} alt={country.alt}></img>
-                <input id="number" type="number" ref={numberInput}></input>
+                <label htmlFor="number">
+                  <h5>Mobile number:</h5>
+                </label>
+                <div className={classes.input}>
+                  <img
+                    src={country.src}
+                    className={classes.selected}
+                    alt={country.alt}
+                  ></img>
+                  <h5 className={classes.countryCode}>{country.code}</h5>
+                  <input
+                    id="number"
+                    className={classes.numberInput}
+                    type="number"
+                    ref={numberInput}
+                    min={8}
+                    maxLength={15}
+                    placeholder="Enter without code"
+                  ></input>
+                </div>
               </div>
             )}
+          </div>
+          <div className={classes.pass}>
+            <div className={classes.password}>
+              <label htmlFor="password">Password</label>
+              <input
+                type="password"
+                ref={password}
+                onChange={passwordHandler}
+                id="password"
+                minLength={8}
+                placeholder="Min.8 symbol"
+              ></input>
+            </div>
           </div>
         </form>
       </div>
