@@ -149,15 +149,14 @@ input:focus{
 .selected {
   height: 50px;
   width: 50px;
+  margin-left: 5px;
 }
 .input {
   background-color:var(--white);
   display: flex;
   justify-content: space-around;
   align-items: center;
-}
-#number {
-  outline: none;
+  border-radius: 15px;
 }
 .numberInput {
   height: 30px;

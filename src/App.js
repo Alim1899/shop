@@ -1,12 +1,12 @@
 // import Layout from './UI/Layout/Layout';
 import './App.css';
-import Login from './components/LoginComponents/Login';
+import Signup from './components/LoginComponents/Signup/Signup';
 
 function App() {
   return (
     <div>
     {/* <Layout/> */}
-    <Login/>
+    <Signup/>
     </div>
   );
 }

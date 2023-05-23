@@ -1,26 +1,27 @@
 import React, { useRef, useEffect, useState, useCallback } from "react";
-import classes from "./Login.module.css";
-import codes from "./CountryCodes.json";
+import classes from "./Signup.module.css";
+import Password from "./Password/Password";
+import codes from "../CountryCodes.json";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
-const Login = () => {
+const Signup = () => {
   const nameInput = useRef();
   const lastnameInput = useRef();
   const emailInput = useRef();
   const numberInput = useRef();
   const [dataArrived, setDataArrived] = useState(false);
-  const password = useRef()
-  const [pass, setPass] = useState();
-  // const [confirmPassword, setConfirmPassword] = useState();
+  const [passwordFieldCompleted, setPasswordFieldCompleted ]= useState(false);
+  const passwordHandler = (e)=>{
+ e.preventDefault();
+ setPasswordFieldCompleted(true);
+}
+console.log(passwordFieldCompleted);
+
 
   const [open, setOpen] = useState(false);
   const [country, setCountry] = useState();
   const [list, showList] = useState(false);
   const [mergedList, setMergedList] = useState([]);
-
-  const passwordHandler = (e) => {
-    setPass(password.current.value);
-  };
 
   const selectCountry = (e) => {
     e.preventDefault();
@@ -152,19 +153,10 @@ const Login = () => {
                 </div>
               </div>
             )}
+
           </div>
-          <div className={classes.pass}>
-            <div className={classes.password}>
-              <label htmlFor="password">Password</label>
-              <input
-                type="password"
-                ref={password}
-                onChange={passwordHandler}
-                id="password"
-                minLength={8}
-                placeholder="Min.8 symbol"
-              ></input>
-            </div>
+          <div className={classes.passwordField}>
+            <Password passwordHandler={passwordHandler}/>
           </div>
         </form>
       </div>
@@ -172,4 +164,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;
