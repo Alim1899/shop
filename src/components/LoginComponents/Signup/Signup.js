@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState, useCallback } from "react";
 import classes from "./Signup.module.css";
 import Password from "./Password/Password";
 import codes from "../CountryCodes.json";
+import Submit from "../Button/Submit";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 const Signup = () => {
@@ -10,13 +11,12 @@ const Signup = () => {
   const emailInput = useRef();
   const numberInput = useRef();
   const [dataArrived, setDataArrived] = useState(false);
-  const [passwordFieldCompleted, setPasswordFieldCompleted ]= useState(false);
-  const passwordHandler = (e)=>{
- e.preventDefault();
- setPasswordFieldCompleted(true);
- console.log(passwordFieldCompleted);
-}
-
+  const [passwordFieldCompleted, setPasswordFieldCompleted] = useState(false);
+  const passwordHandler = (e) => {
+    e.preventDefault();
+    setPasswordFieldCompleted(true);
+    console.log(passwordFieldCompleted);
+  };
 
   const [open, setOpen] = useState(false);
   const [country, setCountry] = useState();
@@ -153,10 +153,13 @@ const Signup = () => {
                 </div>
               </div>
             )}
-
           </div>
           <div className={classes.passwordField}>
-            <Password passwordHandler={passwordHandler}/>
+            <Password passwordHandler={passwordHandler} />
+          </div>
+          <div className={classes.submit}>
+            {" "}
+            <Submit className={classes.btn}>Sign</Submit>
           </div>
         </form>
       </div>
