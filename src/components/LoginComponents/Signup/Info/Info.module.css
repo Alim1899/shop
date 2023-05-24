@@ -1,0 +1,15 @@
+.fullname {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+}
+.fullname > input {
+  width: 70%;
+  max-width: 350px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}

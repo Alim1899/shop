@@ -6,77 +6,83 @@
   --mediumtext: #908e9b;
   --lightText: #e1dfe9;
 }
+::placeholder{
+  color: var(--darktext);
+}
+::-webkit-scrollbar {
+  display: none;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
 input{
   border: none;
   border-radius: 10px;
+  background-color: #8277ce44;
+  color: black;
+  font-weight: 700;
 }
 label{
-  margin: 5px;
+  margin-top: 5px;
 }
 input:focus{
-  outline: 1px solid var(--dark);
+  outline: 1px solid var(--darktext);
 }
 .main {
   background-color: var(--white);
   width: 100vw;
+  max-width: 720px;
   color: var(--darktext);
   font-weight: 700;
   height: 100%;
-  background-color:#cec9d6
 }
 
-.content {
-  margin: 0 auto;
-  border: none;
-  width: 80vw;
-  min-width: 320px;
-  max-width: 450px;
-  display: flex;
-  flex-direction: column;
-}
-.fullname{
-  width: 50%;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-}
+
+
 .contact{
+  min-height: 50px;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  text-align: center;
-  width: 100%;
+  justify-content: center;
+  align-items: center;
+
 
 }
-.email{
-  width: 70%;
-  max-width: 200px;
-  margin: auto;
-}
+
 
 .menu {
   position: absolute;
   list-style-type: none;
-  margin: 5px 0;
-  padding: 0;
-  width: 100vw;
-  max-width: 320px;
   height: 40vh;
-  max-height: 650px;
+  max-height: 300px;
   border: none;
   overflow: hidden;
   overflow-y: scroll;
+  max-width: 250px;
+  max-width: 320px;
+  margin-left: -25vw;
 }
 .menu > li {
+  cursor: pointer;
   width: 90vw;
   max-width: 100%;
-  min-width: 320px;
-  height: 40px;
+  min-width: 80%;
+  height: 50px;
   background-color: var(--light);
   border-radius: 15px;
   margin-top: 2px;
   display: flex;
   color: #2c0468;
+  font-size: 1.7rem;
   justify-content: space-around;
 }
 
@@ -95,7 +101,7 @@ input:focus{
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 0.9rem;
+  
 }
 
 .flag {
@@ -105,98 +111,64 @@ input:focus{
 }
 .dropBtn {
   width: 200px;
-  height: 30px;
-  margin-top: 10px;
-  font-size: 1rem;
+  height: 40px;
+  margin-top: 20px;
+  font-size: 1.1rem;
   font-weight: 700;
   border-radius: 15px;
   border: none;
   background-color: var(--white);
-  color:var(--darktext)
+  color:var(--darktext);
+  cursor: pointer;
+
 }
 .code {
-  width: 50px;
+  width: 60px;
   height: 40px;
   margin: 0;
   display: flex;
   justify-content: left;
   align-items: center;
-  font-weight: 800;
-  font-size: 0.9rem;
+  font-weight: 700;
 }
 
-::-webkit-scrollbar {
-  display: none;
-}
 
 .number {
-  margin: auto;
-  min-width: 250px;
-  max-width: 450px;
-  height: 200px;
-
+  margin-top: 20px;
+width: 100%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
 }
 
 .number > label > h5 {
   margin:0 auto;
   text-align: center;
   font-size: 1rem;
+  
 }
 
 .selected {
-  height: 40px;
-  width: 50px;
-  margin-left: 5px;
+  height: 50px;
+  width: 60px;
 }
 .input {
-  background-color:var(--light);
+  background-color:#8277ce44;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   border-radius: 15px;
   width: 100%;
+  max-width: 400px;
   font-size: 0.9rem;
 
 }
 .numberInput {
   height: 30px;
   border: none;
+  background-color: var(--white);
   
 }
 
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
 
-/* Firefox */
-input[type="number"] {
-  -moz-appearance: textfield;
-}
-
-.submit{
-  width: 100%;
-  height: 30px;
-  margin: auto;
-  margin-top: 50px;
-  border-radius: 10px;
-  text-align: center;
-  margin-bottom: 20px;
- }
-.submit:hover{
-  background-color: gray;
-}
-
-.submit>button{
-  width: 30%;
-  height: 100%;
-  border: none;
-  border-radius: 10px;
-  font-weight: 700;
-  color: #565360;
-  font-size: 1rem;
-  background-color: #f2f5f5;
-
-}

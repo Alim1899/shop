@@ -2,13 +2,12 @@ import React, { useRef, useEffect, useState, useCallback } from "react";
 import classes from "./Signup.module.css";
 import Password from "./Password/Password";
 import codes from "../CountryCodes.json";
+import Info from "./Info/Info";
 import Submit from "../Button/Submit";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
-const Signup = () => {
-  const nameInput = useRef();
-  const lastnameInput = useRef();
-  const emailInput = useRef();
+import { faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons";
+const Signup = (props) => {
+  
   const numberInput = useRef();
   const [dataArrived, setDataArrived] = useState(false);
   const [passwordFieldCompleted, setPasswordFieldCompleted] = useState(false);
@@ -74,35 +73,13 @@ const Signup = () => {
     <div className={classes.main}>
       <div className={classes.content}>
         <form className={classes.form}>
-          <div className={classes.fullname}>
-            <label htmlFor="name">Name</label>
-            <input
-              id="name"
-              type="text"
-              placeholder="Steve"
-              ref={nameInput}
-            ></input>
-            <label htmlFor="lastname">lastName</label>
-            <input
-              id="lastname"
-              type="text"
-              placeholder="Mc Gregory"
-              ref={lastnameInput}
-            ></input>
-          </div>
+          <Info/>
           <div className={classes.contact}>
-            <label htmlFor="email">Email</label>
-            <input
-              id="email"
-              className={classes.email}
-              placeholder="example@example.com"
-              type="email"
-              ref={emailInput}
-            ></input>
+            
 
             <div className={classes.drop}>
               <button className={classes.dropBtn} onClick={handleMenu}>
-                Choose your country <FontAwesomeIcon icon={faCaretDown} />
+                Choose your country <FontAwesomeIcon icon={open?faCaretUp:faCaretDown} />
               </button>
 
               {list && (
@@ -157,10 +134,9 @@ const Signup = () => {
           <div className={classes.passwordField}>
             <Password passwordHandler={passwordHandler} />
           </div>
-          <div className={classes.submit}>
-            {" "}
+          
             <Submit className={classes.btn}>Sign</Submit>
-          </div>
+          
         </form>
       </div>
     </div>
