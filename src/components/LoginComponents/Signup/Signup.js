@@ -14,8 +14,8 @@ const Signup = () => {
   const passwordHandler = (e)=>{
  e.preventDefault();
  setPasswordFieldCompleted(true);
+ console.log(passwordFieldCompleted);
 }
-console.log(passwordFieldCompleted);
 
 
   const [open, setOpen] = useState(false);
@@ -79,7 +79,7 @@ console.log(passwordFieldCompleted);
             <input
               id="name"
               type="text"
-              placeholder="Steven"
+              placeholder="Steve"
               ref={nameInput}
             ></input>
             <label htmlFor="lastname">lastName</label>
