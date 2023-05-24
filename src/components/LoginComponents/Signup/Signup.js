@@ -3,9 +3,8 @@ import classes from "./Signup.module.css";
 import Password from "./Password/Password";
 import Info from "./Info/Info";
 import Submit from "../Button/Submit";
-import Number from "./Number/Number";
+import Data from "./Number/Data/Data";
 const Signup = (props) => {
-  
   const [passwordFieldCompleted, setPasswordFieldCompleted] = useState(false);
   const passwordHandler = (e) => {
     e.preventDefault();
@@ -13,21 +12,17 @@ const Signup = (props) => {
     console.log(passwordFieldCompleted);
   };
 
- 
-
-
   return (
     <div className={classes.main}>
       <div className={classes.content}>
         <form className={classes.form}>
-          <Info/>
-          <Number/>
+          <Info />
+          <Data />
           <div className={classes.passwordField}>
             <Password passwordHandler={passwordHandler} />
           </div>
-          
-            <Submit className={classes.btn}>Sign</Submit>
-          
+
+          <Submit className={classes.btn}>Sign</Submit>
         </form>
       </div>
     </div>
