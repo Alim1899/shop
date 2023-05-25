@@ -1,11 +1,12 @@
 import React, {useState} from 'react'
 import classes from './Popup.module.css'
  const Popup = () => {
-    const [message, showMessage] = useState(true);
+    const [message, showMessage] = useState(localStorage.getItem('pop')?false:true);
 
   const removeMessage = (e) => {
     e.preventDefault();
-    showMessage(false);
+   localStorage.setItem('pop', false)
+   showMessage(false);
   };
   return (
     <div>

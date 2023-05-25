@@ -4,6 +4,7 @@ import Password from "./Password/Password";
 import Info from "./Info/Info";
 import Submit from "../Button/Submit";
 import Data from "./Number/Data/Data";
+import Navbar from "../../../UI/Layout/Navbar";
 const Signup = (props) => {
   const [passwordFieldCompleted, setPasswordFieldCompleted] = useState(false);
   const passwordHandler = (e) => {
@@ -14,6 +15,7 @@ const Signup = (props) => {
 
   return (
     <div className={classes.main}>
+    <Navbar/>
       <div className={classes.content}>
         <form className={classes.form}>
           <Info />

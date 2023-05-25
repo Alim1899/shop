@@ -1,21 +1,33 @@
 .popup {
-  width: 100%;
+  position: absolute;
+  z-index: 1;
+  width: 70vw;
+  height: 70vw;
+  background-color: #f2f6f8;
   color: #ff3c3c;
   display: flex;
-  height: 100%;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  font-size: 1.8em;
+  margin-top: 15vw;
+  margin-left: 15vw;
+  border-radius: 5%;
 }
 .popup > h6 {
- margin-top: 0;
- margin-bottom: 0;
+ margin: 0 auto;
+ text-align: center;
 }
 .popup > button {
   background-color: white;
   border: none;
   height: 5vh;
+  min-width: 50px;
+  max-width: 150px;
+  margin-top: 5vh;
   cursor: pointer;
+  font-size: 1em;
+
   
-  width: 55px;
   text-decoration: underline #545e64;
 }

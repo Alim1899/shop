@@ -7,8 +7,9 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import classes from "./Navbar.module.css";
-import LoginPopup from "../../components/LoginComponents/LoginPopup";
+import LoginPopup from "../../components/LoginComponents/Login/Popup/LoginPopup";
 import Cart from "../../components/Cart/Cart";
+import { Link } from "react-router-dom";
 const Navbar = () => {
   const [loginPopup, showPopup] = useState(false);
   const [cart, showCart] = useState(false);
@@ -30,7 +31,7 @@ const Navbar = () => {
   return (
     <div className={classes.navbar}>
       <div className={classes.logo}>
-        <img alt="logo" src={logo}></img>
+        <Link to='/'><img alt="logo" className={classes.logoImg} src={logo}></img></Link> 
       </div>
       <div className={classes.icons}>
         <div className={classes.searchbar}>
