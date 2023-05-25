@@ -7,10 +7,10 @@
   font-weight: 600;
   margin-top: 1vh;
 }
-.section > div > button {
+.sign {
   background-color: #220235;
   color: #ece0e8;
-  width: 50%;
+  width: 100%;
   height: 50px;
   border: none;
   text-align: center;

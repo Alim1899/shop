@@ -5,7 +5,7 @@ const LoginPopup = () => {
   return (
     <div className={classes.section}>
       <div>
-        <button>Sign In </button>
+        <Link to="login"><button className={classes.sign}>Sign In </button></Link>
         <p className={classes.quest}>New customer?</p>
 
         <Link to="signup">Sign Up</Link>

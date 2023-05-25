@@ -1,0 +1,25 @@
+* {
+    --dark: #8739f9;
+    --light: #94d5f1;
+    --white: #f2f5f5;
+    --darktext: #565360;
+    --mediumtext: #908e9b;
+    --lightText: #e1dfe9;
+  }
+.form{
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    align-items: center;
+    background-color: var(--white);
+}
+.form>input{
+    margin: 0px auto;
+    width: 60%;
+    max-width: 250px;
+}
+.form>label{
+    margin-top: 10vh;
+    margin-bottom: 3vh;
+}
