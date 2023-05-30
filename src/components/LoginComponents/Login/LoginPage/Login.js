@@ -6,7 +6,11 @@ import { faCircleChevronUp } from "@fortawesome/free-solid-svg-icons";
 const Login = (props) => {
   return (
     <div className={classes.login}>
+    
       <form className={classes.form}>
+      <button type="button" onClick={props.onCollapse} className={classes.collapse}>
+          <FontAwesomeIcon icon={faCircleChevronUp} />
+        </button>
         <label htmlFor="email">Email or phone number</label>
         <input
           id="email"
@@ -21,12 +25,10 @@ const Login = (props) => {
         ></input>
         <div className={classes.newAcc}>
           <p>Don't have an account?</p>
-          <button> create now</button>
+          <button>Create now</button>
         </div>
         <Button className={classes.btn}>LOGIN</Button>
-        <button type="button" onClick={props.onCollapse} className={classes.collapse}>
-          <FontAwesomeIcon icon={faCircleChevronUp} />
-        </button>
+        
       </form>
     </div>
   );

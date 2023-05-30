@@ -4,7 +4,9 @@ import Password from "./Password/Password";
 import Info from "./Info/Info";
 import Submit from "../Button/Submit";
 import Data from "./Number/Data/Data";
-import Navbar from "../../../UI/Layout/Navbar";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleChevronUp } from "@fortawesome/free-solid-svg-icons";
+
 const Signup = (props) => {
   const [passwordFieldCompleted, setPasswordFieldCompleted] = useState(false);
   const passwordHandler = (e) => {
@@ -15,8 +17,13 @@ const Signup = (props) => {
 
   return (
     <div className={classes.main}>
-    <Navbar/>
       <div className={classes.content}>
+        <button onClick={props.onCollapse}
+          className={classes.icon}><FontAwesomeIcon
+          
+          icon={faCircleChevronUp}
+        /> </button>
+        
         <form className={classes.form}>
           <Info />
           <Data />
@@ -24,7 +31,7 @@ const Signup = (props) => {
             <Password passwordHandler={passwordHandler} />
           </div>
 
-          <Submit className={classes.btn}>Sign</Submit>
+          <Submit className={classes.btn}>SIGN</Submit>
         </form>
       </div>
     </div>
