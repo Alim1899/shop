@@ -9,11 +9,11 @@ import {
 import classes from "./Navbar.module.css";
 import LoginPopup from "../../components/LoginComponents/Login/Popup/LoginPopup";
 import Cart from "../../components/Cart/Cart";
-import { Link } from "react-router-dom";
-const Navbar = () => {
+const Navbar = (props) => {
   const [loginPopup, showPopup] = useState(false);
   const [cart, showCart] = useState(false);
   const [count, setcount] = useState(0)
+  
 
   const showPopupHandler = (e) => {
     e.preventDefault();
@@ -31,7 +31,7 @@ const Navbar = () => {
   return (
     <div className={classes.navbar}>
       <div className={classes.logo}>
-        <Link to='/'><img alt="logo" className={classes.logoImg} src={logo}></img></Link> 
+      <img alt="logo" className={classes.logoImg} src={logo}></img>
       </div>
       <div className={classes.icons}>
         <div className={classes.searchbar}>
@@ -54,7 +54,7 @@ const Navbar = () => {
 
         {loginPopup && (
           <div className={classes.popup}>
-            <LoginPopup />
+            <LoginPopup/>
           </div>
         )}
         <button onClick={showPopupHandler} className={classes.acc}>

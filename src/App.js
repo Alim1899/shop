@@ -1,11 +1,9 @@
-import './App.css';
-import Links from './UI/Layout/Routes/Routes';
+import "./App.css";
+import Layout from "./UI/Layout/Layout";
+
+
 function App() {
-  return (
-    <div>
-    <Links/>
-    </div>
-  );
+  return <Layout/> ;
 }
 
 export default App;

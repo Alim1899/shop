@@ -8,10 +8,7 @@
     text-align: center;
     margin-bottom: 20px;
    }
-  .submit>button:hover{
-    background-color: gray;
-    color: black;
-  }
+ 
   
   .submit>button{
     width: 30%;
@@ -19,9 +16,9 @@
     border: none;
     border-radius: 10px;
     font-weight: 700;
-    color: var(--darktext);
+    color: var(--lightText);
     font-size: 1rem;
-    background-color:#8277ce44;
+    background-color:#220235;
     cursor: pointer;
   
   

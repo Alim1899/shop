@@ -1,15 +1,19 @@
-import React from "react";
+import React, {useState} from "react";
 import classes from "./LoginPopup.module.css";
-import { Link } from "react-router-dom";
+import Login from "../LoginPage/Login";
 const LoginPopup = () => {
+  const [login, showLogin] = useState(false);
+  const showLoginHandler = e =>{
+    showLogin(!login);
+    console.log('Login ');
+  }
   return (
     <div className={classes.section}>
-      <div>
-        <Link to="login"><button className={classes.sign}>Sign In </button></Link>
+        <button onClick={showLoginHandler} className={classes.login}>Sign In </button>
+        {login&&<div className={classes.loginPage}><Login onCollapse={showLoginHandler}/></div>}
         <p className={classes.quest}>New customer?</p>
-
-        <Link to="signup">Sign Up</Link>
-      </div>
+        <button className={classes.sign}>Create account</button>
+      
     </div>
   );
 };

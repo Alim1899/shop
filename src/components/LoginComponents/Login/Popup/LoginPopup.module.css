@@ -1,16 +1,16 @@
 *{
-  font-family: 'Courier New', Courier, monospace;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.section > div > p {
+.section > p {
   font-size: 1.5rem;
   color: #220235;
   font-weight: 600;
   margin-top: 1vh;
 }
-.sign {
+.sign, .login {
   background-color: #220235;
   color: #ece0e8;
-  width: 100%;
+  width: 80%;
   height: 50px;
   border: none;
   text-align: center;
@@ -18,24 +18,22 @@
   font-family: monospace;
   border-radius: 25px;
 }
-.section > div {
+.section  {
   display: grid;
   place-items: center;
-  grid-template-rows: 60% 40% 0%;
+  grid-template-rows: 35% 45% 5%;
 }
 .section{
   height: 100%;
   background-color:#ece0e8f8;
   border-radius: 30px;
 }
-
-.section>div>a{
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #220235;
-
-}
-.section>div>a, .section>div>button:hover{
+.section>a, .section>button:hover{
   cursor: pointer;
   opacity: 0.8;
+}
+
+.loginPage{
+  position: absolute;
+  margin-top: 400px;
 }
