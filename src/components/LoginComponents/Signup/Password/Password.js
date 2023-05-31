@@ -1,5 +1,8 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import classes from "./Password.module.css";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faEye } from "@fortawesome/free-solid-svg-icons";
+
 
 const Password = (props) => {
   const password = useRef();
@@ -41,8 +44,14 @@ const Password = (props) => {
           id="password"
           minLength={8}
           value={pass}
+          pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+          title="Password must include at least one letter and one number"
           placeholder="Min.8 symbol"
         ></input>
+        {/* <FontAwesomeIcon
+          
+          icon={faEye}
+        /> */}
       </div>
       <div className={classes.confirmPass}>
         <label htmlFor="confirmpassword">Confirm password</label>
@@ -52,6 +61,7 @@ const Password = (props) => {
           onChange={confirmPasswordHandler}
           id="confirmPassword"
           minLength={8}
+          title="Must match with password field"
           value={confirmPass}
           placeholder="Min.8 symbol"
         ></input>
