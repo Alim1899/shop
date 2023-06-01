@@ -8,18 +8,19 @@ const LoginPopup = () => {
   const showLoginHandler = (e) => {
       showLogin(!login);
       showSignup(false);
-    
+      sessionStorage.clear();
   };
   const showSignupHandler = (e) => {    
 
       showSignup(!signup);
+      sessionStorage.clear();
     
   };
 
   return (
     <div className={classes.section}>
       <button onClick={showLoginHandler} name="login" className={classes.login}>
-        Sign In{" "}
+        Log in{" "}
       </button>
       
       

@@ -8,59 +8,77 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleChevronUp } from "@fortawesome/free-solid-svg-icons";
 
 const Signup = (props) => {
-  const [passwordFieldCompleted, setPasswordFieldCompleted] = useState(false);
-  const [isDisabled, setIsDisabled] = useState(true);
-  const passwordHandler = (e) => {
-    e.preventDefault();
-    setPasswordFieldCompleted(true);
-    console.log(passwordFieldCompleted);
-  };
+  const [isDisabled, setIsDisabled] = useState(false);
+
+  //Helper functions
 
   const validate = (e) => {
     if (e.target.id === "confirmPassword") {
-      console.log(localStorage.getItem("password"));
-      if (e.target.value === localStorage.getItem("password")) {
+      if (e.target.value === sessionStorage.getItem("password")) {
         e.target.style.outline = "1px solid green";
-        localStorage.setItem(e.target.id, e.target.value);
+        sessionStorage.setItem(e.target.id, e.target.value);
       }
-      if (e.target.value !== localStorage.getItem("password")) {
+      if (e.target.value !== sessionStorage.getItem("password")) {
         e.target.style.outline = "1px solid red";
-        localStorage.removeItem(e.target.id);
+        sessionStorage.removeItem(e.target.id);
       }
-    } else if(e.target.id ==="password" && localStorage.getItem('confirmPassword')){
-      if(e.target.value !==localStorage.getItem('confirmPassword')){
+    } else if (
+      e.target.id === "password" &&
+      sessionStorage.getItem("confirmPassword")
+    ) {
+      if (e.target.value !== sessionStorage.getItem("confirmPassword")) {
         e.target.style.outline = "1px solid red";
-        localStorage.removeItem(e.target.id);
-      }else if(e.target.value ===localStorage.getItem('confirmPassword')){
+        sessionStorage.removeItem(e.target.id);
+      } else if (e.target.value === sessionStorage.getItem("confirmPassword")) {
         e.target.style.outline = "1px solid green";
-        localStorage.setItem(e.target.id, e.target.value);
+        sessionStorage.setItem(e.target.id, e.target.value);
       }
-    }else {
+    } else {
       if (e.target.value.length > 0 && e.target.checkValidity()) {
-        localStorage.setItem(e.target.id, e.target.value);
+        sessionStorage.setItem(e.target.id, e.target.value);
         e.target.style.outline = "1px solid green";
       } else if (e.target.value.length === 0) {
         e.target.style.outline = "none";
-        localStorage.removeItem(e.target.id);
+        sessionStorage.removeItem(e.target.id);
       } else {
         e.target.style.outline = "1px solid red";
-        localStorage.removeItem(e.target.id);
+        sessionStorage.removeItem(e.target.id);
       }
     }
   };
   const btnEnabler = () => {
     if (
-      localStorage.getItem("name") &&
-      localStorage.getItem("lastname") &&
-      localStorage.getItem("email") &&
-      localStorage.getItem("number") &&
-      localStorage.getItem('password')&&
-      localStorage.getItem('confirmPassword')
+      sessionStorage.getItem("name") &&
+      sessionStorage.getItem("lastname") &&
+      sessionStorage.getItem("email") &&
+      sessionStorage.getItem("number") &&
+      sessionStorage.getItem("password") &&
+      sessionStorage.getItem("confirmPassword")
     ) {
       setIsDisabled(false);
-    }else{
+    } else {
       setIsDisabled(true);
     }
+  };
+  const sendData = async (e) => {
+    e.preventDefault();
+    let obj = Object.keys(sessionStorage).reduce(function (obj, key) {
+      obj[key] = sessionStorage.getItem(key);
+      return obj;
+    }, {});
+    console.log(JSON.stringify(obj));
+    const response = await fetch(
+      "https://hikemart-2877b-default-rtdb.firebaseio.com/users.json",
+      {
+        method: "POST",
+        body: JSON.stringify(obj),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    const data = await response.json();
+    console.log(data);
   };
 
   return (
@@ -70,14 +88,18 @@ const Signup = (props) => {
           <FontAwesomeIcon icon={faCircleChevronUp} />{" "}
         </button>
 
-        <form onInput={validate} onChange={btnEnabler}className={classes.form}>
+        <form onInput={validate} onChange={btnEnabler} className={classes.form}>
           <Info />
           <Data />
           <div className={classes.passwordField}>
-            <Password passwordHandler={passwordHandler} />
+            <Password />
           </div>
 
-          <Submit className={classes.btn} disabled={isDisabled}>
+          <Submit
+            onSend={sendData}
+            className={classes.btn}
+            disabled={isDisabled}
+          >
             SIGN
           </Submit>
         </form>

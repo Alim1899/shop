@@ -6,40 +6,35 @@
     justify-content: center;
     align-items: center;
   
-  
   }
   
   
   .menu {
-    position: absolute;
     list-style-type: none;
     height: 40vh;
     max-height: 300px;
     border: none;
     overflow: hidden;
     overflow-y: scroll;
-    max-width: 250px;
-    max-width: 320px;
-    margin-left: -25vw;
+    
   }
   .menu > li {
     cursor: pointer;
-    width: 90vw;
-    max-width: 100%;
-    min-width: 80%;
     height: 50px;
     background-color: var(--light);
     border-radius: 15px;
     margin-top: 2px;
+    margin-left: -40px;
     display: flex;
     color: #2c0468;
     font-size: 1.7rem;
     justify-content: space-around;
+    
   }
   
   .menu > li > button {
-    width: 60px;
-    height: 40px;
+    width: 65px;
+    height: 50px;
     background: none;
     margin: 0;
     border: none;
@@ -60,6 +55,7 @@
     height: 90%;
     display: flex;
     border-radius: 5px;
+
   }
   .drop{
     width: 80%;
@@ -108,8 +104,8 @@
   .selected {
     height: 50px;
     width: 60px;
-    border-radius: 10px;
-    margin-left: 2px;
+    border-radius: 15px;
+margin-left: 10px;
     
   }
   .input {

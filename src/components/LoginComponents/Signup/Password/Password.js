@@ -14,9 +14,8 @@ const Password = (props) => {
   const passwordCompletehandler = useCallback(() => {
     if (pass.length > 3) setPasswordFieldCompleted(true);
     if (pass.length <= 3) setPasswordFieldCompleted(false);
-    console.log(pass.length);
-    console.log(passwordFieldCompleted);
-  }, [pass, passwordFieldCompleted]);
+    
+  }, [pass.length]);
 
   const passwordHandler = (e) => {
     setPass(password.current.value);
