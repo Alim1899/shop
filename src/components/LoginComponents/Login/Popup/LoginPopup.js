@@ -9,13 +9,19 @@ const LoginPopup = () => {
   const [login, showLogin] = useState(false);
   const [signup, showSignup] = useState(false);
   const showLoginHandler = (e) => {
+    console.log(e.target.id);
     if (e.target.id === "login") {
       showLogin(!login);
       showSignup(false)
     }
     if (e.target.id === "signup") showSignup(!signup);
     sessionStorage.clear();
+    if(e.target.id==='succes'){
+      showLogin(!login);
+      showSignup(false)
+  }
   };
+  
 
   const collapse = (e) => {
     showSignup(false);
@@ -54,7 +60,7 @@ const LoginPopup = () => {
           <button onClick={collapse} className={classes.icon}>
             <FontAwesomeIcon icon={faCircleChevronUp} />{" "}
           </button>
-          <Sign />
+          <Sign onLogin={showLoginHandler} error={classes.error} succes={classes.succes}/>
         </div>
       )}
     </div>

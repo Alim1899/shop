@@ -31,7 +31,7 @@ const Data = (props) => {
     await fetch("https://restcountries.com/v3.1/all?fields=name,flags")
       .then((response) => response.json())
       .then((data) => {
-        const full = [];
+        const full = []
 
         codes.forEach((el) => {
           data.forEach((code) => {

@@ -1,5 +1,5 @@
-*{
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+* {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   * {
     --dark: #8739f9;
     --light: #94d5f1;
@@ -15,7 +15,8 @@
   font-weight: 600;
   margin-top: 1vh;
 }
-.sign, .login {
+.sign,
+.login {
   background-color: #220235;
   color: #ece0e8;
   width: 80%;
@@ -26,35 +27,34 @@
   font-family: monospace;
   border-radius: 25px;
 }
-.section  {
+.section {
   display: grid;
   place-items: center;
   grid-template-rows: 35% 45% 5%;
 }
-.section{
+.section {
   height: 100%;
-  background-color:#ece0e8f8;
+  background-color: #ece0e8f8;
   border-radius: 30px;
 }
-button:hover{
+button:hover {
   cursor: pointer;
   opacity: 0.8;
 }
 
-
 /* Styling popups */
-.loginPage{
+.loginPage {
   position: absolute;
   margin-top: 500px;
   width: 90vw;
-  background-color:#88bdbc ;
+  background-color: #88bdbc;
   border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  max-width: 720px;
 }
 
-input{
+input {
   border: none;
   font-weight: 700;
   width: 80%;
@@ -64,31 +64,63 @@ input{
   height: 25px;
   background-color: #fff6df93;
 }
-label{
-  font-family:sans-serif;
-    margin-top: 5vh;
-    font-size: 1.2rem;
-    margin-bottom: 1vh;
-    font-weight: 600;
-    color:var(--darktext);
+label {
+  font-family: sans-serif;
+  margin-top: 5vh;
+  font-size: 1.2rem;
+  margin-bottom: 1vh;
+  font-weight: 600;
+  color: var(--darktext);
 }
-input:focus{
+input:focus {
   outline: 1px solid #d8c3a5;
 }
-input,label {
+input,
+label {
   display: block;
   text-align: center;
 }
-label{
+label {
   margin-top: 25px;
   margin-bottom: 5px;
 }
-.icon{
+.icon {
   width: 100%;
   border-radius: 55px;
   height: 7vh;
   min-height: 30px;
   max-height: 50px;
-  border:1px solid #d8c3a5;
+  border: 1px solid #d8c3a5;
 }
 
+.error {
+  color: red;
+  position: absolute;
+  font-size: 1rem;
+  text-align: center;
+  width: 100%;
+  font-weight: 700;
+}
+.succes {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  margin-top: -80vh;
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  color: #220235;
+  text-align: center;
+  font-size: 3rem;
+  justify-content: space-evenly;
+  border-radius: 20px;
+
+}
+.succes>button{
+  background-color: #220235;
+  color: var(--white);
+  height: 50px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  border-radius: 20px;
+}

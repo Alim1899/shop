@@ -24,7 +24,7 @@ const Info = () => {
       <label htmlFor="email">Email</label>
       <input
         id="email"
-        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+        pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
         title="Invalid email address"
         placeholder="example@example.com"
         type="email"
