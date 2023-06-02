@@ -1,8 +1,4 @@
 import { useState, useRef, useEffect, useCallback } from "react";
-import classes from "./Password.module.css";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faEye } from "@fortawesome/free-solid-svg-icons";
-
 
 const Password = (props) => {
   const password = useRef();
@@ -14,7 +10,6 @@ const Password = (props) => {
   const passwordCompletehandler = useCallback(() => {
     if (pass.length > 3) setPasswordFieldCompleted(true);
     if (pass.length <= 3) setPasswordFieldCompleted(false);
-    
   }, [pass.length]);
 
   const passwordHandler = (e) => {
@@ -30,11 +25,10 @@ const Password = (props) => {
   }, [pass, passwordCompletehandler]);
   return (
     <div
-      className={classes.pass}
       onInput={passwordCompletehandler}
       onChange={passwordFieldCompleted ? props.passwordHandler : null}
     >
-      <div className={classes.password}>
+      <div>
         <label htmlFor="password">Password</label>
         <input
           type="password"
@@ -52,7 +46,7 @@ const Password = (props) => {
           icon={faEye}
         /> */}
       </div>
-      <div className={classes.confirmPass}>
+      <div>
         <label htmlFor="confirmpassword">Confirm password</label>
         <input
           type="password"

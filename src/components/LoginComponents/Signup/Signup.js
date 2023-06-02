@@ -3,8 +3,6 @@ import classes from "./Signup.module.css";
 import Password from "./Password/Password";
 import Info from "./Info/Info";
 import Data from "./Number/Data/Data";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleChevronUp } from "@fortawesome/free-solid-svg-icons";
 
 const Signup = (props) => {
 
@@ -47,9 +45,7 @@ const Signup = (props) => {
   return (
     <div className={classes.main}>
       <div className={classes.content}>
-        <button onClick={props.onCollapse} className={classes.icon}>
-          <FontAwesomeIcon icon={faCircleChevronUp} />{" "}
-        </button>
+       
 
         <form onInput={validate} onChange={props.btnEnabler} className={classes.form}>
           <Info />

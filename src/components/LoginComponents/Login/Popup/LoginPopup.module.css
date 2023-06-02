@@ -1,5 +1,13 @@
 *{
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  * {
+    --dark: #8739f9;
+    --light: #94d5f1;
+    --white: #f2f5f5;
+    --darktext: #565360;
+    --mediumtext: #908e9b;
+    --lightText: #e1dfe9;
+  }
 }
 .section > p {
   font-size: 1.5rem;
@@ -28,16 +36,59 @@
   background-color:#ece0e8f8;
   border-radius: 30px;
 }
-.section>a, .section>button:hover{
+button:hover{
   cursor: pointer;
   opacity: 0.8;
 }
 
+
+/* Styling popups */
 .loginPage{
   position: absolute;
-  margin-top: 400px;
+  margin-top: 500px;
+  width: 90vw;
+  background-color:#88bdbc ;
+  border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    max-width: 720px;
 }
-.signupPage{
-  position: absolute;
-  margin-top: 535px;
+
+input{
+  border: none;
+  font-weight: 700;
+  width: 80%;
+  margin: 0px auto;
+  max-width: 250px;
+  border-radius: 15px;
+  height: 25px;
+  background-color: #fff6df93;
 }
+label{
+  font-family:sans-serif;
+    margin-top: 5vh;
+    font-size: 1.2rem;
+    margin-bottom: 1vh;
+    font-weight: 600;
+    color:var(--darktext);
+}
+input:focus{
+  outline: 1px solid #d8c3a5;
+}
+input,label {
+  display: block;
+  text-align: center;
+}
+label{
+  margin-top: 25px;
+  margin-bottom: 5px;
+}
+.icon{
+  width: 100%;
+  border-radius: 55px;
+  height: 7vh;
+  min-height: 30px;
+  max-height: 50px;
+  border:1px solid #d8c3a5;
+}
+
