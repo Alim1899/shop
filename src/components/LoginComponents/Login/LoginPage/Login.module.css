@@ -37,7 +37,8 @@
 .btn{
     display: flex;
     justify-content: center;
-    
+    display: flex;
+   
 }
 .collapse{
     width: 100%;
@@ -76,4 +77,14 @@ button:hover{
     font-weight: 600;
     background-color: #220235;
     color: var(--lightText);
+}
+.form{
+    background-color: var(--lightText);
+    width: 90vw;
+    max-width: 720px;
+    color: var(--darktext);
+    font-weight: 700;
+    max-height:720px ;
+    border-radius: 25px;
+    margin-top: 10vh;
 }

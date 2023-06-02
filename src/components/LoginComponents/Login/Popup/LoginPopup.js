@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import classes from "./LoginPopup.module.css";
 import Login from "../LoginPage/Login";
-import Signup from "../../Signup/Signup";
+import Sign from "../../Signup/Data/Sign";
 const LoginPopup = () => {
   const [login, showLogin] = useState(false);
   const [signup, showSignup] = useState(false);
@@ -27,6 +27,7 @@ const LoginPopup = () => {
         <div className={classes.loginPage}>
         
           {login &&<Login onCollapse={showLoginHandler}/>}
+          {signup && <Sign onCollapse={showSignupHandler} />}
         </div>
       
       <p className={classes.quest}>New customer?</p>
@@ -34,7 +35,7 @@ const LoginPopup = () => {
         Create account
       </button>
       <div className={classes.signupPage}>
-          {signup && <Signup onCollapse={showSignupHandler} />}
+          
         </div>
     </div>
   );

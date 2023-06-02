@@ -1,16 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import classes from "./Signup.module.css";
 import Password from "./Password/Password";
 import Info from "./Info/Info";
-import Submit from "../Button/Submit";
 import Data from "./Number/Data/Data";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleChevronUp } from "@fortawesome/free-solid-svg-icons";
 
 const Signup = (props) => {
-  const [isDisabled, setIsDisabled] = useState(false);
-
-  //Helper functions
 
   const validate = (e) => {
     if (e.target.id === "confirmPassword") {
@@ -46,40 +42,7 @@ const Signup = (props) => {
       }
     }
   };
-  const btnEnabler = () => {
-    if (
-      sessionStorage.getItem("name") &&
-      sessionStorage.getItem("lastname") &&
-      sessionStorage.getItem("email") &&
-      sessionStorage.getItem("number") &&
-      sessionStorage.getItem("password") &&
-      sessionStorage.getItem("confirmPassword")
-    ) {
-      setIsDisabled(false);
-    } else {
-      setIsDisabled(true);
-    }
-  };
-  const sendData = async (e) => {
-    e.preventDefault();
-    let obj = Object.keys(sessionStorage).reduce(function (obj, key) {
-      obj[key] = sessionStorage.getItem(key);
-      return obj;
-    }, {});
-    console.log(JSON.stringify(obj));
-    const response = await fetch(
-      "https://hikemart-2877b-default-rtdb.firebaseio.com/users.json",
-      {
-        method: "POST",
-        body: JSON.stringify(obj),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    const data = await response.json();
-    console.log(data);
-  };
+ 
 
   return (
     <div className={classes.main}>
@@ -88,20 +51,12 @@ const Signup = (props) => {
           <FontAwesomeIcon icon={faCircleChevronUp} />{" "}
         </button>
 
-        <form onInput={validate} onChange={btnEnabler} className={classes.form}>
+        <form onInput={validate} onChange={props.btnEnabler} className={classes.form}>
           <Info />
           <Data />
           <div className={classes.passwordField}>
             <Password />
           </div>
-
-          <Submit
-            onSend={sendData}
-            className={classes.btn}
-            disabled={isDisabled}
-          >
-            SIGN
-          </Submit>
         </form>
       </div>
     </div>

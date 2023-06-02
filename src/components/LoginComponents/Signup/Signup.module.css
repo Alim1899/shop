@@ -18,25 +18,21 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
 /* Firefox */
 input[type="number"] {
   -moz-appearance: textfield;
 }
+
 input{
   border: none;
-  border-radius: 10px;
-  background-color: #8277ce44;
   color: black;
   font-weight: 700;
   width: 80%;
   margin: 0px auto;
   max-width: 250px;
-  border: none;
   background-color: #f5f2f2;
   border-radius: 15px;
   height: 25px;
- 
 }
 label{
   font-family:sans-serif;
@@ -49,18 +45,11 @@ label{
 input:focus{
   outline: 1px solid var(--darktext);
 }
-.main {
-  background-color: var(--lightText);
-  width: 90vw;
-  max-width: 720px;
-  color: var(--darktext);
-  font-weight: 700;
-  max-height:720px ;
-  border-radius: 25px;
-}
+
 .icon{
   width: 100%;
-    height: 30px;
+    min-height: 30px;
+    max-height: 50px;
     font-size: 1.6rem;
     display: flex;
     align-items: center;
@@ -74,11 +63,4 @@ input:focus{
   cursor: pointer;
   opacity: 0.8;
 }
-.btn{
-  display: flex;
-  margin:  auto;
-  margin-top: 5px;
-  justify-content: center;
-}
-
 
