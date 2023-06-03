@@ -1,13 +1,12 @@
 * {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  * {
-    --dark: #8739f9;
-    --light: #94d5f1;
-    --white: #f2f5f5;
-    --darktext: #565360;
-    --mediumtext: #908e9b;
-    --lightText: #e1dfe9;
-  }
+
+  --dark: #8739f9;
+  --light: #94d5f1;
+  --white: #f2f5f5;
+  --darktext: #565360;
+  --mediumtext: #908e9b;
+  --lightText: #e1dfe9;
 }
 .section > p {
   font-size: 1.5rem;
@@ -52,6 +51,8 @@ button:hover {
   display: flex;
   flex-direction: column;
   max-width: 720px;
+  height: 400px;
+  overflow-x: scroll;
 }
 
 input {
@@ -114,9 +115,8 @@ label {
   font-size: 3rem;
   justify-content: space-evenly;
   border-radius: 20px;
-
 }
-.succes>button{
+.succes > button {
   background-color: #220235;
   color: var(--white);
   height: 50px;

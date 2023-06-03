@@ -20,7 +20,7 @@ const Login = (props) => {
         ></input>
         <div className={classes.newAcc}>
           <p>Don't have an account?</p>
-          <button className={classes.create}>Create now</button>
+          <button id='create' onClick={props.handler} className={classes.create}>Create now</button>
         </div>
         <Button className={classes.btn}>LOGIN</Button>
       </form>

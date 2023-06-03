@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import classes from "./LoginPopup.module.css";
-import Login from "../LoginPage/Login";
-import Sign from "../../Signup/Data/Sign";
+import LoginHandler from "../../Data/LoginHandler";
+import SignHandler from "../../Data/SignHandler";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleChevronUp } from "@fortawesome/free-solid-svg-icons";
 
@@ -9,19 +9,17 @@ const LoginPopup = () => {
   const [login, showLogin] = useState(false);
   const [signup, showSignup] = useState(false);
   const showLoginHandler = (e) => {
-    console.log(e.target.id);
-    if (e.target.id === "login") {
+    e.preventDefault();
+    if (e.target.id === "login" || e.target.id === "succes") {
       showLogin(!login);
-      showSignup(false)
+      showSignup(false);
     }
-    if (e.target.id === "signup") showSignup(!signup);
+    if (e.target.id === "signup" || e.target.id === "create") {
+      showSignup(!signup);
+      showLogin(false);
+    }
     sessionStorage.clear();
-    if(e.target.id==='succes'){
-      showLogin(!login);
-      showSignup(false)
-  }
   };
-  
 
   const collapse = (e) => {
     showSignup(false);
@@ -52,7 +50,7 @@ const LoginPopup = () => {
           <button onClick={collapse} className={classes.icon}>
             <FontAwesomeIcon icon={faCircleChevronUp} />{" "}
           </button>
-          <Login />
+          <LoginHandler handler={showLoginHandler} />
         </div>
       )}
       {signup && (
@@ -60,7 +58,11 @@ const LoginPopup = () => {
           <button onClick={collapse} className={classes.icon}>
             <FontAwesomeIcon icon={faCircleChevronUp} />{" "}
           </button>
-          <Sign onLogin={showLoginHandler} error={classes.error} succes={classes.succes}/>
+          <SignHandler
+            onLogin={showLoginHandler}
+            error={classes.error}
+            succes={classes.succes}
+          />
         </div>
       )}
     </div>

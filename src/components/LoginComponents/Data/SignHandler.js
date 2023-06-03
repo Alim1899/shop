@@ -1,6 +1,6 @@
-import Signup from "../Signup";
+import Signup from '../Signup/Signup'
 import React, { useState } from "react";
-import Submit from "../../Button/Submit";
+import Submit from "../Button/Submit";
 const Sign = (props) => {
   const [isDisabled, setIsDisabled] = useState(true);
   const [signedUser, setSignedUser] = useState(false);
