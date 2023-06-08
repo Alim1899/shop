@@ -18,4 +18,11 @@
     margin-left: 25%;
     border: none;
     outline: none;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #fff6df93;
+    color: #565360;
+    font-weight: 700;
+}
+.select>option{
 }

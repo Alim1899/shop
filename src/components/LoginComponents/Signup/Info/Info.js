@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import classes from "./Info.module.css";
+
 const Info = () => {
   const nameInput = useRef();
   const lastnameInput = useRef();
@@ -7,9 +8,28 @@ const Info = () => {
   const dayInput = useRef();
   const monthInput = useRef();
   const yearInput = useRef();
-  const age = (e) => {
-    const today = new Date();
-    console.log(today.getMonth());
+  const calculate = (e) => {
+    const now = new Date();
+    const userDate = new Date(yearInput.current.value, monthInput.current.value-1, dayInput.current.value);
+    let yyyy = now.getFullYear() - userDate.getFullYear();
+    let mm = now.getMonth() - userDate.getMonth();
+    let dd = now.getDate() - userDate.getDate();
+    if (dd < 0) {
+      dd = 31 - Math.abs(dd);
+      mm = mm - 1;
+    }
+
+    if (mm < 0) {
+      mm = 12 - Math.abs(mm);
+      yyyy = yyyy - 1;
+    }
+    if(yyyy>18){
+      sessionStorage.setItem('Age','Adult')
+    }else{
+      sessionStorage.setItem('Age','Kid')
+
+    }
+    
   };
 
   return (
@@ -31,22 +51,22 @@ const Info = () => {
         ref={lastnameInput}
       ></input>
       <label htmlFor="age">Birth date
-        <div onChange={age} className={classes.age}>
-          
+        <div onBlur={calculate} className={classes.age}>
           <input placeholder="dd" min='1' max='31' type="number" ref={dayInput}></input>
           <input placeholder="mm" min='1' max='12' type="number" ref={monthInput}></input>
           <input placeholder="yyyy" min='1900' max='2022' type="number"  ref={yearInput}></input>
         </div>{" "}
       </label>
-      
-      <select className={classes.select}>
-      <optgroup label="Gender">
-      <option disabled>Gender</option>
-         <option >Male</option>
-        <option>Female</option>
-      </optgroup>
+     
+      <select id="gender" value='Gender' className={classes.select}>
+
+      <option id="gender"  disabled>Gender</option>
+      <option id="gender" value='Unisex'>Prefer not to say</option>
+         <option id="gender" >Male</option>
+        <option id="gender">Female</option>
        
       </select>
+     
 
       <label htmlFor="email">Email</label>
       <input
