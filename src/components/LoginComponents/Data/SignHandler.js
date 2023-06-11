@@ -1,4 +1,4 @@
-import Signup from '../Signup/Signup'
+import Signup from "../Signup/Signup";
 import React, { useState } from "react";
 import Submit from "../Button/Submit";
 const Sign = (props) => {
@@ -34,27 +34,24 @@ const Sign = (props) => {
         if (data) {
           Object.entries(data).forEach((el) => {
             emails.push(el[1].email);
-            
           });
         }
       });
   };
-  
+
   getData();
 
   const checkEmail = (e) => {
-    if(emails.includes(sessionStorage.getItem('email'))){
+    if (emails.includes(sessionStorage.getItem("email"))) {
       setSignedUser(true);
-    }else{
+    } else {
       sendData();
-      setNewUser(true)
+      setNewUser(true);
     }
     setTimeout(() => {
       setSignedUser(false);
-      
     }, 1500);
   };
-
 
   const btnEnabler = () => {
     if (
@@ -79,9 +76,12 @@ const Sign = (props) => {
         <p className={props.error}>This email already registered</p>
       )}
       {newUser && (
-        <p className={props.succes}>Succesfully created a new account <button id='succes' onClick={props.onLogin}>LOGIN</button></p>
-       
-
+        <p className={props.succes}>
+          Succesfully created a new account{" "}
+          <button id="succes" onClick={props.onLogin}>
+            LOGIN
+          </button>
+        </p>
       )}
 
       <Submit onSend={checkEmail} disabled={isDisabled}>

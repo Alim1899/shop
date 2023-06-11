@@ -1,16 +1,18 @@
 import React, { useRef } from "react";
 import classes from "./Info.module.css";
-
+import Fullname from "./Fullname/Fullname";
 const Info = () => {
-  const nameInput = useRef();
-  const lastnameInput = useRef();
   const emailInput = useRef();
   const dayInput = useRef();
   const monthInput = useRef();
   const yearInput = useRef();
   const calculate = (e) => {
     const now = new Date();
-    const userDate = new Date(yearInput.current.value, monthInput.current.value-1, dayInput.current.value);
+    const userDate = new Date(
+      yearInput.current.value,
+      monthInput.current.value - 1,
+      dayInput.current.value
+    );
     let yyyy = now.getFullYear() - userDate.getFullYear();
     let mm = now.getMonth() - userDate.getMonth();
     let dd = now.getDate() - userDate.getDate();
@@ -23,50 +25,54 @@ const Info = () => {
       mm = 12 - Math.abs(mm);
       yyyy = yyyy - 1;
     }
-    if(yyyy>18){
-      sessionStorage.setItem('Age','Adult')
-    }else{
-      sessionStorage.setItem('Age','Kid')
 
+    if (yyyy > 18) {
+      sessionStorage.setItem("Age", "Adult");
+    } else {
+      sessionStorage.setItem("Age", "Kid");
     }
-    
   };
 
   return (
     <div>
-      <label htmlFor="name">Name</label>
-      <input
-        id="name"
-        type="text"
-        placeholder="Steve"
-        minLength={2}
-        ref={nameInput}
-      ></input>
-      <label htmlFor="lastname">lastName</label>
-      <input
-        id="lastname"
-        type="text"
-        minLength={2}
-        placeholder="Mc Gregory"
-        ref={lastnameInput}
-      ></input>
-      <label htmlFor="age">Birth date
-        <div onBlur={calculate} className={classes.age}>
-          <input placeholder="dd" min='1' max='31' type="number" ref={dayInput}></input>
-          <input placeholder="mm" min='1' max='12' type="number" ref={monthInput}></input>
-          <input placeholder="yyyy" min='1900' max='2022' type="number"  ref={yearInput}></input>
+      <Fullname />
+      <label htmlFor="age">
+        Birth date
+        <div onInput={calculate} className={classes.age}>
+          <input
+            placeholder="dd"
+            min="1"
+            max="31"
+            type="number"
+            ref={dayInput}
+          ></input>
+          <input
+            placeholder="mm"
+            min="1"
+            max="12"
+            type="number"
+            ref={monthInput}
+          ></input>
+          <input
+            placeholder="yyyy"
+            min="1900"
+            max="2010"
+            type="number"
+            ref={yearInput}
+          ></input>
         </div>{" "}
       </label>
-     
-      <select id="gender" value='Gender' className={classes.select}>
 
-      <option id="gender"  disabled>Gender</option>
-      <option id="gender" value='Unisex'>Prefer not to say</option>
-         <option id="gender" >Male</option>
+      <select id="gender" className={classes.select}>
+        <option id="gender" disabled>
+          Gender
+        </option>
+        <option id="gender" value="Unisex">
+          Prefer not to say
+        </option>
+        <option id="gender">Male</option>
         <option id="gender">Female</option>
-       
       </select>
-     
 
       <label htmlFor="email">Email</label>
       <input
