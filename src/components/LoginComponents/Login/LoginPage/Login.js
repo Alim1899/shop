@@ -1,28 +1,46 @@
-import React from "react";
+import { useRef } from "react";
 import classes from "./Login.module.css";
 import Button from "../../Button/Submit";
 
 const Login = (props) => {
+  const userName = useRef();
+  const userPassword = useRef();
+
   return (
     <div className={classes.login}>
-      <form className={classes.form}>
-        <label htmlFor="email">Email or phone number</label>
+      <form onInput={props.onValidate} className={classes.form}>
+        <label htmlFor="email">Email</label>
         <input
-          id="email"
+          id="userName"
           className={classes.emailInput}
-          placeholder="Email or number"
+          pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
+          title="Invalid email address"
+          placeholder="example@example.com"
+          type="email"
+          ref={userName}
         ></input>
         <label htmlFor="password">Password</label>
         <input
-          id="password"
+          type="password"
+          id="userPassword"
+          minLength={8}
+          ref={userPassword}
           className={classes.passInput}
-          placeholder="Email or number"
+          placeholder="Min.8 symbol"
         ></input>
         <div className={classes.newAcc}>
           <p>Don't have an account?</p>
-          <button id='create' onClick={props.handler} className={classes.create}>Create now</button>
+          <button
+            id="create"
+            onClick={props.handler}
+            className={classes.create}
+          >
+            Create now
+          </button>
         </div>
-        <Button className={classes.btn}>LOGIN</Button>
+        <Button className={classes.btn} disabled={props.disabled}>
+          LOGIN
+        </Button>
       </form>
     </div>
   );

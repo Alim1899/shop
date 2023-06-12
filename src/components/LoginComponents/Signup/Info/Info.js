@@ -44,12 +44,14 @@ const Info = () => {
             min="1"
             max="31"
             type="number"
+            id="birthday"
             ref={dayInput}
           ></input>
           <input
             placeholder="mm"
             min="1"
             max="12"
+            id="birthmonth"
             type="number"
             ref={monthInput}
           ></input>
@@ -57,6 +59,7 @@ const Info = () => {
             placeholder="yyyy"
             min="1900"
             max="2010"
+            id="birthyear"
             type="number"
             ref={yearInput}
           ></input>

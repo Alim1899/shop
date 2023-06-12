@@ -24,6 +24,7 @@ const LoginPopup = () => {
   const collapse = (e) => {
     showSignup(false);
     showLogin(false);
+    sessionStorage.clear();
   };
 
   return (
