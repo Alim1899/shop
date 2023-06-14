@@ -20,7 +20,10 @@ const Sign = (props) => {
     });
     fetch("https://hikemart-2877b-default-rtdb.firebaseio.com/emails.json", {
       method: "POST",
-      body: JSON.stringify(obj.email),
+      body: JSON.stringify({
+        email: obj.email ? obj.email : null,
+        password: obj.password ? obj.password : null,
+      }),
       headers: {
         "Content-Type": "application/json",
       },

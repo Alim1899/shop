@@ -1,6 +1,5 @@
 import { useRef } from "react";
 import classes from "./Login.module.css";
-import Button from "../../Button/Submit";
 
 const Login = (props) => {
   const userName = useRef();
@@ -17,6 +16,7 @@ const Login = (props) => {
           title="Invalid email address"
           placeholder="example@example.com"
           type="email"
+          required
           ref={userName}
         ></input>
         <label htmlFor="password">Password</label>
@@ -27,6 +27,7 @@ const Login = (props) => {
           ref={userPassword}
           className={classes.passInput}
           placeholder="Min.8 symbol"
+          required
         ></input>
         <div className={classes.newAcc}>
           <p>Don't have an account?</p>
@@ -38,9 +39,6 @@ const Login = (props) => {
             Create now
           </button>
         </div>
-        <Button className={classes.btn} disabled={props.disabled}>
-          LOGIN
-        </Button>
       </form>
     </div>
   );
