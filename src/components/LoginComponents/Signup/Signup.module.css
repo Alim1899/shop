@@ -22,12 +22,12 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
-.invalid input{
+.invalid{
   border: 1px solid #b40e0e;
   background-color: #fddddd;
 }
 
-.invalid input:focus {
+.invalid:focus {
   border-color: #ff8800;
   background-color: #fbe8d2;
 }
@@ -35,4 +35,8 @@ input[type="number"] {
   color: #b40e0e;
   width: 100%;
   text-align: center;
+}
+.valid:focus{
+  border: 1px solid #3c7218;
+  background-color: #cdddc2;
 }

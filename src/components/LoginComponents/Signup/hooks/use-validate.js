@@ -12,9 +12,7 @@ const stateReducer = (state, action) => {
   if (action.type === "BLUR") {
     return { isTouched: true, value: state.value };
   }
-  if (action.type === "RESET") {
-    return { isTouched: false, value: "" };
-  }
+
   return stateReducer;
 };
 
@@ -24,18 +22,11 @@ const useValidate = (input) => {
   const hasError = !valueIsValid && inputState.isTouched;
 
   const valueChangeHandler = (e) => {
-    console.log('INPUT');
     dispatch({ type: "INPUT", value: e.target.value });
   };
 
   const inputBlurHandler = (e) => {
-    console.log('BLUR');
-
     dispatch({ type: "BLUR" });
-  };
-
-  const reset = () => {
-    dispatch({ type: "RESET" });
   };
 
   return {
@@ -44,7 +35,6 @@ const useValidate = (input) => {
     hasError,
     valueChangeHandler,
     inputBlurHandler,
-    reset,
   };
 };
 

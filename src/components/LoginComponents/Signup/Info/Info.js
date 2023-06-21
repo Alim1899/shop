@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 import classes from "./Info.module.css";
-import Fullname from "./Fullname/Fullname";
 const Info = () => {
   const emailInput = useRef();
   const dayInput = useRef();
@@ -35,7 +34,6 @@ const Info = () => {
 
   return (
     <div>
-      <Fullname />
       <label htmlFor="age">
         Birth date
         <div onInput={calculate} className={classes.age}>
