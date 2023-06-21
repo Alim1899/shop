@@ -22,3 +22,17 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+.invalid input{
+  border: 1px solid #b40e0e;
+  background-color: #fddddd;
+}
+
+.invalid input:focus {
+  border-color: #ff8800;
+  background-color: #fbe8d2;
+}
+.error{
+  color: #b40e0e;
+  width: 100%;
+  text-align: center;
+}

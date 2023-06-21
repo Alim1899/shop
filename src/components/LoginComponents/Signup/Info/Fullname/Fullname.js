@@ -1,18 +1,22 @@
 import { useRef } from "react";
 
 
-const Fullname = () => {
-    const name = useRef();
+const Fullname = (props) => {
+    
     const lastname = useRef();
   return (
-    <div>
+    <div onBlur={props.onBlur}
+        onChange={props.onChange}
+        value={props.value}
+        className={props.className}>
       <label htmlFor="name">Name</label>
       <input
         id="name"
         type="text"
         placeholder="Steve"
         minLength={2}
-        ref={name}
+        
+        
       ></input>
       <label htmlFor="lastname">lastName</label>
       <input
