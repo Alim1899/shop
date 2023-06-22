@@ -22,14 +22,13 @@ const Fullname = (props) => {
   const nameClasses = firstNameHasError ? props.invalid : props.valid;
   const lastNameClasses = lastNameHasError ? props.invalid : props.valid;
 
-  if(firstNameIsValid&&lastNameIsValid){
-    
+  if (firstNameIsValid && lastNameIsValid) {
   }
   return (
     <div>
       <label htmlFor="name">Name</label>
       <input
-      style={{textTransform:'capitalize'}}
+        style={{ textTransform: "capitalize" }}
         id="name"
         type="text"
         className={nameClasses}
@@ -42,7 +41,7 @@ const Fullname = (props) => {
 
       <label htmlFor="lastname">lastName</label>
       <input
-      style={{textTransform:'capitalize'}}
+        style={{ textTransform: "capitalize" }}
         id="lastname"
         type="text"
         minLength={2}

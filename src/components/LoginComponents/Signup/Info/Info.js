@@ -1,7 +1,18 @@
 import React, { useRef } from "react";
 import classes from "./Info.module.css";
-const Info = () => {
-  const emailInput = useRef();
+import useValidate from "../hooks/use-validate";
+let regex = new RegExp('[a-z0-9]+@[a-z]+.[a-z]{2,3}');
+const checkEmail = (value) => regex.test(value);
+const Info = (props) => {
+  const {
+    value: emailValue,
+    isValid: emailIsValid,
+    hasError: emailHasError,
+    valueChangeHandler: emailChangeHandler,
+    inputBlurHandler: emailBlurHandler,
+  } = useValidate(checkEmail);
+  
+console.log(emailIsValid);
   const dayInput = useRef();
   const monthInput = useRef();
   const yearInput = useRef();
@@ -31,6 +42,7 @@ const Info = () => {
       sessionStorage.setItem("Age", "Kid");
     }
   };
+  let emailClass = emailHasError ? props.invalid : props.valid;
 
   return (
     <div>
@@ -78,11 +90,14 @@ const Info = () => {
       <label htmlFor="email">Email</label>
       <input
         id="email"
+        value={emailValue}
+        onBlur={emailBlurHandler}
+        onChange={emailChangeHandler}
+        className={emailClass}
         pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
         title="Invalid email address"
         placeholder="example@example.com"
-        type="email"
-        ref={emailInput}
+        type="text"
       ></input>
     </div>
   );

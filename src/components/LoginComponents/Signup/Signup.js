@@ -11,7 +11,7 @@ const Signup = (props) => {
       <div className={classes.content}>
         <form onChange={props.btnEnabler} className={classes.form}>
           <Fullname invalid={classes.invalid} valid={classes.valid} />
-          <Info />
+          <Info invalid={classes.invalid} valid={classes.valid}/>
 
           <Data />
 
