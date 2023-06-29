@@ -1,0 +1,58 @@
+* {
+    --dark: #8739f9;
+    --light: #94d5f1;
+    --white: #f2f5f5;
+    --darktext: #565360;
+    --mediumtext: #908e9b;
+    --lightText: #e1dfe9;
+  }
+  ::placeholder{
+    color: var(--darktext);
+  }
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  /* Firefox */
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+  .invalid{
+    border: 1px solid #b40e0e;
+    background-color: #fddddd;
+  }
+  
+  .invalid:focus {
+    border-color: #ff8800;
+    background-color: #fbe8d2;
+  }
+  .error{
+    color: #b40e0e;
+    width: 100%;
+    text-align: center;
+  }
+  .valid:focus{
+    border: 1px solid #3c7218;
+    background-color: #cdddc2;
+  }
+  .form{
+    background-color: var(--lightText);
+  }
+  input{
+    border: none;
+    outline: none;
+  }
+ 
+  input:invalid{
+    border: 1px solid #b40e0e;
+    background-color: #cdddc2;
+  }
+  input:focus:valid{
+    border: 1px solid #3c7218;
+    background-color: #cdddc2;
+  }
