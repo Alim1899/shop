@@ -1,86 +1,54 @@
-// Render Prop
-import React from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import React from 'react';
+import { Formik, Form, Field } from 'formik';
+import * as Yup from 'yup';
 import classes from './Formik.module.css'
+const SignupSchema = Yup.object().shape({
+  firstName: Yup.string()
+    .min(2, 'Too Short!')
+    .max(50, 'Too Long!')
+    .required('Required'),
+  lastName: Yup.string()
+    .min(2, 'Too Short!')
+    .max(50, 'Too Long!')
+    .required('Required'),
+  email: Yup.string().email('Invalid email').required('Required'),
+});
 
-const Basic = () => (
-  <div className={classes.form}>
-    <h1>Register:</h1>
+
+export const ValidationSchemaExample = () => (
+  <div>
+    <h1>Signup</h1>
     <Formik
       initialValues={{
-        email: "",
-        password: "",
-        name: "",
-        number: "",
-        lastname: "",
-        gender: "",
-        age: "",
+        firstName: '',
+        lastName: '',
+        email: '',
       }}
-      validate={(values) => {
-        const errors = {};
-        if (!values.email) {
-          errors.email = "Required";
-        } else if (
-          !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-        ) {
-          errors.email = "Invalid email address";
-        }
-        return errors;
-      }}
-      onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
-          setSubmitting(false);
-        }, 400);
+      validationSchema={SignupSchema}
+      onSubmit={values => {
+        // same shape as initial values
+        console.log(values);
       }}
     >
-      {({ isSubmitting }) => (
-        <Form>
-          <label>
-            Name
-            <Field type="text" name="email" />
-            <ErrorMessage name="name" component="div" />
-          </label>
-          <label>
-            Lastname
-            <Field type="text" name="name" />
-            <ErrorMessage name="email" component="div" />
-          </label>
-          <label>
-            Birth date
-            <Field type="number" placeholder='dd' name="day" />
-            <Field type="number" placeholder='mm' name="month" />
-            <Field type="number" placeholder='yyyy' min='1920' max='2020' name="year" />
-            <ErrorMessage name="number" component="div" />
-          </label>
-
-          <label>
-            Gender
-            <Field type="email" name="email" />
-            <ErrorMessage name="email" component="div" />
-          </label>
-          <label>
-            Phone number
-            <Field type="email" name="email" />
-            <ErrorMessage name="email" component="div" />
-          </label>
-          <label>
-            Password
-            <Field type="password" name="password" />
-            <ErrorMessage name="password" component="div" />
-          </label>
-          <label>
-            Confirm password
-            <Field type="password" name="password" />
-            <ErrorMessage name="password" component="div" />
-          </label>
-          <button type="submit" disabled={isSubmitting}>
-            Submit
-          </button>
+      {({ errors, touched }) => (
+        <Form className={classes.form}>
+        <label>Firstname</label>
+          <Field name="firstName" className={errors.firstName?'invalid':'valid'} />
+          {errors.firstName && touched.firstName ? (
+            <div>{errors.firstName}</div>
+          ) : null}
+          <label>Lastname</label>
+          <Field name="lastName" />
+          {errors.lastName && touched.lastName ? (
+            <div>{errors.lastName}</div>
+          ) : null}
+          <label>Email</label>
+          <Field name="email" type="email" />
+          {errors.email && touched.email ? <div>{errors.email}</div> : null}
+          <button type="submit">Submit</button>
         </Form>
       )}
     </Formik>
   </div>
 );
-
-export default Basic;
+export default SignupSchema;

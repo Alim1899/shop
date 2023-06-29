@@ -5,6 +5,8 @@
     --darktext: #565360;
     --mediumtext: #908e9b;
     --lightText: #e1dfe9;
+    --valid:#3c7218;
+    --invalid:#b40e0e;
   }
   ::placeholder{
     color: var(--darktext);
@@ -22,37 +24,22 @@
   input[type="number"] {
     -moz-appearance: textfield;
   }
-  .invalid{
-    border: 1px solid #b40e0e;
-    background-color: #fddddd;
-  }
   
-  .invalid:focus {
-    border-color: #ff8800;
-    background-color: #fbe8d2;
-  }
-  .error{
-    color: #b40e0e;
-    width: 100%;
-    text-align: center;
-  }
-  .valid:focus{
-    border: 1px solid #3c7218;
-    background-color: #cdddc2;
-  }
   .form{
     background-color: var(--lightText);
+  }
+  .form>div{
+    color: var(--invalid);
   }
   input{
     border: none;
     outline: none;
   }
+
+  .valid{
+    border:5px solid var(--valid);
+  }
+  .invalid{
+    border:5px solid var(--invalid);
+  }
  
-  input:invalid{
-    border: 1px solid #b40e0e;
-    background-color: #cdddc2;
-  }
-  input:focus:valid{
-    border: 1px solid #3c7218;
-    background-color: #cdddc2;
-  }
