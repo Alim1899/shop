@@ -36,10 +36,13 @@
     outline: none;
   }
 
+  .normal{
+    border: 1px solid var(--mediumtext);
+  }
   .valid{
-    border:5px solid var(--valid);
+    border:1px solid var(--valid);
   }
   .invalid{
-    border:5px solid var(--invalid);
+    border:1px solid var(--invalid);
   }
  
