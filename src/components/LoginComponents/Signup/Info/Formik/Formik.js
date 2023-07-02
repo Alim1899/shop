@@ -1,6 +1,7 @@
 import React from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
+import Data from "../../Number/Data/Data";
 import classes from "./Formik.module.css";
 const SignupSchema = Yup.object().shape({
   firstName: Yup.string()
@@ -12,16 +13,20 @@ const SignupSchema = Yup.object().shape({
     .max(50, "Too Long!")
     .required("Required"),
   email: Yup.string().email("Invalid email").required("Required"),
+  number: Yup.string()
+    .min(4, "Invalid number")
+    .max(30, "Invalid number")
+    .required("Required"),
 });
 
-const log = (...par) => {
-  console.log(par);
-};
+// const log = (...par) => {
+//   console.log(par);
+// };
 
 const getClasses = (touched, error) => {
   if (!touched) return classes.normal;
-  if(touched&&!error)return classes.valid;
-  if(touched&&error)return classes.invalid;
+  if (touched && !error) return classes.valid;
+  if (touched && error) return classes.invalid;
 };
 
 export const ValidationSchemaExample = () => (
@@ -32,11 +37,12 @@ export const ValidationSchemaExample = () => (
         firstName: "",
         lastName: "",
         email: "",
+        number: "",
       }}
       validationSchema={SignupSchema}
       onSubmit={(values) => {
         // same shape as initial values
-        console.log();
+        console.log(values);
       }}
     >
       {({ errors, touched }) => (
@@ -44,8 +50,7 @@ export const ValidationSchemaExample = () => (
           <label>Firstname</label>
           <Field
             name="firstName"
-            onInput={log(touched.firstName)}
-            className={getClasses(touched.firstName, errors.firstName) }
+            className={getClasses(touched.firstName, errors.firstName)}
           />
           {errors.firstName && touched.firstName ? (
             <div>{errors.firstName}</div>
@@ -53,7 +58,7 @@ export const ValidationSchemaExample = () => (
           <label>Lastname</label>
           <Field
             name="lastName"
-            className={getClasses(touched.lastName, errors.lastName) }
+            className={getClasses(touched.lastName, errors.lastName)}
           />
           {errors.lastName && touched.lastName ? (
             <div>{errors.lastName}</div>
@@ -62,9 +67,22 @@ export const ValidationSchemaExample = () => (
           <Field
             name="email"
             type="email"
-            className={getClasses(touched.email, errors.email) }
+            className={getClasses(touched.email, errors.email)}
           />
           {errors.email && touched.email ? <div>{errors.email}</div> : null}
+
+          <Data>
+            <Field
+              name="number"
+              type="number"
+              className={getClasses(touched.number, errors.number)}
+            />
+
+            {errors.number && touched.number ? (
+              <div>{errors.number}</div>
+            ) : null}
+          </Data>
+
           <button type="submit">Submit</button>
         </Form>
       )}

@@ -63,9 +63,9 @@ const Data = (props) => {
       country={country}
       selectCountry={selectCountry}
       list={list}
-      open={open}
-      
-    />
+      open={open}>
+        {props.children}
+      </Number>
   );
 };
 

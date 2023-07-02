@@ -1,14 +1,15 @@
-import React, { useRef } from "react";
 import classes from "./Number.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons";
 const Number = (props) => {
-  const numberInput = useRef();
-
   return (
     <div className={classes.contact}>
       <div className={classes.drop}>
-        <button className={classes.dropBtn} onClick={props.handleMenu}>
+        <button
+          className={classes.dropBtn}
+          type="button"
+          onClick={props.handleMenu}
+        >
           Choose your country{" "}
           <FontAwesomeIcon icon={props.open ? faCaretUp : faCaretDown} />
         </button>
@@ -23,7 +24,7 @@ const Number = (props) => {
                   key={Math.random()}
                   className={classes.item}
                 >
-                  <button disabled>
+                  <button type="button" disabled>
                     <img
                       className={classes.flag}
                       src={el.src}
@@ -50,15 +51,7 @@ const Number = (props) => {
               alt={props.country.alt}
             ></img>
             <h5 className={classes.countryCode}>{props.country.code}</h5>
-            <input
-              id="number"
-              className={classes.numberInput}
-              type="number"
-              ref={numberInput}
-              min={8}
-              maxLength={15}
-              placeholder="Enter without code"
-            ></input>
+            {props.children}
           </div>
         </div>
       )}
