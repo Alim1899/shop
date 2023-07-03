@@ -14,13 +14,11 @@ const Layout = (props) => {
         <Navbar />
       </div>
       <div className={classes.background}>
-        <Background/>
+        <Background />
       </div>
       <div className={classes.footer}>
-       <Footer/>
+        <Footer />
       </div>
-
-     
     </div>
   );
 };

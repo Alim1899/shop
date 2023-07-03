@@ -3,6 +3,7 @@ import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import Data from "../../Number/Data/Data";
 import classes from "./Formik.module.css";
+import Gender from "../Gender";
 const SignupSchema = Yup.object().shape({
   firstName: Yup.string()
     .min(2, "Too Short!")
@@ -29,6 +30,7 @@ const getClasses = (touched, error) => {
   if (touched && error) return classes.invalid;
 };
 
+
 export const ValidationSchemaExample = () => (
   <div>
     <h1>Signup</h1>
@@ -50,6 +52,7 @@ export const ValidationSchemaExample = () => (
           <label>Firstname</label>
           <Field
             name="firstName"
+            onInput={()=>touched.firstName=true}
             className={getClasses(touched.firstName, errors.firstName)}
           />
           {errors.firstName && touched.firstName ? (
@@ -58,6 +61,7 @@ export const ValidationSchemaExample = () => (
           <label>Lastname</label>
           <Field
             name="lastName"
+            onInput={()=>touched.lastName=true}
             className={getClasses(touched.lastName, errors.lastName)}
           />
           {errors.lastName && touched.lastName ? (
@@ -66,6 +70,8 @@ export const ValidationSchemaExample = () => (
           <label>Email</label>
           <Field
             name="email"
+            onInput={()=>touched.email=true}
+            pattern="[a-z0-9]+@[a-z]+.[a-z]{2,3}"
             type="email"
             className={getClasses(touched.email, errors.email)}
           />
@@ -82,6 +88,7 @@ export const ValidationSchemaExample = () => (
               <div>{errors.number}</div>
             ) : null}
           </Data>
+          <Gender />
 
           <button type="submit">Submit</button>
         </Form>
