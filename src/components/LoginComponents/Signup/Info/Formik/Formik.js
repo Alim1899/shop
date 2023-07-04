@@ -18,6 +18,19 @@ const SignupSchema = Yup.object().shape({
     .min(4, "Invalid number")
     .max(30, "Invalid number")
     .required("Required"),
+  password: Yup.string()
+    .min(6, "Minimum 6 Symbols")
+    .max(15, "Maximum 15 Symbols")
+    .required("Enter your password")
+    .matches(
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/,
+      "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character"
+    ),
+  confirmPassword: Yup.string()
+    .min(6, "Minimum 6 Symbols")
+    .max(15, "Maximum 15 Symbols")
+    .required("Confirm password")
+    .oneOf([Yup.ref("password"), null], "Passwords must match"),
 });
 
 // const log = (...par) => {
@@ -30,7 +43,6 @@ const getClasses = (touched, error) => {
   if (touched && error) return classes.invalid;
 };
 
-
 export const ValidationSchemaExample = () => (
   <div>
     <h1>Signup</h1>
@@ -40,11 +52,15 @@ export const ValidationSchemaExample = () => (
         lastName: "",
         email: "",
         number: "",
+        password: "",
+        confirmPassword: "",
       }}
       validationSchema={SignupSchema}
       onSubmit={(values) => {
         // same shape as initial values
+         console.log(SignupSchema);
         console.log(values);
+        console.log(SignupSchema);
       }}
     >
       {({ errors, touched }) => (
@@ -52,7 +68,7 @@ export const ValidationSchemaExample = () => (
           <label>Firstname</label>
           <Field
             name="firstName"
-            onInput={()=>touched.firstName=true}
+            onInput={() => (touched.firstName = true)}
             className={getClasses(touched.firstName, errors.firstName)}
           />
           {errors.firstName && touched.firstName ? (
@@ -61,7 +77,7 @@ export const ValidationSchemaExample = () => (
           <label>Lastname</label>
           <Field
             name="lastName"
-            onInput={()=>touched.lastName=true}
+            onInput={() => (touched.lastName = true)}
             className={getClasses(touched.lastName, errors.lastName)}
           />
           {errors.lastName && touched.lastName ? (
@@ -70,7 +86,7 @@ export const ValidationSchemaExample = () => (
           <label>Email</label>
           <Field
             name="email"
-            onInput={()=>touched.email=true}
+            onInput={() => (touched.email = true)}
             pattern="[a-z0-9]+@[a-z]+.[a-z]{2,3}"
             type="email"
             className={getClasses(touched.email, errors.email)}
@@ -89,6 +105,27 @@ export const ValidationSchemaExample = () => (
             ) : null}
           </Data>
           <Gender />
+          <Field
+            name="password"
+            type="password"
+            className={getClasses(touched.password, errors.password)}
+          />
+
+          {errors.password && touched.password ? (
+            <div>{errors.password}</div>
+          ) : null}
+          <Field
+            name="confirmPassword"
+            type="confirmPassword"
+            className={getClasses(
+              touched.confirmPassword,
+              errors.confirmPassword
+            )}
+          />
+
+          {errors.confirmPassword && touched.confirmPassword ? (
+            <div>{errors.confirmPassword}</div>
+          ) : null}
 
           <button type="submit">Submit</button>
         </Form>
