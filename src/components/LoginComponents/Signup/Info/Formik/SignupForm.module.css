@@ -1,0 +1,94 @@
+* {
+  --dark: #8739f9;
+  --light: #94d5f1;
+  --white: #f2f5f5;
+  --darktext: #565360;
+  --mediumtext: #908e9b;
+  --lightText: #e1dfe9;
+  --valid: #3c7218;
+  --invalid: #b40e0e;
+}
+::placeholder {
+  color: var(--darktext);
+}
+::-webkit-scrollbar {
+  display: none;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.form {
+  background-color: var(--lightText);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.error {
+  font-size: 0.7rem;
+  text-align: center;
+}
+.heading {
+  text-align: center;
+  margin: 0;
+  color: var(--darktext);
+}
+.form > label,
+.form > button {
+  margin-top: 20px;
+}
+
+.form > div {
+  color: var(--invalid);
+}
+
+.form>input, .form>div>div>input{
+  font-weight: 700;
+  width: 80%;
+  margin: 0px auto;
+  min-width: 240px;
+  max-width: 250px;
+  border-radius: 17px;
+  height: 27px;
+  background-color: #fff6df93;
+}
+
+.normal {
+  border: 2px solid var(--mediumtext);
+}
+.valid {
+  border: 2px solid var(--valid);
+}
+.invalid {
+  border: 2px solid var(--invalid);
+}
+
+.passwordDiv > div > .error {
+}
+.showhide {
+position: absolute;
+width: 100%;
+text-align: center;
+margin-top: -39px;
+margin-left: 80px;
+}
+
+.passwordDiv {
+  width: 100%;
+
+}
+.passwordField {
+ 
+
+}
+.passwordField, .confirmPasswordField{
+  width: 100%;
+}
