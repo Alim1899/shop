@@ -1,3 +1,10 @@
+.login{
+  border: 1px solid red;
+  max-width: 600px;
+margin-left: 25%;  
+  display: flex;
+  
+}
 .create{
     width: 100px;
   height: 30px;

@@ -1,8 +1,3 @@
-.msg{
-    color: red;
-    font-weight: 900;
-    font-size: 1rem;
-    text-align: center;
-    width: 100%;
+.loginPage{
     position: absolute;
 }

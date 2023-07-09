@@ -2,9 +2,9 @@ import React from "react";
 import { useState } from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
-import Data from "../../Number/Data/Data";
+import Data from '../Number/Data/Data'
 import classes from "./SignupForm.module.css";
-import Gender from "../Gender";
+import Gender from '../Gender'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";

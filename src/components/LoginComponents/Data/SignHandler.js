@@ -1,4 +1,4 @@
-import Signup from "../Signup/Signup";
+import SignupForm from "../Signup/Formik/SignupForm";
 const Sign = (props) => {
 
   const sendData = () => {
@@ -42,7 +42,7 @@ sendData();
 
   return (
     <div>
-      <Signup/>
+      <SignupForm/>
 
       
     </div>
