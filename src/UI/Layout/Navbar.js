@@ -31,7 +31,10 @@ const Navbar = (props) => {
   return (
     <div className={classes.navbar}>
       <div className={classes.logo}>
-      <img alt="logo" className={classes.logoImg} src={logo}></img>
+      <a href="/">
+        <img alt="logo" className={classes.logoImg} src={logo}></img>
+      </a>
+      
       </div>
       <div className={classes.icons}>
         <div className={classes.searchbar}>
