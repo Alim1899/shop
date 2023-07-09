@@ -1,44 +1,46 @@
-import React from "react";
+import React,{useState} from "react";
 import background from "../../assets/hike.jpeg";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faPersonHalfDress,
-  faPersonDress,
-  faPerson,
-  faChildren,
-} from "@fortawesome/free-solid-svg-icons";
-import ImageSlider from "../Slider/Slider";
+import Home from "./Home";
+import SignHandler from "../../components/LoginComponents/Data/SignHandler";
+import LoginHandler from "../../components/LoginComponents/Data/LoginHandler";
 import classes from "./Background.module.css";
 
 const Background = () => {
+  const [homePage, setHomePage] = useState(false);
+  const [signupPage, setSignupPage] = useState(false);
+  const [loginPage, setLoginPage] = useState(false);
+  const pageHandler = () => {
+    if (window.location.pathname === "/") {
+      setHomePage(true);
+      setSignupPage(false);
+      setLoginPage(false);
+      return;
+    }
+    if (window.location.pathname === "/signup") {
+      setHomePage(false);
+      setSignupPage(true);
+      setLoginPage(false);
+      return;
+    }
+
+    if (window.location.pathname === "/login") {
+      setHomePage(false);
+      setSignupPage(false);
+      setLoginPage(true);
+      return;
+    }
+  };
   return (
-    <div className={classes.background}>
+    <div onLoad={pageHandler} className={classes.background}>
       <div className={classes.back}>
-        {" "}
         <img alt="background" src={background}></img>
-        <div className={classes.shop}>
-        <button>
-          <FontAwesomeIcon icon={faPerson} />
-          <span>Man</span>
-        </button>
-        <button>
-          <FontAwesomeIcon icon={faPersonDress} />
-          <span>Woman</span>
-        </button>
-        <button>
-          <FontAwesomeIcon icon={faChildren} />
-          <span>Kid's</span>
-        </button>
-        <button>
-          <FontAwesomeIcon icon={faPersonHalfDress} />
-          <span>Unisex</span>
-        </button>
+        <div >
+      {homePage && <Home />}
+      {signupPage && <SignHandler />}
+      {loginPage && <LoginHandler />}
       </div>
       </div>
       
-      <div className={classes.slider}>
-        <ImageSlider />
-      </div>
     </div>
   );
 };

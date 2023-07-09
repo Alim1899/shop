@@ -24,7 +24,7 @@ const SignupForm = (props) => {
       .min(2, "Too Short!")
       .max(50, "Too Long!")
       .required("Required"),
-    email: Yup.string().email("Invalid email").required("Required"),
+    email: Yup.string().email("Invalid email").required("Required").matches(/^(?!.*@[^,]*,)/),
     number: Yup.string()
       .min(4, "Invalid number")
       .max(30, "Invalid number")
@@ -50,8 +50,8 @@ const SignupForm = (props) => {
   };
 
   return (
-    <div>
-      <h4 className={classes.heading}>Signup</h4>
+    <div className={classes.back}>
+      <h4 className={classes.heading}>Fill all fields for Sign Up</h4>
       <Formik
         validateOnChange
         initialValues={{
@@ -92,7 +92,7 @@ const SignupForm = (props) => {
             <Field
               name="email"
               onInput={() => (touched.email = true)}
-              pattern="[a-z0-9]+@[a-z]+.[a-z]{2,3}"
+              pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
               type="email"
               className={getClasses(touched.email, errors.email)}
             />
@@ -112,6 +112,9 @@ const SignupForm = (props) => {
               ) : null}
             </Data>
             <Gender />
+
+
+
             <div className={classes.passwordDiv}>
               <div className={classes.passwordField}>
                 <label>Password</label>
@@ -154,7 +157,7 @@ const SignupForm = (props) => {
               </div>
             </div>
 
-            <button type="submit">Submit</button>
+            <button className={classes.submit} type="submit">Submit</button>
           </Form>
         )}
       </Formik>
