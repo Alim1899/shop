@@ -30,8 +30,6 @@ input[type="number"] {
   border-top-right-radius: 50px;
   border-top-left-radius: 5px;
   margin-top: 5px;
- 
-
   background-color: var(--lightText);
   max-width: 600px;
 
@@ -108,5 +106,15 @@ input[type="number"] {
 }
 
 .submit{
-  background-color: #3c7218;
+  width: 90%;
+  max-width: 140px;
+  margin: auto;
+  height: 40px;
+  box-shadow: 1px 3px 3px 4px #abcdef;
+  background-color: var(--icon);
+  color: var(--lightText);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family:monospace;
 }

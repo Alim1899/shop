@@ -1,27 +1,107 @@
-.login{
-  border: 1px solid red;
-  max-width: 600px;
-margin-left: 25%;  
+.login {
+  width: 95%;
+  max-width: 700px;
+  margin: auto;
+  border-radius: 15px;
+  background-color: var(--lightText);
+  background: rgba(7225, 223, 233, 0.7);
+  height: 73vh;
+
   display: flex;
-  
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
-.create{
-    width: 100px;
-  height: 30px;
-  border: none;
-  border-radius: 10px;
+.form {
+  border-radius: 15px;
+  width: 90%;
+  height: 80%;
+  background-color: var(--lightText);
+  opacity: 1;
+  color: red;
+  display: flex;
+  flex-direction: column;
+}
+.error {
+  font-size: 0.7rem;
+  text-align: center;
+}
+
+.form > label {
+  margin-top: 20px;
+  text-align: center;
+}
+.fom
+
+.form > div {
+  color: var(--invalid);
+}
+
+.form > input,
+.form > div > div > input {
   font-weight: 700;
-  color: var(--lightText);
-  font-size: 1rem;
-  background-color: #220235bb;
-  cursor: pointer;
-  text-transform: capitalize;
+  width: 80%;
+  margin: 0px auto;
+  min-width: 240px;
+  max-width: 250px;
+  border-radius: 17px;
+  height: 27px;
+  background-color: #fff6df93;
 }
-.newAcc{
-height: 18vh;
-display: flex;
-flex-direction: column;
-align-items: center;
-max-height: 350px;
-font-size: 1.5rem;
+
+.normal {
+  border: 2px solid var(--mediumtext);
+}
+.valid {
+  border: 2px solid var(--valid);
+}
+.invalid {
+  border: 2px solid var(--invalid);
+}
+
+.passwordDiv {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.showhide {
+  width: 30px;
+  margin-left: 210px;
+  margin-top: -35px;
+  font-size: 1.7rem;
+  color: darkolivegreen;
+}
+.passwordField,
+.confirmPasswordField {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.submit{
+  width: 90%;
+  max-width: 140px;
+  margin: auto;
+  height: 40px;
+  box-shadow: 1px 3px 3px 4px #abcdef;
+  background-color: var(--icon);
+  color: var(--lightText);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family:monospace;
+}
+.heading {
+  text-align: center;
+  margin: 0;
+  color: var(--icon);
+  font-size: 1.7rem;
+  font-weight: 800;
+  font-family:Arial, Helvetica, sans-serif;
+  background-color: #FFF5EE;
+  background-color: var(--lightText);
 }
