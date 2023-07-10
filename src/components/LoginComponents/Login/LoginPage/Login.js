@@ -33,7 +33,6 @@ const Login = (props) => {
   };
   return (
     <div className={classes.login}>
-
       <Formik
         validateOnChange
         initialValues={{
@@ -48,7 +47,7 @@ const Login = (props) => {
       >
         {({ errors, touched }) => (
           <Form className={classes.form}>
-          <h4 className={classes.heading}>Enter your account details</h4>
+            <h4 className={classes.heading}>Enter your account details</h4>
             <label>Email</label>
             <Field
               name="email"
@@ -83,6 +82,11 @@ const Login = (props) => {
               {errors.password && touched.password ? (
                 <div className={classes.error}>{errors.password}</div>
               ) : null}
+            </div>
+            <div className={classes.transfer}>
+              <span>
+                Don't have an account? <a href="signup">Sign up</a>
+              </span>
             </div>
 
             <button className={classes.submit} type="submit">
