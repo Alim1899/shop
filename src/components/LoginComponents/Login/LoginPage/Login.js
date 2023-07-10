@@ -85,7 +85,7 @@ const Login = (props) => {
             </div>
             <div className={classes.transfer}>
               <span>
-                Don't have an account? <a href="signup">Sign up</a>
+                Don't have an account? <a href="/signup">Sign up</a>
               </span>
             </div>
 
