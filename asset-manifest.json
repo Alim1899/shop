@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/shop/static/css/main.f16a9282.css",
+    "main.js": "/shop/static/js/main.6d29bc6d.js",
+    "static/js/787.23170c61.chunk.js": "/shop/static/js/787.23170c61.chunk.js",
+    "static/media/hike.jpeg": "/shop/static/media/hike.44b544ebe2207767e99e.jpeg",
+    "static/media/slide2.jpg": "/shop/static/media/slide2.337cf3a6ce6c4c751474.jpg",
+    "static/media/slide5.jpg": "/shop/static/media/slide5.a2231b1d6433ac61c3e6.jpg",
+    "static/media/slide3.jpg": "/shop/static/media/slide3.ff5222063a92d3435e37.jpg",
+    "static/media/slide1.jpg": "/shop/static/media/slide1.d29c431432d0038af107.jpg",
+    "static/media/slide4.jpeg": "/shop/static/media/slide4.18d8131545586191e99a.jpeg",
+    "static/media/logo.png": "/shop/static/media/logo.b2814fa4a637d71604d1.png",
+    "static/media/slick.svg": "/shop/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/shop/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/shop/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/shop/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/shop/index.html",
+    "main.f16a9282.css.map": "/shop/static/css/main.f16a9282.css.map",
+    "main.6d29bc6d.js.map": "/shop/static/js/main.6d29bc6d.js.map",
+    "787.23170c61.chunk.js.map": "/shop/static/js/787.23170c61.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f16a9282.css",
+    "static/js/main.6d29bc6d.js"
+  ]
+}
