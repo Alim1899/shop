@@ -1,5 +1,5 @@
 import React from "react";
-import Background from "./Background";
+import Content from "../Content/Content";
 import classes from "./Layout.module.css";
 import Popup from "./Popup";
 import Navbar from "./Navbar";
@@ -14,7 +14,7 @@ const Layout = (props) => {
       <div className={classes.navbar}>
         <Navbar />
       </div>
-      <Background />
+      <Content />
       <div className={classes.footer}>
         <Footer />
       </div>

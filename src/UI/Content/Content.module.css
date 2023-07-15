@@ -1,0 +1,13 @@
+.background {
+  overflow-x: hidden;
+}
+.back > img {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: -1;
+}
+.content{
+  width: 100%;
+  position: absolute;
+}

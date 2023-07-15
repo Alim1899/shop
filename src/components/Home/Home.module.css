@@ -1,0 +1,29 @@
+.shop {
+    position: absolute;
+     width: 100%;
+     margin-top: 7vh;
+     display: grid;
+     grid-template-columns: 50% 50%;
+     place-items: center;
+     row-gap: 20px;
+   }
+   .shop > button {
+     border: none;
+     background-color: #220235;
+     cursor: pointer;
+     border-radius: 20px;
+     color: #ece0e8;
+     font-size: 1.2em;
+    height: 150%;
+     min-width: 45vw;
+   }
+   .shop > button > span {
+     margin: 5px;
+   }
+   .slider {
+       position: absolute;
+       max-width: 80vw;
+       margin: 10vw;
+       margin-top: 30vh;
+    
+   }

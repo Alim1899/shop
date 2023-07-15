@@ -1,0 +1,43 @@
+* {
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+.page {
+  width: 98%;
+  margin: 0 auto;
+  height: 80vh;
+  border-radius: 50px;
+  text-align: center;
+  background-color: rgba(127, 255, 212, 0.473);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.page > div {
+  width: 80%;
+  height: 90%;
+  border-radius: 50px;
+  box-shadow: 5px 5px 5px 5px rgb(214, 218, 192);
+  background-color: rgb(214, 218, 192);
+
+  color:crimson;
+}
+.page > div > h1 {
+  font-size: 3rem;
+}
+.page > div > p {
+  font-size: 2.7rem;
+}
+.page>div>span{
+    font-size: 1.5rem;
+}
+.page>div>span>button{
+    background-color: whitesmoke;
+    border:none;
+    width: 100px;
+    height: 30px;
+    margin: 20px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+}

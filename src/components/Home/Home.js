@@ -6,8 +6,8 @@ import {
   faPerson,
   faChildren,
 } from "@fortawesome/free-solid-svg-icons";
-import ImageSlider from "../Slider/Slider";
-import classes from "./Background.module.css";
+import classes from "./Home.module.css";
+import ImageSlider from "./Slider/Slider";
 const Home = () => {
   return (
     <div>
