@@ -6,7 +6,7 @@ const LoginHandler = (props) => {
     fetch("https://hikemart-2877b-default-rtdb.firebaseio.com/emails.json")
       .then((response) => response.json())
       .then((data) => {
-        console.log(Object.entries(data));
+        // console.log(Object.entries(data));
       });
   };
   fetchData();

@@ -33,7 +33,8 @@ const Background = () => {
       setHomePage(false);
       setSignupPage(false);
 
-      console.log(window.location.pathname);
+      console.log("რაღაჩემიყლეგინდაა");
+
       return;
     } else {
       setErrorPage(true);
@@ -47,7 +48,7 @@ const Background = () => {
           {homePage && <Home />}
           {signupPage && <SignHandler />}
           {loginPage && <LoginHandler />}
-          {errorPage&&<ErrorPage/> }
+          {errorPage && <ErrorPage />}
         </div>
       </div>
     </div>
