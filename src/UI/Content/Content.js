@@ -1,26 +1,56 @@
-import React, { useState } from "react";
-import background from "../../assets/hike.jpeg";
 import Home from "../../components/Home/Home";
-import SignHandler from "../../components/LoginComponents/Data/SignHandler";
-import LoginHandler from "../../components/LoginComponents/Data/LoginHandler";
 import classes from "./Content.module.css";
+import Background from "./Background";
 import ErrorPage from "../Layout/ErrorPage/ErrorPage";
-
+import LoginHandler from "../../components/LoginComponents/Data/LoginHandler";
+import SignHandler from "../../components/LoginComponents/Data/SignHandler";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  Link,
+  Outlet,
+  RouterProvider,
+} from "react-router-dom";
 const Content = () => {
-  const [homePage, setHomePage] = useState(false);
-  const [signupPage, setSignupPage] = useState(false);
-  const [loginPage, setLoginPage] = useState(false);
-  const [errorPage, setErrorPage] = useState(false);
-  const pageHandler = () => {};
+ 
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path="/" element={<Root/>}>
+        <Route index element={<Home/>}/>
+        <Route path="login" element={<LoginHandler/>}/>
+        <Route path="signup" element={<SignHandler/>}/>
+        <Route path="error" element={<ErrorPage/>}/>
+      </Route>
+    )
+  )
+  
   return (
-    <div onLoad={pageHandler} className={classes.background}>
-      <div className={classes.back}>
-        <img alt="background" src={background}></img>
-        <div className={classes.content}>
-          <ErrorPage />
+    <div>
+      <Background/>
+       <div className={classes.content}>
         </div>
-      </div>
+        <RouterProvider router={router}/>
     </div>
+    
   );
 };
 export default Content;
+
+
+
+const Root = () => {
+  return (
+    <>
+      <div>
+        <Link to="/"></Link>
+        <Link to="/login"></Link>
+        <Link to="/signup"></Link>
+        <Link to="/error"></Link>
+      </div>
+      <div>
+        <Outlet />
+      </div>
+    </>
+  );
+};

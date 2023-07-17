@@ -14,7 +14,7 @@ const LoginHandler = (props) => {
   return (
     <div className={classes.loginPage}>
 
-      <Login handler={()=>window.location.pathname="signup"}/>
+      <Login/>
     </div>
   );
 };
