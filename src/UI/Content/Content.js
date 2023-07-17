@@ -13,31 +13,33 @@ import {
   RouterProvider,
 } from "react-router-dom";
 const Content = () => {
- 
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<Root/>}>
-        <Route index element={<Home/>}/>
-        <Route path="login" element={<LoginHandler/>}/>
-        <Route path="signup" element={<SignHandler/>}/>
-        <Route path="error" element={<ErrorPage/>}/>
+      <Route path="/" element={<Root />} errorElement={<ErrorPage />}>
+        <Route index element={<Home />} errorElement={<ErrorPage />} />
+        <Route
+          path="login"
+          element={<LoginHandler />}
+          errorElement={<ErrorPage />}
+        />
+        <Route
+          path="signup"
+          element={<SignHandler />}
+          errorElement={<ErrorPage />}
+        />
       </Route>
     )
-  )
-  
+  );
+
   return (
     <div>
-      <Background/>
-       <div className={classes.content}>
-        </div>
-        <RouterProvider router={router}/>
+      <Background />
+      <div className={classes.content}></div>
+      <RouterProvider router={router} />
     </div>
-    
   );
 };
 export default Content;
-
-
 
 const Root = () => {
   return (

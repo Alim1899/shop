@@ -8,7 +8,7 @@ const ErrorPage = () => {
     <div>
        <h1>Oooopsss.....</h1>
       <p>Something went wrong</p>
-      <span>return to main page:<button><FontAwesomeIcon icon={faHouse} /></button></span>
+      <span>return to main page:<a href="/"><FontAwesomeIcon icon={faHouse} /></a></span>
     </div>
      
     </div>
