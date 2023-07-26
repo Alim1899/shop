@@ -18,12 +18,12 @@ const Content = () => {
       <Route path="/" element={<Root />} errorElement={<ErrorPage />}>
         <Route index element={<Home />} errorElement={<ErrorPage />} />
         <Route
-          path="login"
+          path="/login"
           element={<LoginHandler />}
           errorElement={<ErrorPage />}
         />
         <Route
-          path="signup"
+          path="/signup"
           element={<SignHandler />}
           errorElement={<ErrorPage />}
         />
