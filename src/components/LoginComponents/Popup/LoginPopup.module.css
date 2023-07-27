@@ -1,0 +1,53 @@
+* {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+  --dark: #8739f9;
+  --light: #94d5f1;
+  --white: #f2f5f5;
+  --darktext: #565360;
+  --mediumtext: #908e9b;
+  --lightText: #e1dfe9;
+}
+.section > p {
+  font-size: 1.1rem;
+  color: #220235;
+  font-weight: 600;
+  margin-top: -25px;
+}
+.sign,
+.login {
+  background-color: #220235;
+  color: #ece0e8;
+  width: 70%;
+  height: 50px;
+  border: none;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-family: monospace;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.section {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  grid-template-rows: 35% 45% 5%;
+}
+.section {
+  height: 100%;
+  background-color: #ece0e8f8;
+  width: 100%;
+  border-radius: 40px;
+}
+a:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+
+
+
+

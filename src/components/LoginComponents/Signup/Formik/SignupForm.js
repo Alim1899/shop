@@ -2,9 +2,9 @@ import React from "react";
 import { useState } from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
-import Data from '../Number/Data/Data'
+import Data from "../Number/Data/Data";
 import classes from "./SignupForm.module.css";
-import Gender from '../Gender'
+import Gender from "../Gender";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
@@ -24,7 +24,10 @@ const SignupForm = (props) => {
       .min(2, "Too Short!")
       .max(50, "Too Long!")
       .required("Required"),
-    email: Yup.string().email("Invalid email").required("Required").matches(/^(?!.*@[^,]*,)/),
+    email: Yup.string()
+      .email("Invalid email")
+      .required("Required")
+      .matches(/^(?!.*@[^,]*,)/),
     number: Yup.string()
       .min(4, "Invalid number")
       .max(30, "Invalid number")
@@ -51,7 +54,6 @@ const SignupForm = (props) => {
 
   return (
     <div className={classes.back}>
-      <h4 className={classes.heading}>Fill all fields for Sign Up</h4>
       <Formik
         validateOnChange
         initialValues={{
@@ -70,6 +72,8 @@ const SignupForm = (props) => {
       >
         {({ errors, touched }) => (
           <Form className={classes.form}>
+            <h4 className={classes.heading}>Fill all fields for Sign Up</h4>
+
             <label>Firstname</label>
             <Field
               name="firstName"
@@ -102,6 +106,7 @@ const SignupForm = (props) => {
 
             <Data>
               <Field
+              
                 name="number"
                 type="number"
                 className={getClasses(touched.number, errors.number)}
@@ -112,8 +117,6 @@ const SignupForm = (props) => {
               ) : null}
             </Data>
             <Gender />
-
-
 
             <div className={classes.passwordDiv}>
               <div className={classes.passwordField}>
@@ -157,7 +160,9 @@ const SignupForm = (props) => {
               </div>
             </div>
 
-            <button className={classes.submit} type="submit">Submit</button>
+            <button className={classes.submit} type="submit">
+              Submit
+            </button>
           </Form>
         )}
       </Formik>

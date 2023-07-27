@@ -7,7 +7,7 @@
   --lightText: #e1dfe9;
   --valid: #3c7218;
   --invalid: #b40e0e;
-  --icon:#220235;
+  --icon: #220235;
 }
 ::placeholder {
   color: var(--darktext);
@@ -26,35 +26,57 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
-.form {
-  border-top-right-radius: 50px;
-  border-top-left-radius: 5px;
-  margin-top: 5px;
-  background-color: var(--lightText);
-  max-width: 600px;
-
+.back {
+  width: 100%;
+  max-width: 700px;
   margin: auto;
+  border-radius: 15px;
+  background-color: var(--lightText);
+  background: rgba(7225, 223, 233, 0.7);
+  height: 73vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
+.form {
+  border-radius: 15px;
+  width: 90%;
+  height: 80%;
+  background-color: var(--lightText);
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: scroll;
+}
 .error {
   font-size: 0.7rem;
   text-align: center;
+  color: red;
+  font-weight: 700;
 }
 .heading {
   text-align: center;
   margin: 0;
-  color: darkolivegreen;
+  margin-top: 230px;
+  color: var(--icon);
   font-size: 1.7rem;
   font-weight: 800;
-  font-family:Arial, Helvetica, sans-serif;
-  background-color: #FFF5EE;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #fff5ee;
+  background-color: var(--lightText);
 }
 .form > label,
 .form > button {
   margin-top: 20px;
+}
+.form>label, .form>div>div>label{
+  font-size: 1.1em;
+  color: #140202;
+  font-weight: 500;
+  margin-bottom: 5px;
 }
 
 .form > div {
@@ -64,22 +86,26 @@ input[type="number"] {
 .form > input,
 .form > div > div > input {
   font-weight: 700;
-  width: 80%;
-  margin: 0px auto;
+  width: 90%;
   min-width: 240px;
   max-width: 250px;
   border-radius: 17px;
-  height: 27px;
+  height: 25px;
   background-color: #fff6df93;
 }
 
 .normal {
+  outline: none;
   border: 2px solid var(--mediumtext);
 }
 .valid {
+  outline: none;
+
   border: 2px solid var(--valid);
 }
 .invalid {
+  outline: none;
+
   border: 2px solid var(--invalid);
 }
 
@@ -105,7 +131,14 @@ input[type="number"] {
   align-items: center;
 }
 
-.submit{
+
+
+
+
+
+
+
+.submit {
   width: 90%;
   max-width: 140px;
   margin: auto;
@@ -116,5 +149,7 @@ input[type="number"] {
   font-size: 1.5rem;
   font-weight: 700;
   text-transform: uppercase;
-  font-family:monospace;
+  font-family: monospace;
+  margin-bottom: 20px;
 }
+

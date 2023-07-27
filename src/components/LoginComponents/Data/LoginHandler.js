@@ -1,4 +1,4 @@
-import Login from "../Login/LoginPage/Login";
+import Login from "../Login/Login";
 import classes from "./LoginHandler.module.css";
 const LoginHandler = (props) => {
   //Fetching data from firebase

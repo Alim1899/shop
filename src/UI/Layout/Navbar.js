@@ -7,7 +7,7 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import classes from "./Navbar.module.css";
-import LoginPopup from "../../components/LoginComponents/Login/Popup/LoginPopup";
+import LoginPopup from "../../components/LoginComponents/Popup/LoginPopup";
 import Cart from "../../components/Cart/Cart";
 const Navbar = (props) => {
   const [loginPopup, showPopup] = useState(false);

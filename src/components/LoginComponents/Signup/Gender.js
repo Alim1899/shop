@@ -1,9 +1,19 @@
 const Gender = (props) => {
   return (
-    <div>
+    <div style={{ marginTop: "50px" }}>
       <label>
         Gender
-        <select id="gender">
+        <select
+          style={{
+            border: "none",
+            backgroundColor: "#fff6df93",
+            height: "35px",
+            fontSize: "1rem",
+            fontWeight: "500",
+            marginLeft: "5px",
+          }}
+          id="gender"
+        >
           <option id="gender" value="Unisex">
             Prefer not to say
           </option>

@@ -1,7 +1,7 @@
 import React from "react";
 import Content from "../Content/Content";
 import classes from "./Layout.module.css";
-import Popup from "./Popup";
+import Popup from "../../Popup/Popup";
 import Navbar from "./Navbar";
 
 import Footer from "../../components/Footer/Footer";

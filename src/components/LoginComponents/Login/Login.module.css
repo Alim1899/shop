@@ -1,5 +1,5 @@
 .login {
-  width: 90%;
+  width: 100%;
   max-width: 700px;
   margin: auto;
   border-radius: 15px;
@@ -30,9 +30,9 @@
   font-weight: 700;
 }
 
-.form > label {
-  margin-top: 20px;
-  text-align: center;
+.form>label, .form>div>label{
+  font-size: 1.1em;
+  font-weight: 500;
 }
 
 
@@ -42,21 +42,26 @@
   font-weight: 700;
   width: 90%;
   margin: 0px auto;
+  margin-bottom: 20px;
   min-width: 240px;
   max-width: 250px;
   border-radius: 17px;
-  border: 1px solid red;
   height: 25px;
   background-color: #fff6df93;
 }
 
 .normal {
+  outline: none;
   border: 2px solid var(--mediumtext);
 }
 .valid {
+  outline: none;
+
   border: 2px solid var(--valid);
 }
 .invalid {
+  outline: none;
+
   border: 2px solid var(--invalid);
 }
 
@@ -70,12 +75,10 @@
 .showhide {
   width: 30px;
   margin-left: 210px;
-  margin-top: -35px;
+  margin-top: -54px;
   font-size: 1.7rem;
   color: darkolivegreen;
 }
-
-
 
 .submit{
   width: 90%;
@@ -89,22 +92,21 @@
   font-weight: 700;
   text-transform: uppercase;
   font-family:monospace;
+  border-radius: 15px;
 }
 .heading {
   text-align: center;
-  margin: 0;
-  margin-top: 35px;
   color: var(--icon);
-  font-size: 1.7rem;
+  font-size: 1.7em;
   font-weight: 800;
-  font-family:Arial, Helvetica, sans-serif;
-  background-color: #FFF5EE;
-  background-color: var(--lightText);
+
+}
+
+.transfer>span>a{
+ 
+  font-weight: 700;
+
 }
 .transfer{
-margin: 0;
-color: var(--icon);
-}
-.transfer>span>a{
-  font-weight: 700;
+  margin-top: 15px;
 }
