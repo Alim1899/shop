@@ -1,7 +1,7 @@
 const Gender = (props) => {
   return (
     <div style={{ marginTop: "50px" }}>
-      <label>
+      <label style={{color:'black', fontWeight:'700'}}>
         Gender
         <select
           style={{
