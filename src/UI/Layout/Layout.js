@@ -4,6 +4,7 @@ import classes from "./Layout.module.css";
 import Popup from "../../Popup/Popup";
 import Navbar from "./Navbar";
 
+
 import Footer from "../../components/Footer/Footer";
 const Layout = (props) => {
   return (

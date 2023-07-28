@@ -32,7 +32,7 @@ const Login = (props) => {
     if (touched && error) return classes.invalid;
   };
   return (
-    <div className={classes.login}>
+   <div className={classes.parent}><div className={classes.login}>
       <Formik
         validateOnChange
         initialValues={{
@@ -95,7 +95,7 @@ const Login = (props) => {
           </Form>
         )}
       </Formik>
-    </div>
+    </div></div> 
   );
 };
 

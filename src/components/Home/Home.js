@@ -10,25 +10,25 @@ import classes from "./Home.module.css";
 import ImageSlider from "./Slider/Slider";
 const Home = () => {
   return (
-    <div>
+    <div className={classes.home}>
       <div className={classes.back}>
-        {" "}
+        
         <div className={classes.shop}>
           <button>
             <FontAwesomeIcon icon={faPerson} />
-            <span>Man</span>
+            <a href="man">Man</a>
           </button>
           <button>
             <FontAwesomeIcon icon={faPersonDress} />
-            <span>Woman</span>
+            <a href="man">Woman</a>
           </button>
           <button>
             <FontAwesomeIcon icon={faChildren} />
-            <span>Kid's</span>
+            <a href="man">Kid's</a>
           </button>
           <button>
             <FontAwesomeIcon icon={faPersonHalfDress} />
-            <span>Unisex</span>
+            <a href="man">Unisex</a>
           </button>
         </div>
       </div>
@@ -36,9 +36,7 @@ const Home = () => {
       <div className={classes.slider}>
         <ImageSlider />
       </div>
-      <div className={classes.slider}>
-        <ImageSlider />
-      </div>
+      
     </div>
   );
 };

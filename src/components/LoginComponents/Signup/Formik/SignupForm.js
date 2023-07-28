@@ -53,119 +53,125 @@ const SignupForm = (props) => {
   };
 
   return (
-    <div className={classes.back}>
-      <Formik
-        validateOnChange
-        initialValues={{
-          firstName: "",
-          lastName: "",
-          email: "",
-          number: "",
-          password: "",
-          confirmPassword: "",
-        }}
-        validationSchema={SignupSchema}
-        onSubmit={(values) => {
-          // same shape as initial values
-          console.log(values);
-        }}
-      >
-        {({ errors, touched }) => (
-          <Form className={classes.form}>
-            <h4 className={classes.heading}>Fill all fields for Sign Up</h4>
+    <div className={classes.parent}>
+      <div className={classes.back}>
+        <Formik
+          validateOnChange
+          initialValues={{
+            firstName: "",
+            lastName: "",
+            email: "",
+            number: "",
+            password: "",
+            confirmPassword: "",
+          }}
+          validationSchema={SignupSchema}
+          onSubmit={(values) => {
+            // same shape as initial values
+            console.log(values);
+          }}
+        >
+          {({ errors, touched }) => (
+            <Form className={classes.form}>
+              <h4 className={classes.heading}>Fill all fields for Sign Up</h4>
 
-            <label>Firstname</label>
-            <Field
-              name="firstName"
-              onInput={() => (touched.firstName = true)}
-              className={getClasses(touched.firstName, errors.firstName)}
-            />
-            {errors.firstName && touched.firstName ? (
-              <div className={classes.error}>{errors.firstName}</div>
-            ) : null}
-            <label>Lastname</label>
-            <Field
-              name="lastName"
-              onInput={() => (touched.lastName = true)}
-              className={getClasses(touched.lastName, errors.lastName)}
-            />
-            {errors.lastName && touched.lastName ? (
-              <div className={classes.error}>{errors.lastName}</div>
-            ) : null}
-            <label>Email</label>
-            <Field
-              name="email"
-              onInput={() => (touched.email = true)}
-              pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
-              type="email"
-              className={getClasses(touched.email, errors.email)}
-            />
-            {errors.email && touched.email ? (
-              <div className={classes.error}>{errors.email}</div>
-            ) : null}
-
-            <Data>
+              <label>Firstname</label>
               <Field
-              
-                name="number"
-                type="number"
-                className={getClasses(touched.number, errors.number)}
+                name="firstName"
+                onInput={() => (touched.firstName = true)}
+                className={getClasses(touched.firstName, errors.firstName)}
               />
-
-              {errors.number && touched.number ? (
-                <div className={classes.error}>{errors.number}</div>
+              {errors.firstName && touched.firstName ? (
+                <div className={classes.error}>{errors.firstName}</div>
               ) : null}
-            </Data>
-            <Gender />
+              <label>Lastname</label>
+              <Field
+                name="lastName"
+                onInput={() => (touched.lastName = true)}
+                className={getClasses(touched.lastName, errors.lastName)}
+              />
+              {errors.lastName && touched.lastName ? (
+                <div className={classes.error}>{errors.lastName}</div>
+              ) : null}
+              <label>Email</label>
+              <Field
+                name="email"
+                onInput={() => (touched.email = true)}
+                pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
+                type="email"
+                className={getClasses(touched.email, errors.email)}
+              />
+              {errors.email && touched.email ? (
+                <div className={classes.error}>{errors.email}</div>
+              ) : null}
 
-            <div className={classes.passwordDiv}>
-              <div className={classes.passwordField}>
-                <label>Password</label>
-
+              <Data>
                 <Field
-                  name="password"
-                  type={showPass ? "text" : "password"}
-                  className={getClasses(touched.password, errors.password)}
-                ></Field>
-                <div className={classes.showhide}>
-                  {showPass ? (
-                    <FontAwesomeIcon
-                      onClick={changeVisibility}
-                      icon={faEyeSlash}
-                    />
-                  ) : (
-                    <FontAwesomeIcon onClick={changeVisibility} icon={faEye} />
-                  )}
-                </div>
-
-                {errors.password && touched.password ? (
-                  <div className={classes.error}>{errors.password}</div>
-                ) : null}
-              </div>
-
-              <div className={classes.confirmPasswordField}>
-                <label>Confirm password</label>
-                <Field
-                  name="confirmPassword"
-                  type={showPass ? "text" : "password"}
-                  className={getClasses(
-                    touched.confirmPassword,
-                    errors.confirmPassword
-                  )}
+                  name="number"
+                  type="number"
+                  className={getClasses(touched.number, errors.number)}
                 />
 
-                {errors.confirmPassword && touched.confirmPassword ? (
-                  <div className={classes.error}>{errors.confirmPassword}</div>
+                {errors.number && touched.number ? (
+                  <div className={classes.error}>{errors.number}</div>
                 ) : null}
-              </div>
-            </div>
+              </Data>
+              <Gender />
 
-            <button className={classes.submit} type="submit">
-              Submit
-            </button>
-          </Form>
-        )}
-      </Formik>
+              <div className={classes.passwordDiv}>
+                <div className={classes.passwordField}>
+                  <label>Password</label>
+
+                  <Field
+                    name="password"
+                    type={showPass ? "text" : "password"}
+                    className={getClasses(touched.password, errors.password)}
+                  ></Field>
+                  <div className={classes.showhide}>
+                    {showPass ? (
+                      <FontAwesomeIcon
+                        onClick={changeVisibility}
+                        icon={faEyeSlash}
+                      />
+                    ) : (
+                      <FontAwesomeIcon
+                        onClick={changeVisibility}
+                        icon={faEye}
+                      />
+                    )}
+                  </div>
+
+                  {errors.password && touched.password ? (
+                    <div className={classes.error}>{errors.password}</div>
+                  ) : null}
+                </div>
+
+                <div className={classes.confirmPasswordField}>
+                  <label>Confirm password</label>
+                  <Field
+                    name="confirmPassword"
+                    type={showPass ? "text" : "password"}
+                    className={getClasses(
+                      touched.confirmPassword,
+                      errors.confirmPassword
+                    )}
+                  />
+
+                  {errors.confirmPassword && touched.confirmPassword ? (
+                    <div className={classes.error}>
+                      {errors.confirmPassword}
+                    </div>
+                  ) : null}
+                </div>
+              </div>
+
+              <button className={classes.submit} type="submit">
+                Submit
+              </button>
+            </Form>
+          )}
+        </Formik>
+      </div>
     </div>
   );
 };
