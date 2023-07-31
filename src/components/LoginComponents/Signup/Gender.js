@@ -5,12 +5,14 @@ const Gender = (props) => {
         Gender
         <select
           style={{
-            border: "none",
+            border: "2px solid #908e9b",
             backgroundColor: "#fff6df93",
             height: "35px",
             fontSize: "1rem",
             fontWeight: "500",
             marginLeft: "5px",
+            borderRadius:'20px'
+           
           }}
           id="gender"
         >

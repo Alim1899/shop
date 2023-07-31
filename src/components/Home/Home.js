@@ -20,15 +20,15 @@ const Home = () => {
           </button>
           <button>
             <FontAwesomeIcon icon={faPersonDress} />
-            <a href="man">Woman</a>
+            <a href="woman">Woman</a>
           </button>
           <button>
             <FontAwesomeIcon icon={faChildren} />
-            <a href="man">Kid's</a>
+            <a href="kids">Kid's</a>
           </button>
           <button>
             <FontAwesomeIcon icon={faPersonHalfDress} />
-            <a href="man">Unisex</a>
+            <a href="unisex">Unisex</a>
           </button>
         </div>
       </div>

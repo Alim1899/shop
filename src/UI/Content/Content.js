@@ -3,7 +3,7 @@ import classes from "./Content.module.css";
 import Background from "./Background";
 import ErrorPage from "../Layout/ErrorPage/ErrorPage";
 import LoginHandler from "../../components/LoginComponents/Data/LoginHandler";
-import SignHandler from "../../components/LoginComponents/Data/SignHandler";
+import SignupForm from "../../components/LoginComponents/Signup/Formik/SignupForm";
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -24,7 +24,7 @@ const Content = () => {
         />
         <Route
           path="/signup"
-          element={<SignHandler />}
+          element={<SignupForm />}
           errorElement={<ErrorPage />}
         />
       </Route>

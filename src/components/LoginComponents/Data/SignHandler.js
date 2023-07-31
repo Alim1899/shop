@@ -1,52 +1,40 @@
-import SignupForm from "../Signup/Formik/SignupForm";
-const Sign = (props) => {
-
-  const sendData = () => {
-    let obj = Object.keys(sessionStorage).reduce(function (obj, key) {
-      obj[key] = sessionStorage.getItem(key);
-      return obj;
-    }, {});
-
-    fetch("https://hikemart-2877b-default-rtdb.firebaseio.com/users.json", {
-      method: "POST",
-      body: JSON.stringify(obj),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    fetch("https://hikemart-2877b-default-rtdb.firebaseio.com/emails.json", {
-      method: "POST",
-      body: JSON.stringify({
-        email: obj.email ? obj.email : null,
-        password: obj.password ? obj.password : null,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-  };
+const Sign = async (values) => {
   const emails = [];
-  const getData = async () => {
-    fetch("https://hikemart-2877b-default-rtdb.firebaseio.com/users.json")
-      .then((response) => response.json())
-      .then((data) => {
-        if (data) {
-          Object.entries(data).forEach((el) => {
-            emails.push(el[1].email);
-          });
-        }
-      });
-  };
-sendData();
-  getData();
+  await fetch("https://hikemart-2877b-default-rtdb.firebaseio.com/users.json")
+    .then((response) => response.json())
+    .then((data) => {
+      Object.entries(data).map((el) => emails.push(el[1].email));
+    });
 
-  return (
-    <div>
-      <SignupForm/>
-
-      
-    </div>
-  );
+  if (emails.includes(values.email)) {
+    console.log("THis email exist");
+    return <>
+      <h2 styles={{position:'absolute'}}>This email already registered</h2>
+    </>
+  } else {
+    console.log("Registered");
+    await fetch(
+      "https://hikemart-2877b-default-rtdb.firebaseio.com/users.json",
+      {
+        method: "POST",
+        body: JSON.stringify(values),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+  }
 };
 
 export default Sign;
+// fetch("https://hikemart-2877b-default-rtdb.firebaseio.com/emails.json", {
+//       method: "POST",
+
+//       body: JSON.stringify({
+//         email: value.email ? value.email : 'null',
+//         password: value.password ? value.password : 'null',
+//       }),
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//     });

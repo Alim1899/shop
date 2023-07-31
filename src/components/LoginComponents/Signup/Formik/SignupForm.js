@@ -8,6 +8,7 @@ import Gender from "../Gender";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import Sign from "../../Data/SignHandler";
 
 const SignupForm = (props) => {
   const [showPass, setShowPass] = useState(false);
@@ -64,11 +65,12 @@ const SignupForm = (props) => {
             number: "",
             password: "",
             confirmPassword: "",
+            id:Math.round(Math.random()*1000),
           }}
           validationSchema={SignupSchema}
           onSubmit={(values) => {
             // same shape as initial values
-            console.log(values);
+          Sign(values)
           }}
         >
           {({ errors, touched }) => (
