@@ -4,8 +4,13 @@ import classes from "./SignHandler.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown, faRightToBracket } from "@fortawesome/free-solid-svg-icons";
 const SignHandler = () => {
-  const [userIsExist, setUserIsExist] = useState(false);
   const [newUser, setNewUser] = useState(false);
+  const [userIsExist, setUserIsExist] = useState(false);
+  const handler = e =>{
+    e.preventDefault();
+    setUserIsExist(false);
+    setNewUser(false);
+  }
   const sign = async (values) => {
     const emails = [];
     await fetch("https://hikemart-2877b-default-rtdb.firebaseio.com/users.json")
@@ -15,10 +20,12 @@ const SignHandler = () => {
       });
 
     if (emails.includes(values.email)) {
-      console.log("THis email exist");
+      console.log('User exist');
+      setUserIsExist(true);
       return;
     } else {
-      console.log("Registered");
+      console.log('Succes');
+      setNewUser(true);
       await fetch(
         "https://hikemart-2877b-default-rtdb.firebaseio.com/users.json",
         {
@@ -33,24 +40,24 @@ const SignHandler = () => {
   };
   return (
     <div>
-      <div className={classes.exist}>
+      {userIsExist&&<div className={classes.exist}>
         <h2>This email is already registered</h2>
         <h4>Forgot password? restore it <a href="restore">Here</a></h4>
-         <button className={classes.close}>
+         <button className={classes.close} onClick={handler}>
           {" "}
           <FontAwesomeIcon icon={faCaretDown} />
           <h6>Close</h6>
         </button>
-      </div>
-      <div className={classes.succes}>
+      </div>}
+      {newUser&&<div className={classes.succes}>
         <h2>Succesfully registered new user</h2>
        <h4>Log in to your account</h4>
-       <a href="login" className={classes.close}>
+       <a href="login" className={classes.close}  >
           {" "}
           <FontAwesomeIcon icon={faRightToBracket} />
           <h6>Login</h6>
         </a>
-      </div>
+      </div>}
       <SignupForm sign={sign} />
     </div>
   );
