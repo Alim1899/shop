@@ -70,7 +70,7 @@ const SignupForm = (props) => {
           validationSchema={SignupSchema}
           onSubmit={(values) => {
             // same shape as initial values
-          Sign(values)
+          props.sign(values)
           }}
         >
           {({ errors, touched }) => (
