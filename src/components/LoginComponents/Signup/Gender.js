@@ -4,6 +4,8 @@ const Gender = (props) => {
       <label style={{color:'#140202', fontWeight:'600'}}>
         Gender
         <select
+        name={props.name}
+        className={props.className}
           style={{
             border: "2px solid #908e9b",
             backgroundColor: "#fff6df93",

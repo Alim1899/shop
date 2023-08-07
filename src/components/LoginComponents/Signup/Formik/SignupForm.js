@@ -46,9 +46,9 @@ const SignupForm = (props) => {
       .required("Confirm password")
       .oneOf([Yup.ref("password"), null], "Passwords must match"),
     age: Yup.string()
-      
+
       .matches(/^[1-9]{0,2}$/, "Age must be between 1-99")
-      
+
       .required("Required"),
   });
   const getClasses = (touched, error) => {
@@ -70,11 +70,15 @@ const SignupForm = (props) => {
             password: "",
             age: "",
             confirmPassword: "",
-            id: Math.round(Math.random() * 1000),
+            gender: "",
+            id: "",
           }}
           validationSchema={SignupSchema}
           onSubmit={(values) => {
             // same shape as initial values
+            values.id = Math.round(Math.random() * 1000);
+            values.gender = document.getElementById('gender').value;
+            console.log(values);
             props.sign(values);
           }}
         >
@@ -123,20 +127,23 @@ const SignupForm = (props) => {
                   <div className={classes.error}>{errors.number}</div>
                 ) : null}
               </Data>
-              
-                <label>Age</label>
-                <Field
-                min="2"
-                  name="age"
-                  onInput={() => (touched.age = true)}
-                  type="number"
-                  className={getClasses(touched.age, errors.age)}
-                />
-                {errors.age && touched.age ? (
-                  <div className={classes.error}>{errors.age}</div>
-                ) : null}
-                <Gender/>
-              
+
+              <label>Age</label>
+              <Field
+                name="age"
+                onInput={() => (touched.age = true)}
+                type="number"
+                className={getClasses(touched.age, errors.age)}
+              />
+              {errors.age && touched.age ? (
+                <div className={classes.error}>{errors.age}</div>
+              ) : null}
+              <Gender
+                name="gender"
+                id='gender'
+                onSelect={() => (touched.gender = true)}
+                className={getClasses(touched.gender, errors.gender)}
+              />
 
               <div className={classes.passwordDiv}>
                 <div className={classes.passwordField}>
@@ -184,7 +191,6 @@ const SignupForm = (props) => {
                   ) : null}
                 </div>
               </div>
-              
 
               <button className={classes.submit} type="submit">
                 Submit
