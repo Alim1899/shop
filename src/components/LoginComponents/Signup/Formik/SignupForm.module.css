@@ -22,10 +22,8 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 /* Firefox */
-input[type="number"] {
-  -moz-appearance: textfield;
-}
-.parent{
+
+.parent {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -53,7 +51,6 @@ input[type="number"] {
   justify-content: center;
   align-items: center;
   overflow: scroll;
-
 }
 .error {
   font-size: 0.7rem;
@@ -64,7 +61,7 @@ input[type="number"] {
 .heading {
   text-align: center;
   margin: 0;
-  margin-top: 330px;
+  margin-top: 350px;
   color: var(--icon);
   font-size: 1.7rem;
   font-weight: 800;
@@ -76,7 +73,9 @@ input[type="number"] {
 .form > button {
   margin-top: 20px;
 }
-.form>label, .form>div>div>label{
+.form > label,
+.form > div > div > label,
+.form > div > label {
   font-size: 1.1em;
   color: #140202;
   font-weight: 500;
@@ -88,13 +87,14 @@ input[type="number"] {
 }
 
 .form > input,
-.form > div > div > input {
+.form > div > div > input,
+.form > div > input {
   font-weight: 700;
   width: 90%;
   min-width: 240px;
   max-width: 250px;
   border-radius: 17px;
-padding: 5px;
+  padding: 5px;
   background-color: #fff6df93;
 }
 
@@ -113,6 +113,9 @@ padding: 5px;
   border: 2px solid var(--invalid);
 }
 
+.age {
+  margin-top: 50px;
+}
 .passwordDiv {
   width: 100%;
   display: flex;
@@ -135,13 +138,6 @@ padding: 5px;
   align-items: center;
 }
 
-
-
-
-
-
-
-
 .submit {
   width: 90%;
   max-width: 140px;
@@ -156,8 +152,7 @@ padding: 5px;
   font-family: monospace;
   margin-bottom: 20px;
 }
-.submit:hover{
+.submit:hover {
   cursor: pointer;
   opacity: 0.8;
 }
-

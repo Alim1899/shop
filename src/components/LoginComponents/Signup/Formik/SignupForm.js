@@ -45,6 +45,11 @@ const SignupForm = (props) => {
       .max(15, "Maximum 15 Symbols")
       .required("Confirm password")
       .oneOf([Yup.ref("password"), null], "Passwords must match"),
+    age: Yup.string()
+      
+      .matches(/^[1-9]{0,2}$/, "Age must be between 1-99")
+      
+      .required("Required"),
   });
   const getClasses = (touched, error) => {
     if (!touched) return classes.normal;
@@ -63,6 +68,7 @@ const SignupForm = (props) => {
             email: "",
             number: "",
             password: "",
+            age: "",
             confirmPassword: "",
             id: Math.round(Math.random() * 1000),
           }}
@@ -117,7 +123,20 @@ const SignupForm = (props) => {
                   <div className={classes.error}>{errors.number}</div>
                 ) : null}
               </Data>
-              <Gender />
+              
+                <label>Age</label>
+                <Field
+                min="2"
+                  name="age"
+                  onInput={() => (touched.age = true)}
+                  type="number"
+                  className={getClasses(touched.age, errors.age)}
+                />
+                {errors.age && touched.age ? (
+                  <div className={classes.error}>{errors.age}</div>
+                ) : null}
+                <Gender/>
+              
 
               <div className={classes.passwordDiv}>
                 <div className={classes.passwordField}>
@@ -165,6 +184,7 @@ const SignupForm = (props) => {
                   ) : null}
                 </div>
               </div>
+              
 
               <button className={classes.submit} type="submit">
                 Submit
