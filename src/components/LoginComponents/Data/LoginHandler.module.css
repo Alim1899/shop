@@ -1,1 +1,54 @@
 
+.succes{
+    position: absolute;
+    width: 49.5vw;
+    min-width: 300px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    height: 50vh;
+    margin-top: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    z-index: 2;
+    color: #220235;
+    background-color: beige;
+    border-radius: 25px;
+    box-shadow: 5px 0px 5px 5px;
+    color: var(--valid);
+}
+.close {
+    padding: 0;
+    border: none;
+  
+    background-color: rgb(226, 202, 226);
+    cursor: pointer;
+    border: 1px solid #220235;
+    border-radius: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 140px;
+    height: 40px;
+    text-decoration: none;
+    color: #220235;
+  }
+  .close > svg {
+    color: #220235;
+    font-size: 2rem;
+    width: 1.2em;
+    height: 100%;
+    background-color: rgb(207, 159, 207);
+  }
+  .close > h6 {
+    text-align: center;
+    height: 100%;
+    margin-top: 0;
+    width: 100%;
+    font-size: 1.5rem;
+  }
+  
