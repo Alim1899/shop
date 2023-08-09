@@ -2,9 +2,13 @@ import Login from "../Login/Login";
 import classes from "./LoginHandler.module.css";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faRightToBracket } from "@fortawesome/free-solid-svg-icons";
+import {
+  faRightToBracket,
+  faCaretDown,
+} from "@fortawesome/free-solid-svg-icons";
 const LoginHandler = (props) => {
   const [rightUserDetails, setRightUserDetails] = useState(false);
+  const [wrongUserDetails, setWrongUserDetails] = useState(false);
   //Fetching data from firebase
   const enteredUser = [];
   const registeredUsers = [];
@@ -34,10 +38,8 @@ const LoginHandler = (props) => {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(Object.entries(data));
         if (data) enteredUser.pop();
         Object.entries(data).map((el) =>
-        
           enteredUser.push(Object.entries(el)[1][1])
         );
       });
@@ -50,23 +52,27 @@ const LoginHandler = (props) => {
         },
       }
     );
-    console.log(registeredUsers);
-    if (enteredUser.length > 0) {
-      registeredUsers.forEach((el) => {
-       
-        if (
-          enteredUser[0].email === el.email &&
-          enteredUser[0].password === el.password
-        ) {
-          console.log("User matches");
-         return setRightUserDetails(true);
-          
-        } else {
-          console.log("User not match");
-          console.log(enteredUser[0].email, el.email);
-          return setRightUserDetails(false);
-        }
-      });
+
+    for (let i = 0; i < registeredUsers.length; i++) {
+      
+      console.log(i);
+      if (
+        enteredUser[0].email === registeredUsers[i].email &&
+        enteredUser[0].password === registeredUsers[i].password
+      ) {
+        console.log("succes");
+        console.log(
+          enteredUser[0].email === registeredUsers[i].email &&
+            enteredUser[0].password === registeredUsers.password
+        );
+        setRightUserDetails(true);
+        return;
+      } else {
+        console.log("wrong");
+        setWrongUserDetails(true);
+        
+        if(rightUserDetails) setWrongUserDetails(false);
+      }
     }
   };
 
@@ -82,6 +88,20 @@ const LoginHandler = (props) => {
             <FontAwesomeIcon icon={faRightToBracket} />
             <h6>Browse</h6>
           </a>
+        </div>
+      )}
+      {wrongUserDetails&&!rightUserDetails && (
+        <div className={classes.error}>
+          <h2>Please enter correct account details</h2>
+
+          <button
+            className={classes.close}
+            onClick={() => setWrongUserDetails(false)}
+          >
+            {" "}
+            <FontAwesomeIcon icon={faCaretDown} />
+            <h6>Close</h6>
+          </button>
         </div>
       )}
     </div>

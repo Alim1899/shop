@@ -1,5 +1,5 @@
 
-.succes{
+.succes, .error{
     position: absolute;
     width: 49.5vw;
     min-width: 300px;
@@ -20,6 +20,9 @@
     border-radius: 25px;
     box-shadow: 5px 0px 5px 5px;
     color: var(--valid);
+}
+.error{
+  color: var(--invalid);
 }
 .close {
     padding: 0;

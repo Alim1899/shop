@@ -23,11 +23,11 @@ const SignHandler = () => {
       });
 
     if (emails.includes(values.email)) {
-      console.log("User exist");
+      // console.log("User exist");
       setUserIsExist(true);
       return;
     } else {
-      console.log("Succes");
+      //console.log("Succes");
       setNewUser(true);
       await fetch(
         "https://hikemart-2877b-default-rtdb.firebaseio.com/users.json",
