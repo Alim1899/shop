@@ -34,8 +34,10 @@ const LoginHandler = (props) => {
     )
       .then((response) => response.json())
       .then((data) => {
+        console.log(Object.entries(data));
         if (data) enteredUser.pop();
         Object.entries(data).map((el) =>
+        
           enteredUser.push(Object.entries(el)[1][1])
         );
       });
@@ -48,18 +50,21 @@ const LoginHandler = (props) => {
         },
       }
     );
+    console.log(registeredUsers);
     if (enteredUser.length > 0) {
-      registeredUsers.every((el) => {
+      registeredUsers.forEach((el) => {
+       
         if (
           enteredUser[0].email === el.email &&
           enteredUser[0].password === el.password
         ) {
           console.log("User matches");
-          setRightUserDetails(true);
-          return false;
+         return setRightUserDetails(true);
+          
         } else {
           console.log("User not match");
-          return false;
+          console.log(enteredUser[0].email, el.email);
+          return setRightUserDetails(false);
         }
       });
     }

@@ -20,11 +20,7 @@ const Login = (props) => {
     password: Yup.string()
       .min(6, "Minimum 6 Symbols")
       .max(15, "Maximum 15 Symbols")
-      .required("Enter your password")
-      .matches(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*-])(?=.{8,})/,
-        "Must Contain 6-15 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character"
-      ),
+      .required("Password required"),
   });
   const getClasses = (touched, error) => {
     if (!touched) return classes.normal;

@@ -45,11 +45,12 @@ const SignupForm = (props) => {
       .max(15, "Maximum 15 Symbols")
       .required("Confirm password")
       .oneOf([Yup.ref("password"), null], "Passwords must match"),
-    age: Yup.string()
+    age: Yup.number()
+    .integer()     
+      .min(14,"Too Young for shopping")
+      .max(99,"Please enter real age")
 
-      .matches(/^[1-9]{0,2}$/, "Age must be between 1-99")
-
-      .required("Required"),
+      .required("Required")
   });
   const getClasses = (touched, error) => {
     if (!touched) return classes.normal;
