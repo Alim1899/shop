@@ -1,6 +1,7 @@
 import Home from "../../components/Home/Home";
 import classes from "./Content.module.css";
 import Background from "./Background";
+import Reset from "../../components/Reset/Reset";
 import ErrorPage from "../Layout/ErrorPage/ErrorPage";
 import LoginHandler from "../../components/LoginComponents/Data/LoginHandler";
 import SignHandler from "../../components/LoginComponents/Data/SignHandler";
@@ -27,7 +28,14 @@ const Content = () => {
           element={<SignHandler />}
           errorElement={<ErrorPage />}
         />
+         <Route
+          path="/reset"
+          element={<Reset />}
+          errorElement={<ErrorPage />}
+        />
+
       </Route>
+      
     )
   );
 
@@ -48,6 +56,7 @@ const Root = () => {
         <Link to="/"></Link>
         <Link to="/login"></Link>
         <Link to="/signup"></Link>
+        <Link to="/reset"></Link>
         <Link to="/error"></Link>
       </div>
       <div>

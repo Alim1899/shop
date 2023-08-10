@@ -79,7 +79,6 @@ const SignupForm = (props) => {
             // same shape as initial values
             values.id = Math.round(Math.random() * 1000);
             values.gender = document.getElementById('gender').value;
-            console.log(values);
             props.sign(values);
           }}
         >
