@@ -28,7 +28,6 @@ input::-webkit-inner-spin-button {
   height: 100%;
 }
 .heading {
-  
   color: var(--icon);
   font-size: 1.7rem;
   font-weight: 800;

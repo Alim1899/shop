@@ -13,7 +13,7 @@ const Navbar = (props) => {
   const [loginPopup, showPopup] = useState(false);
   const [cart, showCart] = useState(false);
   const [count, setcount] = useState(0);
-  const [isLoggedIn,setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const showPopupHandler = (e) => {
     e.preventDefault();
@@ -27,9 +27,9 @@ const Navbar = (props) => {
     //Removal
     setcount(1);
   };
-  const logout = e =>{
+  const logout = (e) => {
     setIsLoggedIn(false);
-  }
+  };
 
   return (
     <div className={classes.navbar}>
@@ -57,16 +57,18 @@ const Navbar = (props) => {
             <Cart />
           </div>
         )}
-
-        {loginPopup && (
-          <div className={classes.popup}>
-            <LoginPopup isLoggedIn={isLoggedIn} logout={logout}/>
-          </div>
-        )}
         {isLoggedIn && <button style={{ fontWeight: "600" }}>Sell</button>}
-        <button onClick={showPopupHandler} className={classes.acc}>
-          <FontAwesomeIcon icon={faUser} />
-        </button>
+        <div className={classes.user}>
+          {loginPopup && (
+            <div className={classes.popup}>
+              <LoginPopup isLoggedIn={isLoggedIn} logout={logout} />
+            </div>
+          )}
+
+          <button onClick={showPopupHandler} className={classes.acc}>
+            <FontAwesomeIcon icon={faUser} />
+          </button>
+        </div>
       </div>
     </div>
   );

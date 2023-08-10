@@ -44,7 +44,8 @@
   border-radius: 10px;
 }
 .icons > button,
-.cartDiv > button {
+.cartDiv > button,
+.user>button {
   border: none;
   background: none;
   font-size: 1.5rem;
@@ -57,16 +58,46 @@
   border: none;
   background: none;
 }
+
 .popup {
   position: absolute;
   z-index: 1;
-  width: 60vw;
-  min-width: 250px;
-  max-width: 400px;
-  margin-left: -50vw;
-  height: 30vh;
-  max-height: 350px;
+  
+ min-width: 250px;
+ max-width: 350px;
+  margin-top: 60px;
+  margin-left: -255px;
+ 
 }
+@media  screen and (max-width: 500px) {
+  .popup {
+    width: 40vw;
+    margin-left: -214px;
+    height: 35vh;
+    max-height: 350px;
+  }
+}
+@media  screen and (min-width: 500px) {
+  .popup {
+    width: 60vw;
+    min-width: 250px;
+    max-width: 300px;
+    margin-left: -254px;
+    height: 35vh;
+    max-height: 350px;
+  }
+}
+@media  screen and (min-width: 1000px) {
+  .popup {
+    width: 60vw;
+    min-width: 250px;
+    max-width: 300px;
+    margin-left: -234px;
+    height: 35vh;
+    max-height: 350px;
+  }
+}
+
 /* Styling cart */
 .cartDiv {
   height: 3rem;
