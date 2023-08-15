@@ -15,17 +15,22 @@
     align-items: center;
     flex-direction: column;
     margin-top: 5vh;
+    overflow: scroll;
   }
-  .form {
-    border-radius: 15px;
+  .back{
     width: 90%;
     height: 80%;
     background-color: var(--lightText);
+ overflow: scroll;
+ border-radius: 15px;
+
+  }
+  .form {
     opacity: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow: scroll;
+   
   }
   .header {
     text-align: center;
@@ -34,7 +39,8 @@
     font-weight: 800;
   }
   .form > label,
-.form > div > label {
+.form > div > label,
+.form>div>div>label {
   font-size: 1.1em;
   font-weight: 500;
   text-align: center;
@@ -61,7 +67,7 @@
     border: 2px solid var(--invalid);
   }
 
-.form >input{
+.form >input,.form>div>div>label>input{
   font-weight: 700;
 
   width: 90%;
@@ -74,9 +80,8 @@
   margin-top: 10px;
   background-color: #fff6df93;
 }
-.check {
+.check, .submit {
     padding: 0;
-  
     background-color: rgb(226, 202, 226);
     cursor: pointer;
     border: 1px solid #220235;
@@ -106,3 +111,34 @@
   .spin{
     color: var(--darkText)
   }
+  .error{
+    margin-top: -15px;
+  }
+ 
+  .passwordDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .passwordField,.confirmPasswordField{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+ 
+  .submit{
+    font-size: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  .showhide{
+  
+   font-size: 1.7rem;
+   margin-top: -54px;
+   margin-left: 228px;
+  }
+
+  

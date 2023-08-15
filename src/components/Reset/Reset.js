@@ -6,12 +6,21 @@ import {
   faSpinner,
   faCircleCheck,
   faBan,
+  faEye,
+  faEyeSlash
 } from "@fortawesome/free-solid-svg-icons";
 import classes from "./Reset.module.css";
+
 const Reset = (props) => {
   const [spinner, setSpinner] = useState(false);
   const [rightEmail, setRightEmail] = useState(false);
   const [wrongEmail, setWrongEmail] = useState(false);
+  const [showPass, setShowPass] = useState(false);
+  const changeVisibility = (e) => {
+    e.preventDefault();
+    setShowPass(!showPass);
+  };
+
   const spin = () => {
     setRightEmail(false);
     setWrongEmail(false);
@@ -22,7 +31,7 @@ const Reset = (props) => {
     setSpinner(true);
   };
   const registeredUsers = [];
-  let enteredEmail;
+  let enteredEmail = "";
   const checkEmail = async (values) => {
     await fetch(
       "https://hikemart-2877b-default-rtdb.firebaseio.com/email.json",
@@ -78,6 +87,21 @@ const Reset = (props) => {
       .required("Required")
       .matches(/^(?!.*@[^,]*,)/),
   });
+  const PasswordSchema = Yup.object().shape({
+    password: Yup.string()
+    .min(6, "Minimum 6 Symbols")
+    .max(15, "Maximum 15 Symbols")
+    .required("Enter your password")
+    .matches(
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*-])(?=.{8,})/,
+      "Must Contain 6-15 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character"
+    ),
+  confirmPassword: Yup.string()
+    .min(6, "Minimum 6 Symbols")
+    .max(15, "Maximum 15 Symbols")
+    .required("Confirm password")
+    .oneOf([Yup.ref("password"), null], "Passwords must match"),
+  })
   const getClasses = (touched, error) => {
     if (!touched) return classes.normal;
     if (touched && !error) return classes.valid;
@@ -86,7 +110,7 @@ const Reset = (props) => {
   return (
     <div className={classes.parent}>
       <div className={classes.reset}>
-        <Formik
+      <div className={classes.back}><Formik
           validateOnChange
           initialValues={{
             email: "",
@@ -116,7 +140,13 @@ const Reset = (props) => {
 
               <button type="submit" name="submit" className={classes.check}>
                 <h6>
-                  {spinner && <FontAwesomeIcon className={classes.spin} icon={faSpinner} spin />}
+                  {spinner && (
+                    <FontAwesomeIcon
+                      className={classes.spin}
+                      icon={faSpinner}
+                      spin
+                    />
+                  )}
                   {rightEmail && (
                     <FontAwesomeIcon
                       className={classes.correct}
@@ -133,6 +163,73 @@ const Reset = (props) => {
             </Form>
           )}
         </Formik>
+        {rightEmail && (
+          <Formik
+            validateOnChange
+            initialValues={{
+              password: "",
+              confirmPassword:""
+            }}
+            validationSchema={PasswordSchema}
+            onSubmit={(values) => {
+              console.log(values);
+            }}
+            validator={() => ({})}
+          >
+              {({ errors, touched }) => (
+            <Form className={classes.form}>
+            <div className={classes.passwordDiv}>
+                <div className={classes.passwordField}>
+                  <label>Password
+
+                  <Field
+                    name="password"
+                    type={showPass ? "text" : "password"}
+                    className={getClasses(touched.password, errors.password)}
+                  ></Field></label>
+                  
+                  {errors.password && touched.password ? (
+                    <div className={classes.error}>{errors.password}</div>
+                  ) : null}
+                  <div className={classes.showhide}>
+                    {showPass ? (
+                      <FontAwesomeIcon
+                        onClick={changeVisibility}
+                        icon={faEyeSlash}
+                      />
+                    ) : (
+                      <FontAwesomeIcon
+                        onClick={changeVisibility}
+                        icon={faEye}
+                      />
+                    )}
+                  </div>
+                </div>
+                
+                <div className={classes.confirmPasswordField}>
+                  <label>Confirm password
+                  <Field
+                    name="confirmPassword"
+                    type={showPass ? "text" : "password"}
+                    className={getClasses(
+                      touched.confirmPassword,
+                      errors.confirmPassword
+                    )}
+                  ></Field></label>
+
+                  {errors.confirmPassword && touched.confirmPassword ? (
+                    <div className={classes.error}>
+                      {errors.confirmPassword}
+                    </div>
+                  ) : null}
+                </div>
+              </div>
+            <button className={classes.submit} type="submit">Reset</button>
+            </Form>
+          )}
+          </Formik>
+        )}</div>
+        
       </div>
     </div>
   );
