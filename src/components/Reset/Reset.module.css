@@ -98,7 +98,8 @@
   .check > h6 {
     text-align: center;
     height: 100%;
-    margin-top: 0;
+    margin-top: 3px;
+    margin-left: 5px;
     width: 25%;
     font-size: 1.5rem;
   }
@@ -120,11 +121,15 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
+
   }
   .passwordField,.confirmPasswordField{
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+  .passwordField{
+
   }
  
   .submit{
@@ -135,10 +140,12 @@
     margin-bottom: 20px;
   }
   .showhide{
+    margin-top: -54px;
+    font-size: 1.7rem;
+    margin-left: 230px;
+    color: var(--valid);
+  position:sticky;
   
-   font-size: 1.7rem;
-   margin-top: -54px;
-   margin-left: 228px;
   }
 
   

@@ -29,6 +29,7 @@ const LoginHandler = (props) => {
         body: JSON.stringify(values),
         headers: {
           "Content-Type": "application/json",
+          
         },
       }
     );
@@ -49,6 +50,7 @@ const LoginHandler = (props) => {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
+          
         },
       }
     );
@@ -60,15 +62,12 @@ const LoginHandler = (props) => {
         enteredUser[0].email === registeredUsers[i].email &&
         enteredUser[0].password === registeredUsers[i].password
       ) {
-        console.log("succes");
-        console.log(
-          enteredUser[0].email === registeredUsers[i].email &&
-            enteredUser[0].password === registeredUsers.password
-        );
+       
+        
         setRightUserDetails(true);
         return;
       } else {
-        console.log("wrong");
+     
         setWrongUserDetails(true);
         
         if(rightUserDetails) setWrongUserDetails(false);

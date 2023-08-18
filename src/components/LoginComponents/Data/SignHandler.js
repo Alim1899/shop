@@ -19,15 +19,16 @@ const SignHandler = () => {
     await fetch("https://hikemart-2877b-default-rtdb.firebaseio.com/users.json")
       .then((response) => response.json())
       .then((data) => {
-        Object.entries(data).map((el) => emails.push(el[1].email));
+        if(data){
+        Object.entries(data).map((el) => emails.push(el[1].email));}
       });
 
     if (emails.includes(values.email)) {
-      // console.log("User exist");
+      
       setUserIsExist(true);
       return;
     } else {
-      //console.log("Succes");
+     
       setNewUser(true);
       await fetch(
         "https://hikemart-2877b-default-rtdb.firebaseio.com/users.json",
