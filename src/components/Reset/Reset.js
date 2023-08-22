@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -17,9 +17,10 @@ const Reset = (props) => {
   const [wrongEmail, setWrongEmail] = useState(false);
   const [showPass, setShowPass] = useState(false);
   const [emailState, setEmailState] = useState("");
+  const [resetValues, setResetValues] = useState({});
+  const [idForResetedUser, setIdForResetedUser] = useState("");
   const registeredUserEmails = [];
   let enteredEmail = "";
-  
 
   const changeVisibility = (e) => {
     e.preventDefault();
@@ -88,25 +89,46 @@ const Reset = (props) => {
   };
   fetchData();
 
-
-
   const changePassword = async (values) => {
     await fetch("https://hikemart-2877b-default-rtdb.firebaseio.com/users.json")
       .then((response) => response.json())
       .then((data) => {
-        for(let i=0; i<Object.entries(data).length; i++){
-          if(emailState===Object.entries(data)[i][1].email){
-            const newUser  = Object.assign(Object.entries(data)[i][1])
-            newUser.password=values.password;
-            newUser.confirmPassword=values.confirmPassword;
-            console.log(newUser);
+        for (let i = 0; i < Object.entries(data).length; i++) {
+          if (emailState === Object.entries(data)[i][1].email) {
+            setIdForResetedUser(Object.entries(data)[i][0]);
+            const newUser = Object.assign(Object.entries(data)[i][1]);
+            newUser.password = values.password;
+            newUser.confirmPassword = values.confirmPassword;
+            //console.log(newUser);
+            setResetValues((resetValues) => ({
+              ...resetValues,
+              ...newUser,
+            }));
             return;
           }
         }
       });
   };
-  
+  useEffect(() => {
+    if (resetValues.email) {
+      fetch(
+    `https://hikemart-2877b-default-rtdb.firebaseio.com/users/${idForResetedUser}.json`,
+    {
+      method: "DELETE",
+      
+    }
+  )
+      fetch("https://hikemart-2877b-default-rtdb.firebaseio.com/users.json", {
+        method: "POST",
+        body: JSON.stringify(resetValues),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+    }
+  }, [resetValues, idForResetedUser]);
 
+  
   const SignupSchema = Yup.object().shape({
     email: Yup.string()
       .email("Invalid email")
@@ -144,7 +166,6 @@ const Reset = (props) => {
             }}
             validationSchema={SignupSchema}
             onSubmit={(values) => {
-              
               checkEmail(values);
             }}
             validator={() => ({})}
