@@ -9,7 +9,7 @@ import {
 const LoginHandler = (props) => {
   const [rightUserDetails, setRightUserDetails] = useState(false);
   const [wrongUserDetails, setWrongUserDetails] = useState(false);
-  //Fetching data from firebase
+ 
   const enteredUser = [];
   const registeredUsers = [];
   const fetchData = async () => {
@@ -29,7 +29,6 @@ const LoginHandler = (props) => {
         body: JSON.stringify(values),
         headers: {
           "Content-Type": "application/json",
-          
         },
       }
     );
@@ -50,27 +49,21 @@ const LoginHandler = (props) => {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
-          
         },
       }
     );
 
     for (let i = 0; i < registeredUsers.length; i++) {
-      
-      console.log(i);
       if (
         enteredUser[0].email === registeredUsers[i].email &&
         enteredUser[0].password === registeredUsers[i].password
       ) {
-       
-        
         setRightUserDetails(true);
         return;
       } else {
-     
         setWrongUserDetails(true);
-        
-        if(rightUserDetails) setWrongUserDetails(false);
+
+        if (rightUserDetails) setWrongUserDetails(false);
       }
     }
   };
@@ -89,7 +82,7 @@ const LoginHandler = (props) => {
           </a>
         </div>
       )}
-      {wrongUserDetails&&!rightUserDetails && (
+      {wrongUserDetails && !rightUserDetails && (
         <div className={classes.error}>
           <h2>Please enter correct account details</h2>
 

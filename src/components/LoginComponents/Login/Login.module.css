@@ -83,6 +83,7 @@
 }
 
 .submit {
+  cursor: pointer;
   width: 90%;
   max-width: 140px;
   margin: 5vh auto;

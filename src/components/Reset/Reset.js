@@ -7,6 +7,7 @@ import {
   faCircleCheck,
   faBan,
   faEye,
+  faRightToBracket,
   faEyeSlash,
 } from "@fortawesome/free-solid-svg-icons";
 import classes from "./Reset.module.css";
@@ -19,6 +20,8 @@ const Reset = (props) => {
   const [emailState, setEmailState] = useState("");
   const [resetValues, setResetValues] = useState({});
   const [idForResetedUser, setIdForResetedUser] = useState("");
+  const [rightUserDetails, setRightUserDetails] = useState(false);
+
   const registeredUserEmails = [];
   let enteredEmail = "";
 
@@ -108,16 +111,16 @@ const Reset = (props) => {
           }
         }
       });
+      setRightUserDetails(true);
   };
   useEffect(() => {
     if (resetValues.email) {
       fetch(
-    `https://hikemart-2877b-default-rtdb.firebaseio.com/users/${idForResetedUser}.json`,
-    {
-      method: "DELETE",
-      
-    }
-  )
+        `https://hikemart-2877b-default-rtdb.firebaseio.com/users/${idForResetedUser}.json`,
+        {
+          method: "DELETE",
+        }
+      );
       fetch("https://hikemart-2877b-default-rtdb.firebaseio.com/users.json", {
         method: "POST",
         body: JSON.stringify(resetValues),
@@ -126,9 +129,9 @@ const Reset = (props) => {
         },
       });
     }
+    
   }, [resetValues, idForResetedUser]);
 
-  
   const SignupSchema = Yup.object().shape({
     email: Yup.string()
       .email("Invalid email")
@@ -158,6 +161,19 @@ const Reset = (props) => {
   return (
     <div className={classes.parent}>
       <div className={classes.reset}>
+        {rightUserDetails && (
+          <div className={classes.succes}>
+            <h2>Your password was succesfully changed</h2>
+            <h4>Please log in to continue...</h4>
+            <a href="login" className={classes.close}>
+              {" "}
+              <button className={classes.loginBtn} type="button">
+                <FontAwesomeIcon icon={faRightToBracket} />
+                <h5>LOGIN</h5>
+              </button>
+            </a>
+          </div>
+        )}
         <div className={classes.back}>
           <Formik
             validateOnChange
@@ -212,6 +228,7 @@ const Reset = (props) => {
               </Form>
             )}
           </Formik>
+
           {rightEmail && (
             <Formik
               validateOnChange

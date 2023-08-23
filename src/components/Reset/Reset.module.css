@@ -128,9 +128,6 @@
     flex-direction: column;
     align-items: center;
   }
-  .passwordField{
-
-  }
  
   .submit{
     font-size: 1.5rem;
@@ -148,4 +145,45 @@
   
   }
 
+  .succes{
+    position: absolute;
+    width: 49.5vw;
+    min-width: 300px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    height: 50vh;
+    margin-top: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    z-index: 2;
+    color: #220235;
+    background-color: beige;
+    border-radius: 25px;
+    box-shadow: 5px 0px 5px 5px;
+    color: var(--valid);
+}
+.loginBtn{
+width: 120px;
+height: 30px;
+display: flex;
+cursor: pointer;
+border-radius: 15px;
+outline: none;
+border: 1px solid var(--valid);
+
+}
+.loginBtn>svg{
+  height: 100%;
+}
+.loginBtn>h5{
   
+  margin: 0;
+  margin-left: 5px;
+  font-size: 1.2rem;
+
+}
