@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import logo from "../../assets/logo.png";
+import AddItem from "../../components/Sell/AddItem/AddItem";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faMagnifyingGlass,
@@ -13,7 +14,7 @@ const Navbar = (props) => {
   const [loginPopup, showPopup] = useState(false);
   const [cart, showCart] = useState(false);
   const [count, setcount] = useState(0);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   const showPopupHandler = (e) => {
     e.preventDefault();
@@ -45,6 +46,11 @@ const Navbar = (props) => {
             <FontAwesomeIcon icon={faMagnifyingGlass} />
           </button>
         </div>
+        <div className={classes.sell}>
+        {isLoggedIn && <a href="/sell" className={classes.sellbtn}>Sell</a>}
+
+        
+        </div>
         <div className={classes.cartDiv} onClick={cartPopupHandler}>
           <button className={classes.cart}>
             <FontAwesomeIcon icon={faCartShopping} />
@@ -57,7 +63,6 @@ const Navbar = (props) => {
             <Cart />
           </div>
         )}
-        {isLoggedIn && <button style={{ fontWeight: "600" }}>Sell</button>}
         <div className={classes.user}>
           {loginPopup && (
             <div className={classes.popup}>

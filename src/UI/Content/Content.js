@@ -1,5 +1,6 @@
 import Home from "../../components/Home/Home";
 import classes from "./Content.module.css";
+import AddItem from "../../components/Sell/AddItem/AddItem";
 import Background from "./Background";
 import Reset from "../../components/Reset/Reset";
 import ErrorPage from "../Layout/ErrorPage/ErrorPage";
@@ -26,6 +27,11 @@ const Content = () => {
         <Route
           path="/signup"
           element={<SignHandler />}
+          errorElement={<ErrorPage />}
+        />
+        <Route
+          path="/sell"
+          element={<AddItem />}
           errorElement={<ErrorPage />}
         />
          <Route

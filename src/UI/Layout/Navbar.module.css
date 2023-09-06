@@ -44,12 +44,15 @@
 }
 .icons > button,
 .cartDiv > button,
-.user > button {
+.user > button,
+.sell>a {
   border: none;
   background: none;
   font-size: 1.5rem;
   cursor: pointer;
   color: #220235;
+  font-weight: 700;
+  text-decoration: none;
 }
 .searchbar > button {
   margin-left: -24px;
