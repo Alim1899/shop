@@ -4,7 +4,7 @@ const CartComponent = (props) => {
     <div className={classes.cart}>
       <div className={classes.main}>
         <div className={classes.img}>
-          <img src={props.src} alt=" " />
+          <img src={props.src} alt="" />
         </div>
 
         <div className={classes.specs}>

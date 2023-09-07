@@ -6,6 +6,7 @@ import {
   faMagnifyingGlass,
   faCartShopping,
   faUser,
+  faCirclePlus
 } from "@fortawesome/free-solid-svg-icons";
 import classes from "./Navbar.module.css";
 import LoginPopup from "../../components/LoginComponents/Popup/LoginPopup";
@@ -41,18 +42,18 @@ const Navbar = (props) => {
       </div>
       <div className={classes.icons}>
         <div className={classes.searchbar}>
-          <input type="text"></input>
+          <input title="Search" type="text"></input>
           <button className={classes.cart} type="submit">
             <FontAwesomeIcon icon={faMagnifyingGlass} />
           </button>
         </div>
         <div className={classes.sell}>
-        {isLoggedIn && <a href="/sell" className={classes.sellbtn}>Sell</a>}
+        {isLoggedIn && <a href="/sell" title="Add item" className={classes.sellbtn}><FontAwesomeIcon icon={faCirclePlus} /></a>}
 
         
         </div>
         <div className={classes.cartDiv} onClick={cartPopupHandler}>
-          <button className={classes.cart}>
+          <button className={classes.cart} title="Shopping cart">
             <FontAwesomeIcon icon={faCartShopping} />
           </button>
           <h6 className={classes.count}>{count}</h6>
@@ -70,7 +71,7 @@ const Navbar = (props) => {
             </div>
           )}
 
-          <button onClick={showPopupHandler} className={classes.acc}>
+          <button onClick={showPopupHandler} title="Log in/out" className={classes.acc}>
             <FontAwesomeIcon icon={faUser} />
           </button>
         </div>

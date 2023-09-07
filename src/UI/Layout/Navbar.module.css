@@ -1,6 +1,6 @@
 .navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   background-color: #92d6a7;
 }
@@ -20,9 +20,9 @@
 /* icons */
 .icons {
   width: 50%;
-  font-size: 2rem;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  align-items: center;
 }
 .icons > div > input {
   width: 20vw;
@@ -48,7 +48,7 @@
 .sell>a {
   border: none;
   background: none;
-  font-size: 1.5rem;
+  font-size: 1rem;
   cursor: pointer;
   color: #220235;
   font-weight: 700;
