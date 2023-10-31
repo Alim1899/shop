@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import logo from "../../assets/logo.png";
-import AddItem from "../../components/Sell/AddItem/AddItem";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faMagnifyingGlass,

@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./Cases.module.css";
 import { Field, ErrorMessage } from "formik";
-import TextError from './TextError';
+import TextError from "./TextError";
 const Select = (props) => {
   const { label, name, options, ...rest } = props;
   return (
@@ -10,7 +10,7 @@ const Select = (props) => {
       <Field as="select" id={name} name={name} {...rest}>
         {options.map((option) => (
           <option key={option.value} value={option.value}>
-            {option.value}
+            {option.value ? option.value : option.key}
           </option>
         ))}
       </Field>
