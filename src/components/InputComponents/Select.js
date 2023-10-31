@@ -10,7 +10,7 @@ const Select = (props) => {
       <Field as="select" id={name} name={name} {...rest}>
         {options.map((option) => (
           <option key={option.value} value={option.value}>
-            {option.key}
+            {option.value}
           </option>
         ))}
       </Field>
