@@ -29,11 +29,10 @@
   }
   .header {
     color: var(--icon);
-    font-size: 1.7rem;
+    font-size: 1.1rem;
     font-weight: 800;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #fff5ee;
-    background-color: var(--lightText);
+   margin-top: -25px;
   }
   .error {
     font-size: 0.7rem;
