@@ -1,7 +1,9 @@
 import classes from "./Number.module.css";
+import flag from '../../../../assets/usflag.jpg'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons";
 const Number = (props) => {
+
   return (
     <div className={classes.contact}>
       <div className={classes.drop}>
@@ -10,7 +12,7 @@ const Number = (props) => {
           type="button"
           onClick={props.handleMenu}
         >
-          Choose your country{" "}
+          Choose Another Country{" "}
           <FontAwesomeIcon icon={props.open ? faCaretUp : faCaretDown} />
         </button>
 
@@ -38,11 +40,9 @@ const Number = (props) => {
           </ul>
         )}
       </div>
-      {props.country && (
+      {props.country?
         <div className={classes.number}>
-          <label htmlFor="number">
-            <h5>Mobile number:</h5>
-          </label>
+          <label>Mobile Number</label>
           <div className={classes.input}>
             <img
               src={props.country.src}
@@ -51,10 +51,27 @@ const Number = (props) => {
               alt={props.country.alt}
             ></img>
             <h5 className={classes.countryCode}>{props.country.code}</h5>
+            <div className={classes.inputNumber}>
             {props.children}
+            </div>
+          </div>
+        </div>:
+        <div className={classes.number}>
+        <label>Mobile Number</label>
+          <div className={classes.input}>
+            <img
+              src={flag}
+              className={classes.selected}
+              onClick={props.handleMenu}
+              alt='CountryLogo'
+            ></img>
+            <h5 className={classes.countryCode}>+1</h5>
+            <div className={classes.inputNumber}>
+            {props.children}
+            </div>
           </div>
         </div>
-      )}
+      }
     </div>
   );
 };

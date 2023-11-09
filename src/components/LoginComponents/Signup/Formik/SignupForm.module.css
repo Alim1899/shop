@@ -29,11 +29,9 @@ input::-webkit-inner-spin-button {
 }
 .heading {
   color: var(--icon);
-  font-size: 1.7rem;
+  font-size: 1.2rem;
   font-weight: 800;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #fff5ee;
-  background-color: var(--lightText);
 }
 .back {
   max-width: 800px;
@@ -59,7 +57,7 @@ input::-webkit-inner-spin-button {
   align-items: center;
   overflow: scroll;
 }
-label{
+label {
   margin-top: 20px;
   font-size: 1.1em;
   color: #140202;
@@ -67,31 +65,36 @@ label{
   margin-bottom: 5px;
 }
 
-.number{
+.number {
   border: 1px solid red;
 }
 
-input {
+.form > div > input,
+.form > div > div > input,
+.form > div > div > div > input,
+.form > div > div > div > div > input,
+.form > div > select {
   font-weight: 700;
   width: 90%;
-  min-width: 240px;
+  min-width: 200px;
   max-width: 250px;
   border-radius: 17px;
   padding: 5px;
-  background-color: #fff6df93;
+  background-color: none;
+  border: none;
+  outline: 1px solid lightslategray ;
 }
-
 
 .password {
   width: 50%;
   min-width: 250px;
-  border: 1px solid red;
+ 
 }
 
 .submit {
   width: 90%;
   max-width: 140px;
- 
+
   height: 40px;
   box-shadow: 1px 3px 3px 4px #abcdef;
   background-color: var(--icon);

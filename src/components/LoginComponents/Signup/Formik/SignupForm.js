@@ -29,9 +29,10 @@ const SignupForm = (props) => {
       .email("Invalid email")
       .required("Required")
       .matches(/^(?!.*@[^,]*,)/),
-    number: Yup.string()
-      .min(4, "Invalid number")
-      .max(30, "Invalid number")
+    number: Yup.number()
+    .typeError("Enter only numbers")
+    .test('len', 'Short', val => val.toString().length >= 4)
+    .test('len', 'Too Long!', val => val.toString().length <= 20)
       .required("Required"),
     password: Yup.string()
       .min(6, "Minimum 6 Symbols")
@@ -46,12 +47,9 @@ const SignupForm = (props) => {
       .max(15, "Maximum 15 Symbols")
       .required("Confirm password")
       .oneOf([Yup.ref("password"), null], "Passwords must match"),
-    age: Yup.number()
-      .integer()
-      .min(14, "Too Young for shopping")
-      .max(99, "Please enter real age")
-
-      .required("Required"),
+    age: Yup.date()
+      .required("Required")
+      .nullable()
   });
 
   return (
@@ -65,11 +63,12 @@ const SignupForm = (props) => {
             email: "",
             number: "",
             password: "",
-            age: "",
+            age: null,
             confirmPassword: "",
             gender: "",
             id: "",
           }}
+          
           validationSchema={SignupSchema}
           onSubmit={(values) => {
             // same shape as initial values
@@ -82,13 +81,16 @@ const SignupForm = (props) => {
           {(formik) => (
             <Form className={classes.form}>
               <h4 className={classes.heading}>Fill all fields for Sign Up</h4>
+             
               <FormikControl
                 name="firstname"
                 label="Firstname"
                 control="input"
+                
               />
 
               <FormikControl name="lastname" label="Lastname" control="input" />
+              
               <FormikControl
                 name="email"
                 label="Email"
@@ -100,9 +102,8 @@ const SignupForm = (props) => {
                 <FormikControl
                   name="number"
                   control="input"
-                  label="Mobile number"
+              
                
-
                 />
               </Data>
 

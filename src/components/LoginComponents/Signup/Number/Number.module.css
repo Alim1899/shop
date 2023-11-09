@@ -18,7 +18,8 @@
     border: none;
     overflow: hidden;
     overflow-y: scroll;
-    
+    position: absolute;
+    z-index: 9999;
   }
   .menu > li {
     cursor: pointer;
@@ -113,20 +114,29 @@ margin-left: 10px;
   .input {
     background-color:#8277ce44;
     display: flex;
-    justify-content: space-evenly;
     align-items: center;
+    justify-content: center;
     border-radius: 15px;
     width: 100%;
     max-width: 400px;
     font-size: 0.9rem;
-  
   }
-  .numberInput {
-    height: 30px;
+  .inputNumber>div>label{
+display: none;
+  }
+  .inputNumber>div>input{
+    font-weight: 700;
     border: none;
-    background-color: var(--white);
-    
+  outline: 1px solid lightslategray ;
+  width: 90%;
+  min-width: 200px;
+  max-width: 250px;
+  border-radius: 17px;
+  padding: 5px;
+  background-color: none;
   }
+  
+
   
   
   .countryCode{
