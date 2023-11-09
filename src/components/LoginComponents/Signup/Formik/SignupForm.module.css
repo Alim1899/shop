@@ -59,33 +59,19 @@ input::-webkit-inner-spin-button {
   align-items: center;
   overflow: scroll;
 }
-.error {
-  font-size: 0.7rem;
-  text-align: center;
-  color: red;
-  font-weight: 700;
-}
-
-.form > label,
-.form > button {
+label{
   margin-top: 20px;
-}
-.form > label,
-.form > div > div > label,
-.form > div > label {
   font-size: 1.1em;
   color: #140202;
   font-weight: 500;
   margin-bottom: 5px;
 }
 
-.form > div {
-  color: var(--invalid);
+.number{
+  border: 1px solid red;
 }
 
-.form > input,
-.form > div > div > input,
-.form > div > input {
+input {
   font-weight: 700;
   width: 90%;
   min-width: 240px;
@@ -95,50 +81,17 @@ input::-webkit-inner-spin-button {
   background-color: #fff6df93;
 }
 
-.normal {
-  outline: none;
-  border: 2px solid var(--mediumtext);
-}
-.valid {
-  outline: none;
 
-  border: 2px solid var(--valid);
-}
-.invalid {
-  outline: none;
-
-  border: 2px solid var(--invalid);
-}
-
-.age {
-  margin-top: 50px;
-}
-.passwordDiv {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.showhide {
-  width: 30px;
-  margin-left: 210px;
-  margin-top: -34px;
-  font-size: 1.7rem;
-  color: darkolivegreen;
-}
-.passwordField,
-.confirmPasswordField {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.password {
+  width: 50%;
+  min-width: 250px;
+  border: 1px solid red;
 }
 
 .submit {
   width: 90%;
   max-width: 140px;
-  margin: auto;
+ 
   height: 40px;
   box-shadow: 1px 3px 3px 4px #abcdef;
   background-color: var(--icon);
@@ -147,7 +100,6 @@ input::-webkit-inner-spin-button {
   font-weight: 700;
   text-transform: uppercase;
   font-family: monospace;
-  margin-bottom: 20px;
 }
 .submit:hover {
   cursor: pointer;
