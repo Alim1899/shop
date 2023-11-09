@@ -14,15 +14,21 @@ const AddItem = () => {
   };
 
   const OptionPicker = (value) => {
-    if (value === "Clothing") return Options.StepCategories.ClothingCategories;
-    if (value === "Footwear") return Options.StepCategories.FootwearCategories;
-    if (value === "Travel Gear")
-      return Options.StepCategories.TravelGearCategories;
-    if (value === "Camping and Hiking")
-      return Options.StepCategories.CampingAndHikingCategories;
-    if (value === "Climbing") return Options.StepCategories.ClimbingCategories;
-    if (value === "Snowsports")
-      return Options.StepCategories.SnowsportsCategories;
+    const val = value + 'Categories'
+    const str = val.replace(/ /g, '');
+    const opt = Options.StepCategories;
+    return opt[str];
+    // console.log(opt[str], str);
+    // if (value === "Clothing") return Options.StepCategories.ClothingCategories;
+    // if (value === "Footwear") return Options.StepCategories.FootwearCategories;
+    // if (value === "Travel Gear")
+    //   return Options.StepCategories.TravelGearCategories;
+    // if (value === "Camping And Hiking")
+    //   return Options.StepCategories.CampingAndHikingCategories;
+    // if (value === "Climbing") return Options.StepCategories.ClimbingCategories;
+    // if (value === "Snowsports")
+    //   return Options.StepCategories.SnowsportsCategories;
+      
   };
 
   const validationSchema = Yup.object().shape({

@@ -23,7 +23,7 @@ const Categories = [
   { key: "Clothing", value: "Clothing" },
   { key: "Footwear", value: "Footwear" },
   { key: "Travel Gear", value: "Travel Gear" },
-  { key: "Camping and Hiking", value: "Camping and Hiking" },
+  { key: "Camping And Hiking", value: "Camping And Hiking" },
   { key: "Climbing", value: "Climbing" },
   { key: "Snowsports", value: "Snowsports" },
 ];
