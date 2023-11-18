@@ -61,7 +61,7 @@ const Number = (props) => {
           <div className={classes.input}>
             <img
               src={flag}
-              className={classes.selected}
+              className={classes.default}
               onClick={props.handleMenu}
               alt='CountryLogo'
             ></img>

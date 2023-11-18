@@ -88,6 +88,7 @@ label {
 .password {
   width: 50%;
   min-width: 250px;
+  border: 1px solid red;
  
 }
 

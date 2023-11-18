@@ -34,6 +34,9 @@ const AddItem = () => {
   };
 
   return (
+    <div className={classes.parent}>
+
+   
     <div className={classes.back}>
       <h2 className={classes.header}>Fill details about your item</h2>
       <Formik
@@ -95,7 +98,7 @@ const AddItem = () => {
           </Form>
         )}
       </Formik>
-    </div>
+    </div> </div>
   );
 };
 

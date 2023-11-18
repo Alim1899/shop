@@ -20,19 +20,21 @@ const SignupForm = (props) => {
     firstname: Yup.string()
       .min(2, "Short!")
       .max(50, "Long!")
-      .required("Required"),
+      .required("Required")
+      .matches(/^[a-zA-Z\s]*$/, "Special characters not allowed"),
     lastname: Yup.string()
       .min(2, "Short!")
       .max(50, "Long!")
-      .required("Required"),
+      .required("Required")
+      .matches(/^[a-zA-Z\s]*$/, "Special characters not allowed"),
     email: Yup.string()
       .email("Invalid email")
       .required("Required")
       .matches(/^(?!.*@[^,]*,)/),
     number: Yup.number()
-    .typeError("Enter only numbers")
-    .test('len', 'Short', val => val.toString().length >= 4)
-    .test('len', 'Too Long!', val => val.toString().length <= 20)
+      .typeError("Enter only numbers")
+      .test("len", "Short", (val) => val.toString().length >= 4)
+      .test("len", "Too Long!", (val) => val.toString().length <= 20)
       .required("Required"),
     password: Yup.string()
       .min(6, "Minimum 6 Symbols")
@@ -47,16 +49,14 @@ const SignupForm = (props) => {
       .max(15, "Maximum 15 Symbols")
       .required("Confirm password")
       .oneOf([Yup.ref("password"), null], "Passwords must match"),
-    age: Yup.date()
-      .required("Required")
-      .nullable()
+    age: Yup.date().required("Required").nullable(),
   });
 
   return (
     <div className={classes.parent}>
       <div className={classes.back}>
         <Formik
-          validateOnChange
+        validateOnChange
           initialValues={{
             firstname: "",
             lastname: "",
@@ -68,7 +68,6 @@ const SignupForm = (props) => {
             gender: "",
             id: "",
           }}
-          
           validationSchema={SignupSchema}
           onSubmit={(values) => {
             // same shape as initial values
@@ -81,16 +80,17 @@ const SignupForm = (props) => {
           {(formik) => (
             <Form className={classes.form}>
               <h4 className={classes.heading}>Fill all fields for Sign Up</h4>
-             
+
               <FormikControl
+              onInput={()=>console.log(formik.errors.firstname)}
                 name="firstname"
                 label="Firstname"
                 control="input"
-                
+                type='text'
               />
 
               <FormikControl name="lastname" label="Lastname" control="input" />
-              
+
               <FormikControl
                 name="email"
                 label="Email"
@@ -99,18 +99,14 @@ const SignupForm = (props) => {
               />
 
               <Data>
-                <FormikControl
-                  name="number"
-                  control="input"
-              
-               
-                />
+                <FormikControl name="number" control="input" />
               </Data>
 
               <FormikControl
                 name="age"
                 label="Choose your birthday"
                 control="date"
+                placeholder="date"
               />
 
               <FormikControl
@@ -120,38 +116,29 @@ const SignupForm = (props) => {
                 options={Gender}
               />
 
-              
-                <div className={classes.password}>
+              <div className={classes.password}>
+                <FormikControl
+                  name="password"
+                  label="Enter password"
+                  control="input"
+                  type={showPass ? "text" : "password"}
+                />
+                <div className={classes.showhide}>
+                  {showPass ? (
+                    <FontAwesomeIcon
+                      onClick={changeVisibility}
+                      icon={faEyeSlash}
+                    />
+                  ) : (
+                    <FontAwesomeIcon onClick={changeVisibility} icon={faEye} />
+                  )}
                   <FormikControl
-                    name="password"
-                    label="Enter password"
-                    control="input"
-                    type={showPass ? "text" : "password"}
-                  />
-                  <div className={classes.showhide}>
-                    {showPass ? (
-                      <FontAwesomeIcon
-                        onClick={changeVisibility}
-                        icon={faEyeSlash}
-                      />
-                    ) : (
-                      <FontAwesomeIcon
-                        onClick={changeVisibility}
-                        icon={faEye}
-                      />
-                    )}
-                 <FormikControl
                     name="confirmPassword"
                     label="Repeat password"
                     control="input"
                     type={showPass ? "text" : "password"}
                   />
                 </div>
-
-                
-                 
-                  
-                
               </div>
 
               <button className={classes.submit} type="submit">

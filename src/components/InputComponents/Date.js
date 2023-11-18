@@ -19,6 +19,7 @@ const Date = (props) => {
               {...field}
               {...rest}
               selected={value}
+              placeholderText="yyyy.mm.dd"
               onChange={(val) => setFieldValue(value, val)}
             />
           );
