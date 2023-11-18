@@ -12,9 +12,14 @@ import FormikControl from "../../../InputComponents/FormikControl";
 
 const SignupForm = (props) => {
   const [showPass, setShowPass] = useState(false);
-  const changeVisibility = (e) => {
+  const [showConfirmPass, setShowConfirmPass] = useState(false);
+  const changePassVisibility = (e) => {
     e.preventDefault();
     setShowPass(!showPass);
+  };
+  const changeConfirmPassVisibility = (e) => {
+    e.preventDefault();
+    setShowConfirmPass(!showConfirmPass);
   };
   const SignupSchema = Yup.object().shape({
     firstname: Yup.string()
@@ -47,9 +52,10 @@ const SignupForm = (props) => {
     confirmPassword: Yup.string()
       .min(6, "Minimum 6 Symbols")
       .max(15, "Maximum 15 Symbols")
-      .required("Confirm password")
+      .required("Required")
       .oneOf([Yup.ref("password"), null], "Passwords must match"),
-    age: Yup.date().required("Required").nullable(),
+    age: Yup.date().required("Required"),
+
   });
 
   return (
@@ -126,19 +132,29 @@ const SignupForm = (props) => {
                 <div className={classes.showhide}>
                   {showPass ? (
                     <FontAwesomeIcon
-                      onClick={changeVisibility}
+                      onClick={changePassVisibility}
                       icon={faEyeSlash}
                     />
                   ) : (
-                    <FontAwesomeIcon onClick={changeVisibility} icon={faEye} />
+                    <FontAwesomeIcon onClick={changePassVisibility} icon={faEye} />
                   )}
+                  </div>
                   <FormikControl
                     name="confirmPassword"
                     label="Repeat password"
                     control="input"
-                    type={showPass ? "text" : "password"}
+                    type={showConfirmPass ? "text" : "password"}
                   />
-                </div>
+                <div className={classes.showhide}>
+                  {showConfirmPass ? (
+                    <FontAwesomeIcon
+                      onClick={changeConfirmPassVisibility}
+                      icon={faEyeSlash}
+                    />
+                  ) : (
+                    <FontAwesomeIcon onClick={changeConfirmPassVisibility} icon={faEye} />
+                  )}
+                  </div>
               </div>
 
               <button className={classes.submit} type="submit">

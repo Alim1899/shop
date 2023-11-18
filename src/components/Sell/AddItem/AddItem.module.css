@@ -16,19 +16,7 @@
     flex-direction: column;
     margin-top: 5vh;
   }
-  .back {
-    max-width: 800px;
-    margin: auto;
-    border-radius: 15px;
-    background-color: var(--lightText);
-    background: rgba(7225, 223, 233, 0.7);
-    height: 77vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 5vh;
-  }
+ 
   .form {
     border-radius: 15px;
     width: 90%;

@@ -14,9 +14,19 @@
     color: crimson;
     font-weight: 700;
     text-align: center;
+    position: relative;
+width: 200px;
   }
   
   .optGroup {
     display: flex;
     flex-direction: row;
   }
+ 
+ .errorText{
+  background-color: antiquewhite;
+  position: absolute;
+  width: 100%;
+ }
+
+ 
