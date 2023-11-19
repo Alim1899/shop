@@ -52,12 +52,14 @@ const AddItem = () => {
                 label="Select a Category"
                 name="category"
                 options={Options.Categories}
+                className={classes.categoryList}
               />
               {formik.values.category !== "" && (
                 <FormikControl
                   control="select"
                   label=" Select Type"
                   name="subcategory"
+                  className={classes.types}
                   options={OptionPicker(formik.values.category)}
                 />
               )}
@@ -69,6 +71,7 @@ const AddItem = () => {
                   control="select"
                   label="Select a brand"
                   name="brand"
+                  className={classes.brandList}
                   options={Options.Brands}
                 />
                 {formik.values.brand === "Other" && (
@@ -86,6 +89,7 @@ const AddItem = () => {
                 <div className={classes.gender}>
                   <FormikControl
                     control="radio"
+
                     label="Suitable for:"
                     name="gender"
                     options={Options.Genders}
@@ -94,7 +98,7 @@ const AddItem = () => {
               </div>
             )}
 
-            <button type="submit">SUBMIT</button>
+            <button className={classes.submit} type="submit">SUBMIT</button>
           </Form>
         )}
       </Formik>

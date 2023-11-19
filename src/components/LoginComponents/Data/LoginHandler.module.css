@@ -54,4 +54,16 @@
     width: 100%;
     font-size: 1.5rem;
   }
-  
+  .transfer>span{
+    color: #220235;
+    font-weight: 600;
+    margin-top: 10px;
+  }
+  .transfer>span>a{
+    font-weight: 900;
+  }
+  .transfer{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+  }

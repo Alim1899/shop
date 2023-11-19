@@ -4,7 +4,7 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faRightToBracket,
-  faCaretDown,
+  faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 const LoginHandler = (props) => {
   const [rightUserDetails, setRightUserDetails] = useState(false);
@@ -91,9 +91,18 @@ const LoginHandler = (props) => {
             onClick={() => setWrongUserDetails(false)}
           >
             {" "}
-            <FontAwesomeIcon icon={faCaretDown} />
+            <FontAwesomeIcon icon={faXmark} />
             <h6>Close</h6>
+            
           </button>
+          <div className={classes.transfer}>
+                <span>
+                  Forgot password? <a href="/reset">Reset</a>
+                </span>
+                <span>
+                  Or <a href="/signup">Create</a> new Account
+                </span>
+              </div>
         </div>
       )}
     </div>
