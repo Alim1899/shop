@@ -33,10 +33,10 @@
    
   }
   .header {
-    text-align: center;
-    color: var(--icon);
-    font-size: 1.7em;
-    font-weight: 800;
+  color: var(--icon);
+  font-size: 1.2rem;
+  font-weight: 800;
+  font-family: Arial, Helvetica, sans-serif;
   }
   .form > label,
 .form > div > label,
@@ -52,57 +52,50 @@
     color: red;
     font-weight: 700;
   }
-  .normal {
-    outline: none;
-    border: 2px solid var(--mediumtext);
-  }
-  .valid {
-    outline: none;
-  
-    border: 2px solid var(--valid);
-  }
-  .invalid {
-    outline: none;
-  
-    border: 2px solid var(--invalid);
-  }
 
-.form >input,.form>div>div>label>input{
+
+.form >div>input,.form>div>div>input{
   font-weight: 700;
-
   width: 90%;
-  margin: 0px auto;
-  margin-bottom: 20px;
-  min-width: 240px;
+  min-width: 200px;
   max-width: 250px;
-  border-radius: 17px;
+  border-radius: 10px;
   padding: 5px;
-  margin-top: 10px;
-  background-color: #fff6df93;
+  background-color: none;
+  border: none;
+  outline: 1px solid lightslategray ;
 }
-.check, .submit {
-    padding: 0;
-    background-color: rgb(226, 202, 226);
-    cursor: pointer;
-    border: 1px solid #220235;
-    border-radius: 5px;
+ .submit, .check {
+  cursor: pointer;
+  width: 90%;
+  max-width: 140px;
+  margin: 2vh auto;
+  height: 40px;
+  box-shadow: 1px 3px 3px 4px #abcdef;
+  background-color: var(--icon);
+  color: var(--lightText);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: monospace;
+  border-radius: 15px;
+  }
+  .check{
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    width: 140px;
-    height: 40px;
-    text-decoration: none;
-    color: #220235;
+    align-items:center;
+    justify-content: center;
+  }
+  .check>h6{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .check>h6>svg{
+   margin-right: 10px;
+font-size: 1.5rem;
   }
 
-  .check > h6 {
-    text-align: center;
-    height: 100%;
-    margin-top: 3px;
-    margin-left: 5px;
-    width: 25%;
-    font-size: 1.5rem;
-  }
   .correct{
     color: var(--valid);
   }
@@ -112,9 +105,7 @@
   .spin{
     color: var(--darkText)
   }
-  .error{
-    margin-top: -15px;
-  }
+ 
  
   .passwordDiv{
     display: flex;
@@ -137,12 +128,11 @@
     margin-bottom: 20px;
   }
   .showhide{
-    margin-top: -54px;
-    font-size: 1.7rem;
-    margin-left: 230px;
-    color: var(--valid);
-  position:sticky;
-  
+    width: 30px;
+    margin-left: 190px;
+    margin-top: -29px;
+    font-size: 1.4rem;
+    color: var(--icon);
   }
 
   .succes{

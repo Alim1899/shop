@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { Formik, Form, Field } from "formik";
+import { Formik, Form } from "formik";
+import FormikControl from "../InputComponents/FormikControl";
 import * as Yup from "yup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -9,6 +10,7 @@ import {
   faEye,
   faRightToBracket,
   faEyeSlash,
+  faMagnifyingGlassArrowRight,
 } from "@fortawesome/free-solid-svg-icons";
 import classes from "./Reset.module.css";
 
@@ -21,7 +23,11 @@ const Reset = (props) => {
   const [resetValues, setResetValues] = useState({});
   const [idForResetedUser, setIdForResetedUser] = useState("");
   const [rightUserDetails, setRightUserDetails] = useState(false);
-
+const resetEmailStates =()=>{
+  setWrongEmail(false);
+setRightEmail(false)
+setSpinner(false)
+}
   const registeredUserEmails = [];
   let enteredEmail = "";
 
@@ -111,7 +117,7 @@ const Reset = (props) => {
           }
         }
       });
-      setRightUserDetails(true);
+    setRightUserDetails(true);
   };
   useEffect(() => {
     if (resetValues.email) {
@@ -129,7 +135,6 @@ const Reset = (props) => {
         },
       });
     }
-    
   }, [resetValues, idForResetedUser]);
 
   const SignupSchema = Yup.object().shape({
@@ -153,11 +158,7 @@ const Reset = (props) => {
       .required("Confirm password")
       .oneOf([Yup.ref("password"), null], "Passwords must match"),
   });
-  const getClasses = (touched, error) => {
-    if (!touched) return classes.normal;
-    if (touched && !error) return classes.valid;
-    if (touched && error) return classes.invalid;
-  };
+
   return (
     <div className={classes.parent}>
       <div className={classes.reset}>
@@ -186,44 +187,49 @@ const Reset = (props) => {
             }}
             validator={() => ({})}
           >
-            {({ errors, touched }) => (
+            {({ formik }) => (
               <Form className={classes.form}>
                 <h2 className={classes.header}>
-                  You need to remember your email{" "}
+                  Reset password
                 </h2>
-                <label>Email you registered with:</label>
-                <Field
+
+                <FormikControl
+                  control="input"
                   name="email"
-                  onInput={() => (touched.email = true)}
-                  pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
-                  type="email"
-                  className={getClasses(touched.email, errors.email)}
+                  onInput={resetEmailStates}
+                  label="Email you registered with"
                 />
-                {errors.email && touched.email ? (
-                  <div className={classes.error}>{errors.email}</div>
-                ) : null}
 
                 <button type="submit" name="submit" className={classes.check}>
-                  <h6>
-                    {spinner && (
+                  {spinner && (
+                    <h6>
                       <FontAwesomeIcon
                         className={classes.spin}
                         icon={faSpinner}
                         spin
                       />
-                    )}
-                    {rightEmail && (
+                      checking
+                    </h6>
+                  )}
+                  {rightEmail && (
+                    <h6>
                       <FontAwesomeIcon
                         className={classes.correct}
                         icon={faCircleCheck}
                       />
-                    )}
-                    {wrongEmail && (
+                      found
+                    </h6>
+                  )}
+                  {wrongEmail && (
+                    <h6>
                       <FontAwesomeIcon className={classes.wrong} icon={faBan} />
-                    )}
-                  </h6>
-
-                  <h6>Check</h6>
+                      wrong
+                    </h6>
+                  )}
+                  {!rightEmail && !wrongEmail && !spinner && (
+                    <h6> <FontAwesomeIcon icon={faMagnifyingGlassArrowRight} />check</h6>
+                   
+                  )}
                 </button>
               </Form>
             )}
@@ -245,57 +251,35 @@ const Reset = (props) => {
               {({ errors, touched }) => (
                 <Form className={classes.form}>
                   <div className={classes.passwordDiv}>
-                    <div className={classes.passwordField}>
-                      <label>
-                        New password
-                        <Field
-                          name="password"
-                          type={showPass ? "text" : "password"}
-                          className={getClasses(
-                            touched.password,
-                            errors.password
-                          )}
-                        ></Field>
-                      </label>
+                    <FormikControl
+                      control="input"
+                      label="New password"
+                      name="password"
+                      type={showPass ? "text" : "password"}
+                    ></FormikControl>
 
-                      {errors.password && touched.password ? (
-                        <div className={classes.error}>{errors.password}</div>
-                      ) : null}
-                      <div className={classes.showhide}>
-                        {showPass ? (
-                          <FontAwesomeIcon
-                            onClick={changeVisibility}
-                            icon={faEyeSlash}
-                          />
-                        ) : (
-                          <FontAwesomeIcon
-                            onClick={changeVisibility}
-                            icon={faEye}
-                          />
-                        )}
-                      </div>
+                    <div className={classes.showhide}>
+                      {showPass ? (
+                        <FontAwesomeIcon
+                          onClick={changeVisibility}
+                          icon={faEyeSlash}
+                        />
+                      ) : (
+                        <FontAwesomeIcon
+                          onClick={changeVisibility}
+                          icon={faEye}
+                        />
+                      )}
                     </div>
 
-                    <div className={classes.confirmPasswordField}>
-                      <label>
-                        Confirm new password
-                        <Field
-                          name="confirmPassword"
-                          type={showPass ? "text" : "password"}
-                          className={getClasses(
-                            touched.confirmPassword,
-                            errors.confirmPassword
-                          )}
-                        ></Field>
-                      </label>
-
-                      {errors.confirmPassword && touched.confirmPassword ? (
-                        <div className={classes.error}>
-                          {errors.confirmPassword}
-                        </div>
-                      ) : null}
-                    </div>
+                    <FormikControl
+                      name="confirmPassword"
+                      type={showPass ? "text" : "password"}
+                      label="Confirm new password"
+                      control="input"
+                    ></FormikControl>
                   </div>
+
                   <button className={classes.submit} type="submit">
                     Reset
                   </button>
