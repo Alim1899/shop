@@ -118,12 +118,23 @@
 .cartItems {
   position: absolute;
   z-index: 1;
-  width: 90vw;
+  width: 95vw;
   max-width: 400px;
-  margin-top: 50px;
+  margin-top: 450px;
   margin-left: -50vw;
   max-height: 400px;
   overflow: scroll;
   border-radius: 20px;
-  min-width: 320px;
+}
+
+@media (min-width: 500px) {
+  .cartItems {
+  margin-left: -15em;
+  }
+}
+
+@media (min-width: 100px) {
+  .cartItems {
+  margin-left: -10em;
+  }
 }
