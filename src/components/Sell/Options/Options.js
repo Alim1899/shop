@@ -19,7 +19,7 @@ const Genders = [
 ];
 
 const Categories = [
-  { key: "Select a Category", value: "", disabled: true },
+  { key: "Select a Category", value: "" },
   { key: "Clothing", value: "Clothing" },
   { key: "Footwear", value: "Footwear" },
   { key: "Travel Gear", value: "Travel Gear" },
