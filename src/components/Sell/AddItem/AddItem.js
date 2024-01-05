@@ -2,6 +2,10 @@ import classes from "./AddItem.module.css";
 import Options from "../Options/Options";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
+import {
+  faPlus
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import FormikControl from "../../InputComponents/FormikControl";
 import { useState } from "react";
 const AddItem = () => {
@@ -38,7 +42,7 @@ const AddItem = () => {
     if (e.target.id === "category") {
       if (e.target.value) {
         setShowType(true);
-        setShowBrand(false)
+        setShowBrand(false);
       } else {
         setShowType(false);
         setShowBrand(false);
@@ -109,12 +113,14 @@ const AddItem = () => {
                       label="Input manually"
                       name="otherbrand"
                       placeholder="optional"
+                      className={classes.otherbrand}
                     ></FormikControl>
                   )}
                   <FormikControl
                     control="input"
                     label="Model"
                     name="model"
+                    className={classes.model}
                   ></FormikControl>
                   <div className={classes.gender}>
                     <FormikControl
@@ -123,6 +129,20 @@ const AddItem = () => {
                       name="gender"
                       options={Options.Genders}
                     ></FormikControl>
+                  </div>
+                  <div className={classes.photoUpload}>
+                    <label htmlFor="photo">Upload pictures</label>
+                    <input
+                      className={classes.photoUploadField}
+                      id="photo"
+                      type="file"
+                    ></input>
+
+                    <div className={classes.uploadedPhotos}>
+                      <div>
+                      <FontAwesomeIcon icon={faPlus} />
+                      </div>
+                    </div>
                   </div>
                 </div>
               )}

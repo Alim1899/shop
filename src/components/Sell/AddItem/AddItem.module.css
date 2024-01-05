@@ -35,6 +35,100 @@
   font-family: Arial, Helvetica, sans-serif;
   margin-top: -25px;
 }
+
+
+.categoryList,.types,.brandList, .otherbrand,.model {
+  font-weight: 700;
+ width: 200px;
+  border-radius: 10px;
+  padding: 5px;
+  border: none;
+  background-color: none;
+  outline: 2px solid lightslategray;
+}
+.photoUpload,
+.gender {
+  text-align: center;
+  display: grid;
+  justify-content: center;
+}
+.photoUpload > input {
+  margin-top: 10px;
+  font-weight: 700;
+  width: 200px;
+   border-radius: 10px;
+   padding: 5px;
+   border: none;
+   background-color: none;
+   outline: 3px solid whitesmoke;
+}
+
+.gender {
+  margin-top: 25px;
+}
+.gender > div > div {
+  padding: 10px;
+  background-color: none;
+}
+.gender > div > div > option {
+  font-weight: 600;
+}
+
+.uploadedPhotos{
+  width: 200%;
+  height: 80px;
+  margin-left: -50%;
+background-color: whitesmoke;
+border-radius: 20px;
+}
+.uploadedPhotos>div{
+  width: 20%;
+  height: 80px;
+  border: 1px solid lightslategray;
+  display: flex;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  font-size: 3.5rem;
+}
+.uploadedPhotos>div>svg{
+  color: #abcdef;
+}
+
+
+
+
+
+.submit {
+  cursor: pointer;
+  width: 90%;
+  max-width: 140px;
+  margin: 5vh auto;
+  height: 40px;
+  box-shadow: 1px 3px 3px 4px #abcdef;
+  background-color: var(--icon);
+  color: var(--lightText);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: monospace;
+  border-radius: 15px;
+}
+.submit:disabled,
+.submit[disabled] {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+button:hover {
+  opacity: 0.7;
+}
+
+
+
+
+
+
+
 .error {
   font-size: 0.7rem;
   text-align: center;
@@ -54,58 +148,4 @@
   outline: none;
 
   border: 2px solid var(--invalid);
-}
-.gender {
-  text-align: center;
-}
-.categoryList,
-.details > div > select,
-.details > div > input,
-.types{
-  font-weight: 700;
-  width: 100%;
-  min-width: 200px;
-  max-width: 250px;
-  border-radius: 10px;
-  padding: 5px;
-  background-color: none;
-  border: none;
-  outline: 1px solid lightslategray;
-}
-
-.gender{
-margin-top: 15px;
-}
-.gender>div>div{
-  border-radius: 10px;
-  padding: 10px;
-  background-color: none;
-}
-.gender>div>div>option{
-  font-weight: 600;
-}
-
-
-.submit{
-  cursor: pointer;
-  width: 90%;
-  max-width: 140px;
-  margin: 5vh auto;
-  height: 40px;
-  box-shadow: 1px 3px 3px 4px #abcdef;
-  background-color: var(--icon);
-  color: var(--lightText);
-  font-size: 1.5rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-family: monospace;
-  border-radius: 15px;
-}
-.submit:disabled,
-.submit[disabled]{
-  opacity: 0.7;
-  cursor: not-allowed;
-}
-button:hover{
-  opacity: 0.7;
 }
