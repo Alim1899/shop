@@ -93,9 +93,8 @@ border-radius: 20px;
 }
 .uploadedPhotos>div>svg{
   color: #abcdef;
+  cursor:cell;
 }
-
-
 
 
 

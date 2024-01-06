@@ -2,10 +2,7 @@ import classes from "./AddItem.module.css";
 import Options from "../Options/Options";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import {
-  faPlus
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import CustomFileInput from "./CustomFileInput/CustomFileInput";
 import FormikControl from "../../InputComponents/FormikControl";
 import { useState } from "react";
 const AddItem = () => {
@@ -130,20 +127,8 @@ const AddItem = () => {
                       options={Options.Genders}
                     ></FormikControl>
                   </div>
-                  <div className={classes.photoUpload}>
-                    <label htmlFor="photo">Upload pictures</label>
-                    <input
-                      className={classes.photoUploadField}
-                      id="photo"
-                      type="file"
-                    ></input>
-
-                    <div className={classes.uploadedPhotos}>
-                      <div>
-                      <FontAwesomeIcon icon={faPlus} />
-                      </div>
-                    </div>
-                  </div>
+              
+              <CustomFileInput></CustomFileInput>
                 </div>
               )}
 
@@ -168,3 +153,23 @@ const AddItem = () => {
 };
 
 export default AddItem;
+
+
+
+
+
+    /* <div className={classes.photoUpload}>
+                    <label htmlFor="photo">Upload pictures</label>
+                    
+
+                    <div className={classes.uploadedPhotos}>
+                      <div>
+                    <input
+                      className={classes.photoUploadField}
+                      id="photo"
+                      type="file"
+                      alt="Chh"
+                    ></input>
+                      </div>
+                    </div>
+                  </div> */
