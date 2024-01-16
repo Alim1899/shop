@@ -108,7 +108,6 @@ setSpinner(false)
             const newUser = Object.assign(Object.entries(data)[i][1]);
             newUser.password = values.password;
             newUser.confirmPassword = values.confirmPassword;
-            //console.log(newUser);
             setResetValues((resetValues) => ({
               ...resetValues,
               ...newUser,

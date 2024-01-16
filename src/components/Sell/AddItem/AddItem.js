@@ -6,8 +6,8 @@ import CustomFileInput from "./CustomFileInput/CustomFileInput";
 import FormikControl from "../../InputComponents/FormikControl";
 import { useState } from "react";
 const AddItem = () => {
-  const [showType, setShowType] = useState(false);
-  const [showBrand, setShowBrand] = useState(false);
+  const [showType, setShowType] = useState(true);
+  const [showBrand, setShowBrand] = useState(true);
 
   const initialValues = {
     category: "",
